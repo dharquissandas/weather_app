@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Label from './Label'
-import Card from './Card'
 import {Link} from 'react-router-dom'
+import '../Styles/Schedule.css';
 
 export class Schedule extends Component {
     render() {
@@ -22,13 +22,13 @@ export class Schedule extends Component {
                     </Link>
                     <div className="navlinks"><p>Delete</p></div>
                 </div>
-                <div className="welcome"><Label text="Select events"/></div>
-                <div className="welcome">
+                <div className="welcome"><Label text="Schedule for Events"/></div>
+                <div className="events">
                     <div className="sdd">
                         {sel != null && sel.map((value, index) => {
                                 return(
-                                    <div key={index}>
-                                        <p>{value}</p>
+                                    <div className ="value" key={index}>
+                                        <label className="label">{value}</label>
                                     </div>
                                 )
                             })

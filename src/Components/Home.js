@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Card from './Card';
 import Label from './Label';
 import Axios from 'axios';
+import '../Styles/HomeStyle.css';
 
 import {Link} from 'react-router-dom';
 
