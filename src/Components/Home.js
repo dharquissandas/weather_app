@@ -15,8 +15,6 @@ export class Home extends Component {
         scheduleddestinations : []
     }
 
-    componentDidMount = async () =>{}
-
     render(){
         console.log(this.props.suggesteddestinations)
         console.log(this.state.suggesteddestinations.length)

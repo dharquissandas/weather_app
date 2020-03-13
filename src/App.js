@@ -82,7 +82,6 @@ export class App extends Component {
                     </div> :  
                     <div className="container">
                         <Header />
-
                     </div>
                     }
                 </div>   
