@@ -26,7 +26,7 @@ export class App extends Component {
     }
 
     grabData = async () =>{
-        let suggestionsAPI = "https://my-json-server.typicode.com/dharquissandas/weatherApp/suggesteddestinations";
+        let suggestionsAPI = "https://my-json-server.typicode.com/dharquissandas/weather_app/suggesteddestinations";
         let suggestionsFetch = await fetch(suggestionsAPI)
         let suggestionData = await suggestionsFetch.json()
 
