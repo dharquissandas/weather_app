@@ -12,7 +12,12 @@ export class Home extends Component {
         currentTemp : "",
         desc: "",
         suggesteddestinations : this.props.suggesteddestinations,
-        scheduleddestinations : []
+        scheduleddestinations : [],
+        loaded : false
+    }
+
+    componentDidMount = () => {
+        console.log(this.props.location.state)
     }
 
     render(){
