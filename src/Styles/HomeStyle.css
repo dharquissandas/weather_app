@@ -1,0 +1,18 @@
+div.verticalScroll card{
+    padding-top: 15px;
+    align-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+    text-shadow: 1px 1px 10px black;
+}
+
+div#currentweather card{
+    padding-top: 15px;
+    align-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px; 
+    color: #ffffff;
+    text-shadow: 1px 1px 10px black; 
+    font-size: 16px;  
+}
