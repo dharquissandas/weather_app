@@ -24,7 +24,7 @@ export class Schedule extends Component {
                 </div>
                 <div className="welcome"><Label text="Schedule for Events"/></div>
                 <div className="events">
-                    <div className="sdd">
+                    <div>
                         {sel != null && sel.map((value, index) => {
                                 return(
                                     <div className ="value" key={index}>

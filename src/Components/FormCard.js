@@ -20,7 +20,6 @@ export class FormCard extends Component {
         this.checkLast()
         if (this.props.width !== "100"){
             return{
-                boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
                 transition: "0.3s",
                 color: "#fff",
                 marginLeft: "0.4em",
@@ -34,7 +33,6 @@ export class FormCard extends Component {
         }
         else{
             return{
-                boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
                 transition: "0.3s",
                 borderRadius: "5px",
                 // background: "#fff",
@@ -126,7 +124,7 @@ export class FormCard extends Component {
                                 return(
                                     <div className='inputGroup' key={index}>
                                         <input type="checkbox" id={index.toString()} name={index.toString()} 
-                                        value = {value} onChange={this.handleChange}/>
+                                        value = {value.activity} onChange={this.handleChange}/>
                                         <label className="checklabel" htmlFor={index.toString()}>{value}</label>
                                     </div>
                                 )
