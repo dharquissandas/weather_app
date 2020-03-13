@@ -1,0 +1,121 @@
+.container { 
+	display: flex;
+	flex-direction: column;
+	color: #fff;
+    margin: 0 auto;
+    background-color: #16202a;
+    height: 736px;
+    width: 414px;
+    
+}
+
+.welcome{
+    margin-top: 0.4em;
+}
+
+.btn {
+    background-color: #2a3d51;
+    border: none;
+    color: white;
+    padding: 12px 14px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10em;
+}
+  
+.btn:hover {
+    background-color: #16202a;
+}
+
+
+.search{
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1pt solid #fff;
+    background-color: #2a3d51;
+    border-radius: 2pt;
+    color: #fff;
+    text-align: center;
+    margin-top: 0.8em;
+    width: 100%;
+}
+
+.search::placeholder{
+    color: #fff;
+}
+
+.search:focus{
+    outline: none;
+}
+
+.horizontalScroll{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    min-height: fit-content;
+    margin-top: 0.4em;
+    width: 100%;
+}
+
+.verticalScroll{
+    overflow-y: auto;
+    height: 380px;
+    margin-top: 0.4em;
+}
+
+.horizontalScroll::-webkit-scrollbar{
+    display: none;
+}
+
+.verticalScroll::-webkit-scrollbar{
+    display: none;
+}
+
+.scheduledEventCard{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    color: #000;
+    margin-left: 0.4em;
+    margin-bottom: 0.4em;
+    margin-right: 0.4em;
+    min-width: 110px;
+    min-height: 50px;
+    text-align: center;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.sdd{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    color: #000;
+    margin-left: 0.4em;
+    margin-bottom: 0.4em;
+    margin-right: 0.4em;
+    min-width: 110px;
+    min-height: 100px;
+    text-align: center;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.navlinks{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    color: #000;
+    margin-bottom: 0.4em;
+    margin-right: 0.4em;
+    min-height: 50px;
+    text-align: center;
+    background: #fff;
+    border-radius: 5px;
+    width: 100%;
+}
+
+
+.linkStyle{
+    text-decoration: none;
+}
+
