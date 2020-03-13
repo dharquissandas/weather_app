@@ -1,6 +1,6 @@
 {
     "suggesteddestinations": [
-    {
+      {
         "id": 0,
         "name": "London",
         "temp": "",
@@ -10,14 +10,15 @@
         "feelslike": "",
         "pressure": "",
         "windspeed": "",
-        "events": ["shopping", "surfing", "swimming", "diving", "snorkeling", "sunbathing", "wine tasting"],
-        "scheduled" : false,
-        "dayone" : "",
-        "daytwo" : "",
-        "daythree" : "",
-        "dayfour" : "",
-        "dayfive" : ""
-        },
+        "events": [ "shopping", "surfing", "swimming", "diving", "snorkeling", "sunbathing", "wine tasting" ],
+        "scheduled": false,
+        "dayone": "",
+        "daytwo": "",
+        "daythree": "",
+        "dayfour": "",
+        "dayfive": "",
+        "url": "https://github.com/dharquissandas/weatherApp/blob/poop/Pictures/London.jpg"
+      },
       {
         "id": 1,
         "name": "Algarve",
@@ -28,13 +29,14 @@
         "feelslike": "",
         "pressure": "",
         "windspeed": "",
-        "events": ["shopping", "surfing", "swimming", "diving", "snorkeling", "sunbathing", "wine tasting"],
-        "scheduled" : false,
-        "dayone" : "",
-        "daytwo" : "",
-        "daythree" : "",
-        "dayfour" : "",
-        "dayfive" : ""
+        "events": [ "shopping", "surfing", "swimming", "diving", "snorkeling", "sunbathing", "wine tasting" ],
+        "scheduled": false,
+        "dayone": "",
+        "daytwo": "",
+        "daythree": "",
+        "dayfour": "",
+        "dayfive": "",
+        "url": "https://github.com/dharquissandas/weatherApp/blob/poop/Pictures/Algarve.jpg"
       },
       {
         "id": 2,
@@ -46,13 +48,14 @@
         "feelslike": "",
         "pressure": "",
         "windspeed": "",
-        "events": ["shopping", "surfing", "swimming", "diving", "snorkeling", "sunbathing", "visit distilleries"],
-        "scheduled" : false,
-        "dayone" : "",
-        "daytwo" : "",
-        "daythree" : "",
-        "dayfour" : "",
-        "dayfive" : ""
+        "events": [ "shopping", "surfing", "swimming", "diving", "snorkeling", "sunbathing", "visit distilleries" ],
+        "scheduled": false,
+        "dayone": "",
+        "daytwo": "",
+        "daythree": "",
+        "dayfour": "",
+        "dayfive": "",
+        "url": "https://github.com/dharquissandas/weatherApp/blob/poop/Pictures/Barbados.jpg"
       },
       {
         "id": 3,
@@ -64,13 +67,14 @@
         "feelslike": "",
         "pressure": "",
         "windspeed": "",
-        "events": ["shopping", "visit Science and Technology Museum", "swimming", "fishing", "snorkeling", "sunbathing", "hiking"],
-        "scheduled" : false,
-        "dayone" : "",
-        "daytwo" : "",
-        "daythree" : "",
-        "dayfour" : "",
-        "dayfive" : ""
+        "events": [ "shopping", "visit Science and Technology Museum", "swimming", "fishing", "snorkeling", "sunbathing", "hiking" ],
+        "scheduled": false,
+        "dayone": "",
+        "daytwo": "",
+        "daythree": "",
+        "dayfour": "",
+        "dayfive": "",
+        "url": "https://github.com/dharquissandas/weatherApp/blob/poop/Pictures/CanaryIslands.jpg"
       },
       {
         "id": 4,
@@ -82,13 +86,14 @@
         "feelslike": "",
         "pressure": "",
         "windspeed": "",
-        "events": ["shopping", "surfing", "swimming", "diving", "snorkeling", "sunbathing", "visit waterpark"],
-        "scheduled" : false,
-        "dayone" : "",
-        "daytwo" : "",
-        "daythree" : "",
-        "dayfour" : "",
-        "dayfive" : ""
+        "events": [ "shopping", "surfing", "swimming", "diving", "snorkeling", "sunbathing", "visit waterpark" ],
+        "scheduled": false,
+        "dayone": "",
+        "daytwo": "",
+        "daythree": "",
+        "dayfour": "",
+        "dayfive": "",
+        "url": "https://github.com/dharquissandas/weatherApp/blob/poop/Pictures/PlayaDelCarmen.jpg"
       },
       {
         "id": 5,
@@ -100,18 +105,19 @@
         "feelslike": "",
         "pressure": "",
         "windspeed": "",
-        "events": ["cycling", "visit temples", "visit gardens", "deer watching", "visit Nara National Museum"],
-        "scheduled" : false,
-        "dayone" : "",
-        "daytwo" : "",
-        "daythree" : "",
-        "dayfour" : "",
-        "dayfive" : ""
+        "events": [ "cycling", "visit temples", "visit gardens", "deer watching", "visit Nara National Museum" ],
+        "scheduled": false,
+        "dayone": "",
+        "daytwo": "",
+        "daythree": "",
+        "dayfour": "",
+        "dayfive": "",
+        "url": "https://github.com/dharquissandas/weatherApp/blob/poop/Pictures/Pokhara.jpg"
       }
     ],
 
     "scheduleddestinations":[
         
     ]
-  }
+}
 
