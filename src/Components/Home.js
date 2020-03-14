@@ -35,7 +35,7 @@ export class Home extends Component {
         
         return (
             <div>
-                <div className="welcome"><Label text="Weather"/></div>
+                <div className="welcome"><Label text="Current Weather"/></div>
                 <Link className="linkStyle" to={{
                     pathname: `CurrentWeather/${0}`,
                     state:{info:{

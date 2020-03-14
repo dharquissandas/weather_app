@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Label from './Label'
 import {Link} from 'react-router-dom'
+import '../Styles/Schedule.css';
 
 export class Schedule extends Component {
     state = {
@@ -50,13 +51,13 @@ export class Schedule extends Component {
                         <div ><p>Delete</p></div>
                     </div>
                 </div>
-                <div className="welcome"><Label text="Select events"/></div>
-                <div className="welcome">
-                    <div className="sdd">
+                <div className="welcome"><Label text="Schedule for Events"/></div>
+                <div className="events">
+                    <div>
                         {sel != null && sel.map((value, index) => {
                                 return(
-                                    <div key={index}>
-                                        <p>{value}</p>
+                                    <div className ="value" key={index}>
+                                        <label className="label">{value}</label>
                                     </div>
                                 )
                             })
