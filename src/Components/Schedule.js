@@ -28,7 +28,7 @@ export class Schedule extends Component {
                         {sel != null && sel.map((value, index) => {
                                 return(
                                     <div className ="value" key={index}>
-                                        <label className="label">{value}</label>
+                                        <label className="label">{value} date</label>
                                     </div>
                                 )
                             })
