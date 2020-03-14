@@ -125,7 +125,7 @@ export class FormCard extends Component {
                                     <div className='inputGroup' key={index}>
                                         <input type="checkbox" id={index.toString()} name={index.toString()} 
                                         value = {value.activity} onChange={this.handleChange}/>
-                                        <label className="checklabel" htmlFor={index.toString()}>{value}</label>
+                                        <label className="checklabel" htmlFor={index.toString()}>{value.activity}</label>
                                     </div>
                                 )
                             })
