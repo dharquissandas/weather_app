@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Axios from 'axios';
 import './Styles/App.css';
 import './Styles/Reset.css';
 import './Styles/Mixins.less';
@@ -36,7 +35,7 @@ export class App extends Component {
             let weatherFetch = await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city.name}&units=metric&APPID=5afdbd7139b98ae3f70a76b0dda2b43b`)
             let weatherData = await weatherFetch.json()
 
-            let {main, weather, clouds, wind, sys} = weatherData.list[0]
+            let {main, weather, wind} = weatherData.list[0]
 
             suggestionData[index].temp = main.temp.toString()
             suggestionData[index].desc = weather[0].main
