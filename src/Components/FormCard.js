@@ -99,18 +99,25 @@ export class FormCard extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+
+        var selectedInformation = {
+            information : this.props.location.state.info.data,
+            startdate: this.getDate(),
+            enddate: this.state.end,
+            selections : this.state.selections
+        }
+        console.log(this.props.sdd)
+        this.props.sdd.push(selectedInformation)
+        console.log(this.props.sdd)
+        
         this.props.history.push({
             pathname: '/schedule',
             state: { 
-                selectedInformation:{
-                    information : this.props.location.state.info.data,
-                    startdate: this.getDate(),
-                    enddate: this.state.end,
-                    selections : this.state.selections,
+                selectedInformation
             },
             sdd : this.props.sdd
         }
-        })
+        )
     }
 
     render() {

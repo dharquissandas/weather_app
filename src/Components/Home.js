@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Card from './Card';
 import Label from './Label';
-import Axios from 'axios';
 import '../Styles/HomeStyle.css';
 
 import {Link} from 'react-router-dom';
@@ -13,14 +12,26 @@ export class Home extends Component {
         currentTemp : "",
         desc: "",
         suggesteddestinations : this.props.suggesteddestinations,
-        scheduleddestinations : []
+        scheduleddestinations : [],
+        loaded : false
     }
 
-    componentDidMount = async () =>{}
+    componentDidMount = () => {
+        console.log(this.props.location.state.data)
+        if (this.props.location.state.data){
+            this.setState({
+                scheduleddestinations : this.props.location.state.data,
+            })
+        }
+    }
 
     render(){
         console.log(this.props.suggesteddestinations)
-        console.log(this.state.suggesteddestinations.length)
+        console.log(this.state.loaded)
+
+        if(this.state.scheduleddestinations.length > 0){
+            this.state.loaded = true
+        }
         
         return (
             <div>
@@ -36,12 +47,26 @@ export class Home extends Component {
                 </Link>
 
                 <Label text="Recently Scheduled Holidays"/>
+                {!this.state.loaded ?
+                    <div className="noSE">
+                        {<p>No Scheduled Holidays</p>}
+                    </div>:
                 <div className="horizontalScroll">
                     {this.state.scheduleddestinations.map((dest) => (
-                        <Card title={dest.startdate} weather="15" width="110" height="110"/>
+                        <Link className="linkStyle" key={dest.id} to={{
+                            pathname: '/Schedule',
+                            state:{
+                                selectedInformation : dest
+                            },
+                            sdd : this.state.scheduleddestinations
+                        }
+                        }>
+                            <Card title={dest.information.name} weather={dest.information.temp} desc={dest.information.desc} width="110" height="110"/>
+                        </Link>
                     ))}
                     <Card invisible/>
                 </div>
+                }
                 <Label text="Recommended Holiday Destinations"/>
                 <div className="verticalScroll">
                     {this.state.suggesteddestinations.slice(1).map((dest) =>(

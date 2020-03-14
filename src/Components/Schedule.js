@@ -4,10 +4,36 @@ import {Link} from 'react-router-dom'
 import '../Styles/Schedule.css';
 
 export class Schedule extends Component {
+    state = {
+        obj : this.props.location.state.selectedInformation,
+        sel : this.props.location.state.selectedInformation.selections,
+        sdd : this.props.location.sdd
+    }
+
+    
+    deleteItem = () => {
+        //console.log(this.props.location.sdd)
+        for(var i = 0; i < this.state.sdd.length; i++){
+            if(this.state.sdd[i] === this.state.obj){
+                this.setState(
+                    this.state.sdd.splice(i, 1)
+                )
+            }
+        }
+
+        this.props.history.push({
+            pathname: '/',
+            state: {
+                data : this.state.sdd
+            }
+        })
+    }
+
+
     render() {
-        var sel = this.props.location.state.selectedInformation.selections
-        var sdd = this.props.location.state.sdd
-        sdd.push(this.props.location.state.selectedInformation)
+        var sel = this.state.sel
+        var sdd = this.state.sdd
+    
         console.log(sdd)
         return (
             <div>
@@ -20,7 +46,10 @@ export class Schedule extends Component {
                     }}>
                         <div style={marginLeft} ><p>Home</p></div>
                     </Link>
-                    <div className="navlinks"><p>Delete</p></div>
+
+                    <div onClick={this.deleteItem} className="navlinks">
+                        <div ><p>Delete</p></div>
+                    </div>
                 </div>
                 <div className="welcome"><Label text="Schedule for Events"/></div>
                 <div className="events">
