@@ -17,8 +17,8 @@ export class Home extends Component {
     }
 
     componentDidMount = () => {
-        console.log(this.props.location.state.data)
-        if (this.props.location.state.data){
+        //console.log(this.props.location.state.data)
+        if (this.props.location.state){
             this.setState({
                 scheduleddestinations : this.props.location.state.data,
             })
@@ -26,7 +26,7 @@ export class Home extends Component {
     }
 
     render(){
-        console.log(this.props.suggesteddestinations)
+        console.log(this.state.suggesteddestinations)
         console.log(this.state.loaded)
 
         if(this.state.scheduleddestinations.length > 0){
