@@ -114,8 +114,12 @@
     width: 100%;
 }
 
-
 .linkStyle{
     text-decoration: none;
 }
 
+.noSE{
+    display: block;
+    height: 116.4px;
+    text-align: center;
+}
