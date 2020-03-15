@@ -60,7 +60,7 @@ export class Schedule extends Component {
         for (var i = 0; i < this.state.obj.information.events.length; i++){
             if(value === this.state.obj.information.events[i].activity){                
                 while(startposition<=endposition){
-                    if(dates[startposition].weather > 15 && this.state.obj.information.events[i].location === "outdoor" && dates[startposition].desc != "Rain"){
+                    if(dates[startposition].weather > 15 && this.state.obj.information.events[i].location === "outdoor" && dates[startposition].desc !== "Rain"){
                         available.push(dates[startposition].date)
                     }
                     else{
@@ -73,10 +73,10 @@ export class Schedule extends Component {
                 break
             }
         }
-        if (available.length == 0){
+        if (available.length === 0){
             available = ["The weather may not be suitable for outdoor activities during your trip."]
         }
-        if(available.length == count){
+        if(available.length === count){
             available = ["Any day is suitable for this activity."]
         }
         return available
@@ -106,7 +106,7 @@ export class Schedule extends Component {
                 <div className="welcome"><Label text="Schedule for Events"/></div>
                 <div className="events">
                     <div className="verticalScroll schedule">
-                        {sel != null && sel.map((value, index) => {
+                        {sel !== null && sel.map((value, index) => {
                             return(
                                 <div className ="value" key={index}>
                                     <label className="label activity">{value}</label>
