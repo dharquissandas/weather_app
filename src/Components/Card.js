@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import '../Styles/HomeStyle.css';
 
 export class Card extends Component {
     cardStyle = () =>{
@@ -45,24 +46,24 @@ export class Card extends Component {
         if(!this.props.complex){
             return (
                 <div style = {this.cardStyle()}>
-                    <h4><b>{this.props.title}</b></h4>
-                    <p>{this.props.weather}</p>
-                    <p>{this.props.desc}</p>
+                    <h4 id="headingcity"><b>{this.props.title}</b></h4>
+                    <p id="desc">{this.props.weather}</p>
+                    <p id="desc">{this.props.desc}</p>
                 </div>
             )
         }
         else{
             return(
-                <div style = {this.cardStyle()}>
-                    <h4><b>{this.props.title}</b></h4>
-                    <h4><b>{this.props.date}</b></h4>
-                    <p>{this.props.desc}</p>
-                    <p>{this.props.weather}</p>
-                    <p>{"max: " + this.props.high}</p>
-                    <p>{"min: " + this.props.low}</p>
-                    <p>{this.props.wind + " m/s"}</p>
-                    <p>{this.props.feelslike}</p>
-                    <p>{this.props.pressure + " hPa" }</p>
+                <div id = "comingdays" style = {this.cardStyle()}>
+                    <h4 id="heading"><b>{this.props.title}</b></h4>
+                    <h4 id="heading"><b>{this.props.date}</b></h4>
+                    <p id="desc">{this.props.desc}</p>
+                    <p id="desc">{this.props.weather}</p>
+                    <p id="desc">{"max: " + this.props.high}</p>
+                    <p id="desc">{"min: " + this.props.low}</p>
+                    <p id="desc">{this.props.wind + " m/s"}</p>
+                    <p id="desc">{this.props.feelslike}</p>
+                    <p id="desc">{this.props.pressure + " hPa" }</p>
                 </div>
             )
         }

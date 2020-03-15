@@ -24,7 +24,7 @@ export class CurrentWeather extends Component {
                             datacw : dest
                         }
                         }}>
-                            <p>Home</p>
+                            <p id="homebtn">Home</p>
                     </Link>
                     <Link className="navlinks linkStyle" to={{
                         pathname: `/EventSelection/${pos}`,
@@ -33,7 +33,7 @@ export class CurrentWeather extends Component {
                             sdd : sdd
                         }}
                         }}>
-                            <p>Schedule Holiday</p>
+                            <p id="homebtn">Schedule Holiday</p>
                     </Link>
                 </div>
                 <div className="welcome"><Label text="Today"/></div>

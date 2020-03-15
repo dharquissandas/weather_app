@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
 import Card from './Card';
 import Label from './Label';
-<<<<<<< HEAD
-import Axios from 'axios';
-=======
->>>>>>> 91d5c47d6caf9fbd2fd78d4600b14b2c299430a3
 import '../Styles/HomeStyle.css';
 
 import {Link} from 'react-router-dom';
@@ -21,8 +17,8 @@ export class Home extends Component {
     }
 
     componentDidMount = () => {
-        console.log(this.props.location.state.data)
-        if (this.props.location.state.data){
+        //console.log(this.props.location.state.data)
+        if (this.props.location.state){
             this.setState({
                 scheduleddestinations : this.props.location.state.data,
             })
@@ -53,7 +49,7 @@ export class Home extends Component {
                 <Label text="Recently Scheduled Holidays"/>
                 {!this.state.loaded ?
                     <div className="noSE">
-                        {<p>No Scheduled Holidays</p>}
+                        {<p id="noschedule">No Scheduled Holidays. Get Planning!</p>}
                     </div>:
                 <div className="horizontalScroll">
                     {this.state.scheduleddestinations.map((dest) => (
