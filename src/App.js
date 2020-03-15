@@ -24,6 +24,15 @@ export class App extends Component {
         this.grabData()
     }
 
+    getday = (weatherData, start, prev) => {
+        for(var i = start; i<=weatherData.list.length; i++){
+            if(!weatherData.list[i].dt_txt.includes(prev.dt_txt.split(' ')[0]) 
+            && weatherData.list[i].dt_txt.split(' ')[1] === "15:00:00"){
+                return [weatherData.list[i], i]
+            }
+        }
+    }
+
     grabData = async () =>{
         let suggestionsAPI = "https://my-json-server.typicode.com/dharquissandas/weather_app/suggesteddestinations";
         let suggestionsFetch = await fetch(suggestionsAPI)
@@ -45,13 +54,19 @@ export class App extends Component {
             suggestionData[index].pressure = main.pressure.toString()
             suggestionData[index].windspeed = wind.speed.toString()
             suggestionData[index].dayone = weatherData.list[0]
-            suggestionData[index].daytwo = weatherData.list[1]
-            suggestionData[index].daythree = weatherData.list[2]
-            suggestionData[index].dayfour = weatherData.list[3]
-            suggestionData[index].dayfive = weatherData.list[4]
 
+            var array = this.getday(weatherData, 1, suggestionData[index].dayone)
+            suggestionData[index].daytwo = array[0]
+
+            array = this.getday(weatherData, array[1], suggestionData[index].daytwo)
+            suggestionData[index].daythree = array[0]
+
+            array = this.getday(weatherData, array[1], suggestionData[index].daythree)
+            suggestionData[index].dayfour = array[0]
+
+            array = this.getday(weatherData, array[1], suggestionData[index].dayfour)
+            suggestionData[index].dayfive = array[0]
         }
-
         this.setState({
             suggesteddestinations : suggestionData,
             loaded: true

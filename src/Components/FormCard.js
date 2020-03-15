@@ -68,9 +68,13 @@ export class FormCard extends Component {
         return today;
     }
 
-    getEndDate = (start) => {
+    getEndDate = (start, totalMax) => {
         var ymd = start.split("-");
-        var newDay = parseInt(ymd[2]) + 5
+        var max = totalMax.split("-");
+        var newDay = parseInt(ymd[2])
+        while (newDay < parseInt(max[2])){
+            newDay = newDay + 1
+        }
         if (newDay < 10) newDay = "0" + newDay;
         var end = ymd[0] + "-" + ymd[1] + "-" + newDay;       
         return end;
@@ -84,11 +88,21 @@ export class FormCard extends Component {
         return end;
     }
 
+    getmax = (start) => {
+        var ymd = start.split("-");
+        var newDay = parseInt(ymd[2]) + 4
+        if (newDay < 10) newDay = "0" + newDay;
+        var end = ymd[0] + "-" + ymd[1] + "-" + newDay;       
+        return end;
+    }
+
     handleChange = (e) => {
         if (e.target.type === "checkbox") {
-            this.setState({
-                selections: [...this.state.selections, e.target.value]
-            })
+            if (e.target.checked){
+                this.setState({
+                    selections: [...this.state.selections, e.target.value]
+                })
+            }
         }
         else {
             this.setState({
@@ -99,10 +113,17 @@ export class FormCard extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+        
+        // const values = Array.from(document.querySelectorAll('input[type=checkbox]:checked')).map(item => item.value);
+        // this.setState({
+        //     selections: values
+        // })
+        // console.log(this.state.selections);
+        // console.log(values);
 
         var selectedInformation = {
             information : this.props.location.state.info.data,
-            startdate: this.getDate(),
+            startdate: this.state.start,
             enddate: this.state.end,
             selections : this.state.selections
         }
@@ -140,11 +161,11 @@ export class FormCard extends Component {
                         <div className='inputGroup'>
                             <label className='datelabel' htmlFor="start">Start date:</label>
                             <input type="date" id="start" name="trip-start"
-                                defaultValue={this.getDate()} min={this.getDate()} onChange={this.handleChange} required>
+                                defaultValue={this.getDate()} min={this.getDate()} max={this.getmax(this.getDate())} onChange={this.handleChange} required>
                             </input><br/>
                             <label className='datelabel' htmlFor="end">End date:</label>
                             <input type="date" id="end" name="trip-end" 
-                                min={this.getmin(this.state.start)} max={this.getEndDate(this.state.start)} onChange={this.handleChange} required>
+                                min={this.getmin(this.state.start)} max={this.getEndDate(this.state.start, this.getmax(this.getDate()))} onChange={this.handleChange} required>
                             </input><br/>
                         </div>
                     </div>
