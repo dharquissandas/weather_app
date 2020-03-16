@@ -1,19 +1,22 @@
-import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faSlidersH } from '@fortawesome/free-solid-svg-icons'
+import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch, faSlidersH } from '@fortawesome/free-solid-svg-icons';
+import {withRouter} from 'react-router-dom';
 
-function Header() {
-    return (
-        <div style={header}>
+
+export class Header extends Component {    
+    render() {
+        return (
+            <div style={header}>
             <div style={inner}>
                 <div style={btnContainer}><button className="btn"><FontAwesomeIcon icon={faSlidersH} /></button></div>
                 <div style={searchContainer}><input className="search" type="text" placeholder="Holiday Destinations"></input></div>
                 <div style={btnContainer}><button className="btn"><FontAwesomeIcon icon={faSearch} /></button></div>
             </div>
         </div>
-    )
+        )
+    }
 }
-
 const header = {
     backgroundColor: "#2a3d51",
     color: "#fff",
@@ -39,5 +42,4 @@ const btnContainer = {
     flex : "1",
     textAlign: "center"
 }
-
-export default Header;
+export default Header

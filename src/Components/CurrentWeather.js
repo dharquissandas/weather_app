@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import Card from './Card';
 import Label from './Label';
 import '../Styles/Reset.css';
@@ -12,6 +12,7 @@ export class CurrentWeather extends Component {
         var sdd = this.props.location.state.info.sdd
 
         console.log(sdd)
+        console.log(dest[pos])
         return (
             <div>
                 <div className="horizontalScroll">
@@ -19,10 +20,7 @@ export class CurrentWeather extends Component {
                         <div><p>Home</p></div>
                     </Link> */}
                     <Link style={marginLeft} className="navlinks linkStyle" to={{
-                        pathname: `/`,
-                        state:{
-                            datacw : dest
-                        }
+                        pathname: `/`
                         }}>
                             <p id="homebtn">Home</p>
                     </Link>
@@ -38,7 +36,7 @@ export class CurrentWeather extends Component {
                 </div>
                 <div className="welcome"><Label text="Today"/></div>
                 <div className="welcome">
-                    <Card complex date="needs work" 
+                    <Card complex date={dest[pos].dayone.dt_txt}
                         high={dest[pos].tempmax} 
                         low={dest[pos].tempmin} 
                         wind={dest[pos].windspeed} 
@@ -57,7 +55,7 @@ export class CurrentWeather extends Component {
                 </div>
                 <Label text="Coming Days"/>
                 <div className="horizontalScroll">
-                    <Card complex date={dest[pos].dayone.dt_txt}
+                    {/* <Card complex date={dest[pos].dayone.dt_txt}
                         high={dest[pos].dayone.main.temp_max}
                         low={dest[pos].dayone.main.temp_min}
                         wind={dest[pos].dayone.wind.speed} 
@@ -67,7 +65,7 @@ export class CurrentWeather extends Component {
                         title="" 
                         weather={dest[pos].dayone.main.temp} 
                         width="110" 
-                        height="300"/>
+                        height="300"/> */}
                     <Card complex date={dest[pos].daytwo.dt_txt}
                         high={dest[pos].daytwo.main.temp_max}
                         low={dest[pos].daytwo.main.temp_min}

@@ -26,7 +26,7 @@ export class Home extends Component {
     }
 
     render(){
-        console.log(this.props.suggesteddestinations)
+        console.log(this.state.suggesteddestinations)
         console.log(this.state.loaded)
 
         if(this.state.scheduleddestinations.length > 0){

@@ -10,6 +10,7 @@ import Home from './Components/Home';
 import CurrentWeather from './Components/CurrentWeather';
 import EventSelection from './Components/EventSelection';
 import Schedule from './Components/Schedule';
+import Search from './Components/Search';
 
 
 
@@ -22,6 +23,15 @@ export class App extends Component {
 
     componentDidMount = () =>{
         this.grabData()
+    }
+
+    getday = (weatherData, start, prev) => {
+        for(var i = start; i<=weatherData.list.length; i++){
+            if(!weatherData.list[i].dt_txt.includes(prev.dt_txt.split(' ')[0]) 
+            && weatherData.list[i].dt_txt.split(' ')[1] === "15:00:00"){
+                return [weatherData.list[i], i]
+            }
+        }
     }
 
     grabData = async () =>{
@@ -45,13 +55,19 @@ export class App extends Component {
             suggestionData[index].pressure = main.pressure.toString()
             suggestionData[index].windspeed = wind.speed.toString()
             suggestionData[index].dayone = weatherData.list[0]
-            suggestionData[index].daytwo = weatherData.list[1]
-            suggestionData[index].daythree = weatherData.list[2]
-            suggestionData[index].dayfour = weatherData.list[3]
-            suggestionData[index].dayfive = weatherData.list[4]
 
+            var array = this.getday(weatherData, 1, suggestionData[index].dayone)
+            suggestionData[index].daytwo = array[0]
+
+            array = this.getday(weatherData, array[1], suggestionData[index].daytwo)
+            suggestionData[index].daythree = array[0]
+
+            array = this.getday(weatherData, array[1], suggestionData[index].daythree)
+            suggestionData[index].dayfour = array[0]
+
+            array = this.getday(weatherData, array[1], suggestionData[index].dayfour)
+            suggestionData[index].dayfive = array[0]
         }
-
         this.setState({
             suggesteddestinations : suggestionData,
             loaded: true
@@ -75,6 +91,7 @@ export class App extends Component {
                             <Route path="/CurrentWeather/:id" component = {CurrentWeather} />
                             <Route path="/EventSelection/:id" component = {EventSelection} />
                             <Route path="/Schedule" component = {Schedule} />
+                            <Route path="/Search" component = {Search} />
                         </div>
                     </BrowserRouter>
                     }
