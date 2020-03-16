@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import '../Styles/HomeStyle.css';
 
 export class Card extends Component {
     cardStyle = () =>{
@@ -7,7 +8,7 @@ export class Card extends Component {
             return{
                 boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
                 transition: "0.3s",
-                color: "#000",
+                color: "#fff",
                 marginLeft: "0.4em",
                 marginBottom: "0.4em",
                 minWidth: this.props.invisible ? "0.1px" : this.props.width + "px",
@@ -16,6 +17,8 @@ export class Card extends Component {
                 background: this.props.invisible ? "invisible" : "url(" + this.props.back + ")",
                 backgroundSize: "100% 100%",
                 borderRadius: "5px",
+                fontFamily: "sans-serif",
+                paddingTop: "0.4em"
             }
         }
         else{
@@ -26,12 +29,14 @@ export class Card extends Component {
                 backgroundImage: "url(" + this.props.back + ")",
                 backgroundSize: "100% 100%",
                 //background: "#fff",
-                color: "#000",
+                color: "#fff",
                 marginLeft: "0.4em",
                 marginRight: "0.4em",
                 marginBottom: "0.4em",
                 minHeight: this.props.height + "px",
-                textAlign: "center"
+                textAlign: "center",
+                fontFamily: "sans-serif",
+                paddingTop: "0.4em"
             }
         }
     }

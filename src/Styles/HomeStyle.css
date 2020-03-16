@@ -1,18 +1,99 @@
-div.verticalScroll card{
+.verticalScroll card{
     padding-top: 1em;
     align-content: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     color: #ffffff;
-    text-shadow: 1px 1px 10px black;
+    text-shadow: 1px 1px 10px black;   
 }
 
-div#currentweather card{
+#currentweather card{
     padding-top: 15px;
+    margin-top: 1em;
     align-content: center;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px; 
     color: #ffffff;
-    text-shadow: 1px 1px 10px black; 
-    font-size: 16px;  
+    text-shadow: 1px 1px 10px black;  
+}
+
+p#desc{
+    margin-top:0.3em ; 
+    margin-bottom:0.3em ; 
+    align-self:center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #ffffff;
+    text-shadow: 1px 1px 5px black;
+    
+}
+
+h4#heading{
+    margin-bottom: 0.4em;
+    margin-top: 0.5em;
+    align-self: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-shadow: 1px 1px 5px black;  
+    font-weight: 200;
+}
+
+h4#headingcity{
+    padding-top: 2.2em;
+    margin-top: 0.4em;
+    margin-bottom: 0.2em;
+    align-self: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    text-shadow: 1px 1px 5px black;  
+}
+
+#comingdays{
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 0.1em;
+    position: inherit;
+}
+
+#homebtn{
+    padding-top: 1em;
+    margin-top: 0.4em;
+    margin-bottom: 0.2em;
+    align-self: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    text-shadow: 1px 1px 5px black; 
+}
+
+#noschedule{
+    padding-top: 3.5em;
+    align-self: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    color: white;
+    font-style: italic;
+    font-weight: 200;
+}
+
+div.welcome{
+    margin-top: 0em;
+}
+
+h4#headingtop{
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    align-self: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-shadow: 1px 1px 5px black;  
+    font-weight: 200;
+}
+
+#schedval{
+    background-image: url(https://media1.giphy.com/media/l46Cfx5YkHJCU5qWQ/giphy.gif?cid=ecf05e476f8979c108d276f985988c86068147f8f2144bdf&rid=giphy.gif);
+    background-size: cover;
+    background-position: center;  
 }

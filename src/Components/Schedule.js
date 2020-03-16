@@ -93,17 +93,17 @@ export class Schedule extends Component {
         return (
             <div>
                 <div className="horizontalScroll">
-                    <Link style={marginLeft} className="navlinks linkStyle" to={{
+                    <Link style={marginLeft} id="homebtn"  className="navlinks linkStyle" to={{
                         pathname:`/`,
                         state : {
                             data : sdd
                         }
                     }}>
-                        <div style={marginLeft} ><p>Home</p></div>
+                        <div style={marginLeft}><p>Home</p></div>
                     </Link>
 
-                    <div onClick={this.deleteItem} className="navlinks">
-                        <div ><p>Delete</p></div>
+                    <div onClick={this.deleteItem} className="navlinks" id="homebtn" >
+                        <div><p>Delete</p></div>
                     </div>
                 </div>
                 <div className="welcome"><Label text="Schedule for Events"/></div>
@@ -111,11 +111,11 @@ export class Schedule extends Component {
                     <div className="verticalScroll schedule">
                         {sel !== null && sel.map((value, index) => {
                             return(
-                                <div className ="value" key={index}>
+                                <div className ="value" key={index} >
                                     <label className="label activity">{value}</label>
                                         {this.check(value).map((date, index) => {
                                             return(
-                                                <label className="label days" key={index}>{date}</label>
+                                                <label id="schedval"  className="label days" key={index}>{date}</label>
                                             )
                                         })}
                                 </div>
