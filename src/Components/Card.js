@@ -15,6 +15,7 @@ export class Card extends Component {
                 minHeight: this.props.invisible ? "110px" : this.props.height + "px",
                 textAlign: "center",
                 background: this.props.invisible ? "invisible" : "#fff",
+                // ^ Try changing this. When I was messing with this the current weather backgroup changed from white to invisible. So its working halfway.
                 borderRadius: "5px",
             }
         }
@@ -24,6 +25,7 @@ export class Card extends Component {
                 transition: "0.3s",
                 borderRadius: "5px",
                 background: "#fff",
+                // ^ Try this as well. Try changing it to some other color for reference. 
                 color: "#000",
                 marginLeft: "0.4em",
                 marginRight: "0.4em",
@@ -45,7 +47,7 @@ export class Card extends Component {
     render() {
         if(!this.props.complex){
             return (
-                <div style = {this.cardStyle()}>
+                <div id="homediv" style = {this.cardStyle()}>
                     <h4 id="headingcity"><b>{this.props.title}</b></h4>
                     <p id="desc">{this.props.weather}</p>
                     <p id="desc">{this.props.desc}</p>
