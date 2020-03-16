@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import Card from './Card';
 import Label from './Label';
 import '../Styles/Reset.css';
@@ -20,10 +20,7 @@ export class CurrentWeather extends Component {
                         <div><p>Home</p></div>
                     </Link> */}
                     <Link style={marginLeft} className="navlinks linkStyle" to={{
-                        pathname: `/`,
-                        state:{
-                            datacw : dest
-                        }
+                        pathname: `/`
                         }}>
                             <p>Home</p>
                     </Link>
