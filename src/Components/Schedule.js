@@ -87,6 +87,7 @@ export class Schedule extends Component {
         var sdd = this.state.sdd
         console.log(sdd)
         console.log(this.state.obj)
+        //THESE VARIABLES AND THIS.STATE.OBJ HAVE ALL THE INFO, JUST CONSOLE.LOG AND SEE WHICH ONES ARE WHICH
         return (
             <div>
                 <div className="horizontalScroll">

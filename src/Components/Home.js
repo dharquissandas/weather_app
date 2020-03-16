@@ -77,7 +77,7 @@ export class Home extends Component {
                                 sdd : this.state.scheduleddestinations
                             }}
                         }}>
-                            <Card title={dest.name} weather={dest.temp} desc={dest.desc} width="100" height="110"/>
+                            <Card back={dest.url} title={dest.name} weather={dest.temp} desc={dest.desc} width="100" height="110"/>
                         </Link>
                     ))}
                 </div>

@@ -22,7 +22,9 @@ export class Card extends Component {
                 boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
                 transition: "0.3s",
                 borderRadius: "5px",
-                background: "#fff",
+                backgroundImage: "url(" + this.props.back + ")",
+                backgroundSize: "100% 100%",
+                //background: "#fff",
                 color: "#000",
                 marginLeft: "0.4em",
                 marginRight: "0.4em",
@@ -42,6 +44,7 @@ export class Card extends Component {
     }
 
     render() {
+        console.log(this)
         if(!this.props.complex){
             return (
                 <div style = {this.cardStyle()}>

@@ -113,13 +113,6 @@ export class FormCard extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        
-        // const values = Array.from(document.querySelectorAll('input[type=checkbox]:checked')).map(item => item.value);
-        // this.setState({
-        //     selections: values
-        // })
-        // console.log(this.state.selections);
-        // console.log(values);
 
         var selectedInformation = {
             information : this.props.location.state.info.data,
@@ -131,6 +124,8 @@ export class FormCard extends Component {
         this.props.sdd.push(selectedInformation)
         console.log(this.props.sdd)
         
+        // THIS IS WHERE I PUSH INFO, GIVES SCHEDULE THE INFO FROM THE FORM
+
         this.props.history.push({
             pathname: '/schedule',
             state: { 
@@ -142,11 +137,12 @@ export class FormCard extends Component {
     }
 
     render() {
+        // EVENTS IS THE SET OF EVENTS FROM THE DB. EACH ONE HAS AN ACTIVITY AND LOCATION  
         var events = this.props.events;
         return (
             <div style = {this.cardStyle()}>
                 <form onSubmit={this.handleSubmit}>
-                    <div className='form'>
+                    <div className='form welcome'>
                         {events != null &&
                             events.map((value, index) => {
                                 return(
@@ -162,11 +158,11 @@ export class FormCard extends Component {
                             <label className='datelabel' htmlFor="start">Start date:</label>
                             <input type="date" id="start" name="trip-start"
                                 defaultValue={this.getDate()} min={this.getDate()} max={this.getmax(this.getDate())} onChange={this.handleChange} required>
-                            </input><br/>
+                            </input>
                             <label className='datelabel' htmlFor="end">End date:</label>
                             <input type="date" id="end" name="trip-end" 
                                 min={this.getmin(this.state.start)} max={this.getEndDate(this.state.start, this.getmax(this.getDate()))} onChange={this.handleChange} required>
-                            </input><br/>
+                            </input>
                         </div>
                     </div>
                     <button className="btn blue lighten-1">Create</button>
