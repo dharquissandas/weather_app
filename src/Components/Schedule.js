@@ -87,6 +87,7 @@ export class Schedule extends Component {
         var sdd = this.state.sdd
         console.log(sdd)
         console.log(this.state.obj)
+        //THESE VARIABLES AND THIS.STATE.OBJ HAVE ALL THE INFO, JUST CONSOLE.LOG AND SEE WHICH ONES ARE WHICH
         return (
             <div>
                 <div className="horizontalScroll">
@@ -108,7 +109,8 @@ export class Schedule extends Component {
                     <div className="verticalScroll schedule">
                         {sel !== null && sel.map((value, index) => {
                             return(
-                                <div className ="value" key={index}>
+                                <div className ="value" key={index} >
+                                    //Here is where the value is added
                                     <label className="label activity">{value}</label>
                                         {this.check(value).map((date, index) => {
                                             return(
