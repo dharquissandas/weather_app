@@ -48,11 +48,11 @@
         "daythree": "",
         "dayfour": "",
         "dayfive": "",
-        "url": "https://github.com/dharquissandas/weatherApp/blob/poop/Pictures/Algarve.jpg"
+        "url": "https://raw.githubusercontent.com/dharquissandas/weather_app/master/assets/Algarve.jpg"
       },
       {
         "id": 2,
-        "name": "Barbados",
+        "name": "Barbados"
         "temp": "",
         "desc": "",
         "tempmax": "",
