@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import '../Styles/HomeStyle.css';
 
 export class Card extends Component {
     cardStyle = () =>{
