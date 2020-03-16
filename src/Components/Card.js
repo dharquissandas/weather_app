@@ -13,7 +13,8 @@ export class Card extends Component {
                 minWidth: this.props.invisible ? "0.1px" : this.props.width + "px",
                 minHeight: this.props.invisible ? "110px" : this.props.height + "px",
                 textAlign: "center",
-                background: this.props.invisible ? "invisible" : "#fff",
+                background: this.props.invisible ? "invisible" : "url(" + this.props.back + ")",
+                backgroundSize: "100% 100%",
                 borderRadius: "5px",
             }
         }

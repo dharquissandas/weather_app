@@ -1,11 +1,13 @@
 .form {
-    padding: 10px 10px;
     max-width: 550px;
-    font-size: 20px;
     font-weight: 500;
     line-height: 36px;
     color: black;
-    font-family: "arial, sans-serif";
+    font-family: 'Helvetica Neue', arial, sans-serif;
+}
+
+#start #end {
+  display: inline;
 }
 
 .inputGroup {

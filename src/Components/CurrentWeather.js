@@ -36,7 +36,8 @@ export class CurrentWeather extends Component {
                 </div>
                 <div className="welcome"><Label text="Today"/></div>
                 <div className="welcome">
-                    <Card complex date={dest[pos].dayone.dt_txt}
+                    <Card complex back={dest[pos].url}
+                        date={dest[pos].dayone.dt_txt}
                         high={dest[pos].tempmax} 
                         low={dest[pos].tempmin} 
                         wind={dest[pos].windspeed} 

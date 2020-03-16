@@ -31,20 +31,21 @@ export class Schedule extends Component {
 
     dates = () => {
         var datetime1 = this.state.obj.information.dayone.dt_txt.split(" ")
-        var date1 = {date: datetime1[0], weather : this.state.obj.information.dayone.main.temp}
+        var date1 = {date: datetime1[0], weather : this.state.obj.information.dayone.main.temp, desc : this.state.obj.information.dayone.weather[0].main}
         var datetime2 = this.state.obj.information.daytwo.dt_txt.split(" ")
-        var date2 = {date: datetime2[0], weather : this.state.obj.information.daytwo.main.temp}
+        var date2 = {date: datetime2[0], weather : this.state.obj.information.daytwo.main.temp, desc : this.state.obj.information.daytwo.weather[0].main}
         var datetime3 = this.state.obj.information.daythree.dt_txt.split(" ")
-        var date3 = {date: datetime3[0], weather : this.state.obj.information.daythree.main.temp} 
+        var date3 = {date: datetime3[0], weather : this.state.obj.information.daythree.main.temp, desc : this.state.obj.information.daythree.weather[0].main} 
         var datetime4 = this.state.obj.information.dayfour.dt_txt.split(" ")
-        var date4 = {date: datetime4[0], weather : this.state.obj.information.dayfour.main.temp}
+        var date4 = {date: datetime4[0], weather : this.state.obj.information.dayfour.main.temp, desc : this.state.obj.information.dayfour.weather[0].main}
         var datetime5 = this.state.obj.information.dayfive.dt_txt.split(" ")
-        var date5 = {date: datetime5[0], weather : this.state.obj.information.dayfive.main.temp}
+        var date5 = {date: datetime5[0], weather : this.state.obj.information.dayfive.main.temp, desc : this.state.obj.information.dayfive.weather[0].main}
         return [date1, date2, date3, date4, date5]
     }
 
     check = (value) => {
         var dates = this.dates()
+        console.log(this.state.obj)
         var available = []
         var startposition
         var endposition
@@ -58,7 +59,8 @@ export class Schedule extends Component {
         }
         var count = (endposition - startposition)+1
         for (var i = 0; i < this.state.obj.information.events.length; i++){
-            if(value === this.state.obj.information.events[i].activity){                
+            if(value === this.state.obj.information.events[i].activity){ 
+                console.log(dates[startposition])               
                 while(startposition<=endposition){
                     if(dates[startposition].weather > 15 && this.state.obj.information.events[i].location === "outdoor" && dates[startposition].desc !== "Rain"){
                         available.push(dates[startposition].date)
