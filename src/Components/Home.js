@@ -43,7 +43,7 @@ export class Home extends Component {
                         sdd : this.state.scheduleddestinations
                     }}
                 }}>
-                    <div className="welcome" style={background}><Card title={this.state.suggesteddestinations[0].name} desc={this.state.suggesteddestinations[0].desc} weather={this.state.suggesteddestinations[0].temp} width="100" height="110"/></div>
+                    <div className="welcome"><Card title={this.state.suggesteddestinations[0].name} desc={this.state.suggesteddestinations[0].desc} weather={this.state.suggesteddestinations[0].temp} width="100" height="110"/></div>
                 </Link>
 
                 <Label text="Recently Scheduled Holidays"/>
@@ -84,10 +84,6 @@ export class Home extends Component {
             </div>
         )
     }
-}
-
-const background = {
-    background: "https://github.com/dharquissandas/weatherApp/blob/poop/P"
 }
 
 export default Home

@@ -14,7 +14,7 @@ export class Card extends Component {
                 minWidth: this.props.invisible ? "0.1px" : this.props.width + "px",
                 minHeight: this.props.invisible ? "110px" : this.props.height + "px",
                 textAlign: "center",
-                background: this.props.invisible ? "invisible" : "#fff",
+                background: this.props.invisible ? "invisible" : "white",
                 // ^ Try changing this. When I was messing with this the current weather backgroup changed from white to invisible. So its working halfway.
                 borderRadius: "5px",
             }
@@ -24,7 +24,7 @@ export class Card extends Component {
                 boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
                 transition: "0.3s",
                 borderRadius: "5px",
-                background: "#fff",
+                background: "white",
                 // ^ Try this as well. Try changing it to some other color for reference. 
                 color: "#000",
                 marginLeft: "0.4em",

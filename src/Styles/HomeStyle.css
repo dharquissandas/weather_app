@@ -17,8 +17,8 @@
 }
 
 p#desc{
-    margin-top:0.4em ; 
-    margin-bottom:0.4em ; 
+    margin-top:0.3em ; 
+    margin-bottom:0.3em ; 
     align-self:center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
@@ -53,7 +53,8 @@ h4#headingcity{
 #comingdays{
     align-items: center;
     justify-content: center;
-    position: relative;
+    padding-bottom: 0.1em;
+
 }
 
 #homebtn{
@@ -75,4 +76,8 @@ h4#headingcity{
     color: white;
     font-style: italic;
     font-weight: 200;
+}
+
+div.welcome{
+    margin-top: 0em;
 }
