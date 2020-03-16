@@ -58,7 +58,7 @@ export class Card extends Component {
             return(
                 <div id = "comingdays" style = {this.cardStyle()}>
                     <h4 id="heading"><b>{this.props.title}</b></h4>
-                    <h4 id="heading"><b>{this.props.date}</b></h4>
+                    <h4 id="headingtop"><b>{this.props.date}</b></h4>
                     <p id="desc">{this.props.desc}</p>
                     <p id="desc">{this.props.weather}</p>
                     <p id="desc">{"max: " + this.props.high}</p>
