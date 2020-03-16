@@ -23,7 +23,7 @@
         "daythree": "",
         "dayfour": "",
         "dayfive": "",
-        "url": "https://github.com/dharquissandas/weatherApp/blob/poop/Pictures/London.jpg"
+        "url": "https://raw.githubusercontent.com/dharquissandas/weather_app/master/assets/London.jpg"
       },
       {
         "id": 1,
@@ -73,7 +73,7 @@
         "daythree": "",
         "dayfour": "",
         "dayfive": "",
-        "url": "https://github.com/dharquissandas/weather_app/blob/master/assets/Barbados.jpg?raw=true"
+        "url": "https://raw.githubusercontent.com/dharquissandas/weather_app/master/assets/Barbados.jpg"
       },
       {
         "id": 3,
@@ -98,7 +98,7 @@
         "daythree": "",
         "dayfour": "",
         "dayfive": "",
-        "url": "https://github.com/dharquissandas/weatherApp/blob/poop/Pictures/CanaryIslands.jpg"
+        "url": "https://raw.githubusercontent.com/dharquissandas/weather_app/master/assets/CanaryIslands.jpg"
       },
       {
         "id": 4,
