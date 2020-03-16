@@ -19,19 +19,19 @@ export class CurrentWeather extends Component {
                     {/* <Link style={marginLeft} className="navlinks linkStyle" to="/">
                         <div><p>Home</p></div>
                     </Link> */}
-                    <Link style={marginLeft} className="navlinks linkStyle" to={{
+                    <Link style={marginLeft} id="homebtn" className="navlinks linkStyle" to={{
                         pathname: `/`
                         }}>
-                            <p id="homebtn">Home</p>
+                            <p id="homenav">Home</p>
                     </Link>
-                    <Link className="navlinks linkStyle" to={{
+                    <Link id="homebtn" className="navlinks linkStyle" to={{
                         pathname: `/EventSelection/${pos}`,
                         state:{info : {
                             data : dest[pos],
                             sdd : sdd
                         }}
                         }}>
-                            <p id="homebtn">Schedule Holiday</p>
+                            <p id="homenav">Schedule Holiday</p>
                     </Link>
                 </div>
                 <div className="welcome"><Label text="Today"/></div>
