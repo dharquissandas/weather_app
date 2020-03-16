@@ -43,7 +43,7 @@ export class Home extends Component {
                         sdd : this.state.scheduleddestinations
                     }}
                 }}>
-                    <div className="welcome"><Card back={dest.url} title={this.state.suggesteddestinations[0].name} desc={this.state.suggesteddestinations[0].desc} weather={this.state.suggesteddestinations[0].temp} width="100" height="110"/></div>
+                    <div className="welcome"><Card back={this.state.suggesteddestinations[0].url} title={this.state.suggesteddestinations[0].name} desc={this.state.suggesteddestinations[0].desc} weather={this.state.suggesteddestinations[0].temp} width="100" height="110"/></div>
                 </Link>
 
                 <Label text="Recently Scheduled Holidays"/>

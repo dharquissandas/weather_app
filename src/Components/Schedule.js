@@ -110,7 +110,6 @@ export class Schedule extends Component {
                         {sel !== null && sel.map((value, index) => {
                             return(
                                 <div className ="value" key={index} >
-                                    //Here is where the value is added
                                     <label className="label activity">{value}</label>
                                         {this.check(value).map((date, index) => {
                                             return(
