@@ -45,14 +45,13 @@ export class Schedule extends Component {
         return [date1, date2, date3, date4, date5]
     }
 
-    // function for checking the available days that each activity can be completed during
-    check = (value) => {
+    // function returns an array containing the selected dates
+    scheduledDates = () => {
         var dates = this.dates()
-        var available = []
+        var selected = []
+        var count = 0
         var startposition
         var endposition
-
-        // find the starting and ending postions of the days from the form in the date array
         for (var j = 0; j < dates.length; j++) {
             if(this.state.obj.startdate === dates[j].date){
                 startposition = j
@@ -61,44 +60,55 @@ export class Schedule extends Component {
                 endposition = j
             }
         }
-        var count = (endposition - startposition)+1
-        // loop through the available events in the destination object to find a specific activity
-        for (var i = 0; i < this.state.obj.information.events.length; i++){
-            if(value === this.state.obj.information.events[i].activity){   
-                // once the activity is found, check weather information for each of the available dates to
-                // see whether the activity can be completed on that day or not   
-                while(startposition<=endposition){
+
+        for (var j = startposition; j <= endposition; j++) {
+                selected[count] = dates[j]
+                count ++
+        }
+        return selected
+    }
+
+    // function for checking the the activites that can be completed during a single day
+    check = (date) => {
+        var available = []
+        var events = this.state.obj.information.events
+        var selections = this.state.sel
+
+        // for each of the events in the available event list
+        for (var i = 0; i <events.length; i++){
+            // for each of the selections
+            for (var j = 0; j <selections.length; j++){
+                // find the selected activity in the list of available events
+                if(selections[j] === events[i].activity){
                     // if the weather is over 15 C, the event is outdoor, and it is not raining, then the activity
                     // can take place on that day
-                    if(dates[startposition].weather > 15 && this.state.obj.information.events[i].location === "outdoor" 
-                        && dates[startposition].desc !== "Rain"){
-                        available.push(dates[startposition].date)
+                    if(date.weather > 15 && events[i].location === "outdoor" && date.desc !== "Rain"){
+                        available.push(selections[j])
                     }
                     else{
                         // if the event is indoor in can be completed any day
-                        if(this.state.obj.information.events[i].location === "indoor"){
-                            available.push(dates[startposition].date)
+                        if(events[i].location === "indoor"){
+                            available.push(selections[j])
                         }
                     }
-                    startposition++
-                }        
-                break
+                } 
             }
         }
-        // if there are no available dates for the activity, return a message informing the user
+        
+        // if no activity can be scheduled on that day print a message
         if (available.length === 0){
-            available = ["The weather may not be suitable for this activity during your trip."]
+            available = ["The weather for this day is not suitable for any of your selected activities"]
         }
-        // if the activity can be completed on all of the available days, return a message informing the user
-        if(available.length === count){
-            available = ["Any day is suitable for this activity."]
+        // if every activity can be completed for the selected day then print a message
+        if(available.length === selections.length){
+            available = ["Any selected activity is suitable for this day"]
         }
         return available
     }
 
     render() {
-        var sel = this.state.sel
         var sdd = this.state.sdd
+        console.log(sdd)
         return (
             <div >
                 <div className="horizontalScroll">
@@ -123,15 +133,15 @@ export class Schedule extends Component {
                         {/* for each of the selected events, print the available dates that the activity
                         may be completed during, or an appropriate message if the activity can be completed
                         on all or none of the days */}
-                        {sel !== null && sel.map((value, index) => {
+                        {this.scheduledDates().map((date, index) => {
                             return(
-                                <div className ="value" key={index} >
-                                    <label className="label activity">{value}</label>
-                                        {this.check(value).map((date, index) => {
-                                            return(
-                                                <label id="schedval"  className="label days" key={index}>{date}</label>
-                                            )
-                                        })}
+                                <div className ="value" key={index}>
+                                    <label className="label activity">{date.date}</label>
+                                    {this.check(date).map((activity, index) => {
+                                        return (
+                                            <label className="label days" key={index}>{activity}</label>
+                                        )
+                                    })}     
                                 </div>
                             )
                         })}

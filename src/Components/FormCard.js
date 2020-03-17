@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {withRouter} from 'react-router-dom';
 import '../Styles/FormCard.css';
+import Label from './Label';
 
 export class FormCard extends Component {  
     // initializes the state 
@@ -11,18 +12,16 @@ export class FormCard extends Component {
     }
 
     // contains styling information for the card
-    cardStyle = () =>{
-        if (this.props.width !== "100"){
+    cardStyle = (location) =>{
+        if(location === "top"){
             return{
                 transition: "0.3s",
+                borderRadius: "5px",
                 color: "#fff",
                 marginLeft: "0.4em",
-                marginBottom: "0.4em",
-                minWidth: this.props.invisible ? "0.1px" : this.props.width + "px",
-                minHeight: this.props.invisible ? "110px" : this.props.height + "px",
-                textAlign: "center",
-                background: this.props.invisible ? "invisible" : "#fff",
-                borderRadius: "5px",
+                marginRight: "0.4em",
+                minHeight: "370px",
+                textAlign: "center"
             }
         }
         else{
@@ -33,7 +32,7 @@ export class FormCard extends Component {
                 marginLeft: "0.4em",
                 marginRight: "0.4em",
                 marginBottom: "0.4em",
-                minHeight: this.props.height + "px",
+                minHeight: "120px",
                 textAlign: "center"
             }
         }
@@ -128,8 +127,10 @@ export class FormCard extends Component {
     render() {
         var events = this.props.events;
         return (
-            <div style = {this.cardStyle()}>
+            <div>
                 <form onSubmit={this.handleSubmit}>
+                <div className="welcome"><Label text="Select Events"/></div>
+                <div style = {this.cardStyle("top")}>
                     <div className='form'>
                         {events != null && // for each of the events listed in the current destination's object
                                            // in the json file, create checkboxes
@@ -143,6 +144,11 @@ export class FormCard extends Component {
                                 )
                             })
                         }
+                    </div>
+                </div>
+                <div className="welcome"><Label text="Select Travel Dates"/></div>
+                <div style = {this.cardStyle("bottom")}>
+                    <div className='form'>
                         <div className='inputGroup'>
                             {/* create the input fields for the start and end date selection */}
                             <table><tr>
@@ -160,10 +166,10 @@ export class FormCard extends Component {
                             </div></td>
                             </tr></table>
                         </div>
-                        
-                    </div>
+                    </div> 
                     {/* button for submitting the form */}
-                    <button className="btn blue lighten-1">Create</button>
+                    <button className="formbtn">Create</button>
+                </div>
                 </form>
             </div>
         )  
