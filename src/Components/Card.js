@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 import '../Styles/HomeStyle.css';
 
 export class Card extends Component {
+    // styling information for the Card
     cardStyle = () =>{
-        this.checkLast()
+        this.checkLast() // checks if the current card is the last card, in which case make it invisible
+                         // used for horizontal scroll formatting
         if (this.props.width !== "100"){
             return{
                 boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
@@ -41,6 +43,7 @@ export class Card extends Component {
         }
     }
 
+    // checks if the card is the last card in the horizontal scroll bar
     checkLast = () =>{
         if(this.props.last === true){
             return{
@@ -50,7 +53,7 @@ export class Card extends Component {
     }
 
     render() {
-        console.log(this)
+        // if the card is not a complex card, return information for the few fields given
         if(!this.props.complex){
             return (
                 <div style = {this.cardStyle()}>
@@ -60,6 +63,7 @@ export class Card extends Component {
                 </div>
             )
         }
+        // if the card is complex, return detailed information for all of the fields given
         else{
             return(
                 <div style = {this.cardStyle()}>

@@ -4,15 +4,15 @@ import {Link} from 'react-router-dom'
 import '../Styles/Schedule.css';
 
 export class Schedule extends Component {
+    // initializes the state for the component with the props passed in from the form 
     state = {
         obj : this.props.location.state.selectedInformation,
         sel : this.props.location.state.selectedInformation.selections,
         sdd : this.props.location.sdd
     }
 
-    
+    // deletes the current schedule and redirects to the home page
     deleteItem = () => {
-        //console.log(this.props.location.sdd)
         for(var i = 0; i < this.state.sdd.length; i++){
             if(this.state.sdd[i] === this.state.obj){
                 this.setState(
@@ -29,6 +29,8 @@ export class Schedule extends Component {
         })
     }
 
+    // gets the weather, date, and description information for the available days
+    // and returns an array of daily information
     dates = () => {
         var datetime1 = this.state.obj.information.dayone.dt_txt.split(" ")
         var date1 = {date: datetime1[0], weather : this.state.obj.information.dayone.main.temp, desc : this.state.obj.information.dayone.weather[0].main}
@@ -43,12 +45,14 @@ export class Schedule extends Component {
         return [date1, date2, date3, date4, date5]
     }
 
+    // function for checking the available days that each activity can be completed during
     check = (value) => {
         var dates = this.dates()
-        console.log(this.state.obj)
         var available = []
         var startposition
         var endposition
+
+        // find the starting and ending postions of the days from the form in the date array
         for (var j = 0; j < dates.length; j++) {
             if(this.state.obj.startdate === dates[j].date){
                 startposition = j
@@ -58,14 +62,20 @@ export class Schedule extends Component {
             }
         }
         var count = (endposition - startposition)+1
+        // loop through the available events in the destination object to find a specific activity
         for (var i = 0; i < this.state.obj.information.events.length; i++){
-            if(value === this.state.obj.information.events[i].activity){ 
-                console.log(dates[startposition])               
+            if(value === this.state.obj.information.events[i].activity){   
+                // once the activity is found, check weather information for each of the available dates to
+                // see whether the activity can be completed on that day or not   
                 while(startposition<=endposition){
-                    if(dates[startposition].weather > 15 && this.state.obj.information.events[i].location === "outdoor" && dates[startposition].desc !== "Rain"){
+                    // if the weather is over 15 C, the event is outdoor, and it is not raining, then the activity
+                    // can take place on that day
+                    if(dates[startposition].weather > 15 && this.state.obj.information.events[i].location === "outdoor" 
+                        && dates[startposition].desc !== "Rain"){
                         available.push(dates[startposition].date)
                     }
                     else{
+                        // if the event is indoor in can be completed any day
                         if(this.state.obj.information.events[i].location === "indoor"){
                             available.push(dates[startposition].date)
                         }
@@ -75,9 +85,11 @@ export class Schedule extends Component {
                 break
             }
         }
+        // if there are no available dates for the activity, return a message informing the user
         if (available.length === 0){
-            available = ["The weather may not be suitable for outdoor activities during your trip."]
+            available = ["The weather may not be suitable for this activity during your trip."]
         }
+        // if the activity can be completed on all of the available days, return a message informing the user
         if(available.length === count){
             available = ["Any day is suitable for this activity."]
         }
@@ -87,12 +99,10 @@ export class Schedule extends Component {
     render() {
         var sel = this.state.sel
         var sdd = this.state.sdd
-        console.log(sdd)
-        console.log(this.state.obj)
-        //THESE VARIABLES AND THIS.STATE.OBJ HAVE ALL THE INFO, JUST CONSOLE.LOG AND SEE WHICH ONES ARE WHICH
         return (
-            <div>
+            <div >
                 <div className="horizontalScroll">
+                    {/* create the home button that takes the user back to the home page */}
                     <Link style={marginLeft} id="homebtn"  className="navlinks linkStyle" to={{
                         pathname:`/`,
                         state : {
@@ -102,6 +112,7 @@ export class Schedule extends Component {
                         <div style={marginLeft}><p>Home</p></div>
                     </Link>
 
+                    {/* create the delete button that deletes the current schedule */}
                     <div onClick={this.deleteItem} className="navlinks" id="homebtn" >
                         <div><p>Delete</p></div>
                     </div>
@@ -109,6 +120,9 @@ export class Schedule extends Component {
                 <div className="welcome"><Label text="Schedule for Events"/></div>
                 <div className="events">
                     <div className="verticalScroll schedule">
+                        {/* for each of the selected events, print the available dates that the activity
+                        may be completed during, or an appropriate message if the activity can be completed
+                        on all or none of the days */}
                         {sel !== null && sel.map((value, index) => {
                             return(
                                 <div className ="value" key={index} >

@@ -4,6 +4,10 @@
     line-height: 36px;
 }
 
+div {
+    font-family: 'Helvetica Neue', arial, sans-serif;
+}
+
 .value {
     background-color: #fff;
     display: block;

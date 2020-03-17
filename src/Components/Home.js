@@ -6,7 +6,8 @@ import '../Styles/HomeStyle.css';
 import {Link} from 'react-router-dom';
 
 export class Home extends Component {
-    
+    // initializing the state for the Home component with information about the
+    // current location, suggested destinations, and scheduled destinations
     state = {
         currentLocation : "London",
         currentTemp : "",
@@ -17,8 +18,8 @@ export class Home extends Component {
     }
 
     componentDidMount = () => {
-        //console.log(this.props.location.state.data)
         if (this.props.location.state){
+            // set the scheduled destinations if they are available
             this.setState({
                 scheduleddestinations : this.props.location.state.data,
             })
@@ -26,16 +27,16 @@ export class Home extends Component {
     }
 
     render(){
-        console.log(this.state.suggesteddestinations)
-        console.log(this.state.loaded)
-
         if(this.state.scheduleddestinations.length > 0){
+            // set loaded as true if there are previously scheduled destinations
             this.state.loaded = true
         }
         
         return (
             <div>
                 <div className="welcome"><Label text="Current Weather"/></div>
+                {/* creates the current weather card at the top of the screen with a link to the 
+                current weather page for the current location */}
                 <Link className="linkStyle" to={{
                     pathname: `CurrentWeather/${0}`,
                     state:{info:{
@@ -48,10 +49,13 @@ export class Home extends Component {
 
                 <Label text="Recently Scheduled Holidays"/>
                 {!this.state.loaded ?
+                    // if there are no scheduled holidays then print a message indicating no scheduled holidays
                     <div className="noSE">
                         {<p>No Scheduled Holidays</p>}
                     </div>:
                 <div className="horizontalScroll">
+                    {/* if there are scheduled holidays then create a card for each one in a horizontal scroll bar
+                    and link each of them to their specific schedule page */}
                     {this.state.scheduleddestinations.map((dest) => (
                         <Link className="linkStyle" key={dest.id} to={{
                             pathname: '/Schedule',
@@ -64,11 +68,14 @@ export class Home extends Component {
                             <Card back={dest.information.url} title={dest.information.name} weather={dest.information.temp} desc={dest.information.desc} width="110" height="110"/>
                         </Link>
                     ))}
+                    {/* create an invisible card at the end of the scroll bar for formatting */}
                     <Card invisible/>
                 </div>
                 }
                 <Label text="Recommended Holiday Destinations"/>
                 <div className="verticalScroll">
+                    {/* display all of the suggested destination cards in a vertical scroll bar 
+                    with links to the current weather pages for each destination */}
                     {this.state.suggesteddestinations.slice(1).map((dest) =>(
                         <Link className="linkStyle" key={dest.id} to={{
                             pathname: `CurrentWeather/${dest.id}`,

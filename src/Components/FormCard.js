@@ -3,21 +3,15 @@ import {withRouter} from 'react-router-dom';
 import '../Styles/FormCard.css';
 
 export class FormCard extends Component {  
+    // initializes the state 
     state = {
         start: '',
         end: '',
         selections: []
-        // suggesteddestinations : []
     }
 
-    // componentDidMount(){
-    //     const url = "https://my-json-server.typicode.com/dharquissandas/weatherApp/suggesteddestinations";
-    //     Axios.get(url)
-    //     .then(contents => this.setState({suggesteddestinations: contents.data}))
-    // }
-
+    // contains styling information for the card
     cardStyle = () =>{
-        this.checkLast()
         if (this.props.width !== "100"){
             return{
                 transition: "0.3s",
@@ -35,7 +29,6 @@ export class FormCard extends Component {
             return{
                 transition: "0.3s",
                 borderRadius: "5px",
-                // background: "#fff",
                 color: "#fff",
                 marginLeft: "0.4em",
                 marginRight: "0.4em",
@@ -45,15 +38,8 @@ export class FormCard extends Component {
             }
         }
     }
- 
-    checkLast = () =>{
-        if(this.props.last === true){
-            return{
-                marginRight: "0.4em"
-            }
-        }
-    }
 
+    // returns a string containing the current date
     getDate = () => {
         var date = new Date();
 
@@ -68,6 +54,7 @@ export class FormCard extends Component {
         return today;
     }
 
+    //returns the maximum available end date depending on the start date
     getEndDate = (start, totalMax) => {
         var ymd = start.split("-");
         var max = totalMax.split("-");
@@ -80,6 +67,7 @@ export class FormCard extends Component {
         return end;
     }
 
+    // returns the minimum end date depending on the start date
     getmin = (start) => {
         var ymd = start.split("-");
         var newDay = parseInt(ymd[2]) + 1
@@ -88,6 +76,8 @@ export class FormCard extends Component {
         return end;
     }
 
+    //returns the limit for the dates that users are allowed to pick
+    // limit is set at 4 days since the weather api only goes up to 4 days
     getmax = (start) => {
         var ymd = start.split("-");
         var newDay = parseInt(ymd[2]) + 4
@@ -96,6 +86,7 @@ export class FormCard extends Component {
         return end;
     }
 
+    // sets the state with the information entered in by the user
     handleChange = (e) => {
         if (e.target.type === "checkbox") {
             if (e.target.checked){
@@ -111,6 +102,8 @@ export class FormCard extends Component {
         }
     }
 
+    // when the user clicks Create, redirect them to the schedule page 
+    // and pass in the appropriate information from the form
     handleSubmit = (e) => {
         e.preventDefault();
 
@@ -120,11 +113,7 @@ export class FormCard extends Component {
             enddate: this.state.end,
             selections : this.state.selections
         }
-        console.log(this.props.sdd)
         this.props.sdd.push(selectedInformation)
-        console.log(this.props.sdd)
-        
-        // THIS IS WHERE I PUSH INFO, GIVES SCHEDULE THE INFO FROM THE FORM
 
         this.props.history.push({
             pathname: '/schedule',
@@ -137,13 +126,13 @@ export class FormCard extends Component {
     }
 
     render() {
-        // EVENTS IS THE SET OF EVENTS FROM THE DB. EACH ONE HAS AN ACTIVITY AND LOCATION  
         var events = this.props.events;
         return (
             <div style = {this.cardStyle()}>
                 <form onSubmit={this.handleSubmit}>
-                    <div className='form welcome'>
-                        {events != null &&
+                    <div className='form'>
+                        {events != null && // for each of the events listed in the current destination's object
+                                           // in the json file, create checkboxes
                             events.map((value, index) => {
                                 return(
                                     <div className='inputGroup' key={index}>
@@ -155,16 +144,25 @@ export class FormCard extends Component {
                             })
                         }
                         <div className='inputGroup'>
-                            <label className='datelabel' htmlFor="start">Start date:</label>
-                            <input type="date" id="start" name="trip-start"
-                                defaultValue={this.getDate()} min={this.getDate()} max={this.getmax(this.getDate())} onChange={this.handleChange} required>
-                            </input>
-                            <label className='datelabel' htmlFor="end">End date:</label>
-                            <input type="date" id="end" name="trip-end" 
-                                min={this.getmin(this.state.start)} max={this.getEndDate(this.state.start, this.getmax(this.getDate()))} onChange={this.handleChange} required>
-                            </input>
+                            {/* create the input fields for the start and end date selection */}
+                            <table><tr>
+                            <td><div>
+                                <label className='datelabelleft' htmlFor="start">Start date:</label>
+                                <input type="date" id="start" name="trip-start" min={this.getDate()}
+                                max={this.getmax(this.getDate())} onChange={this.handleChange} required>
+                                </input>
+                            </div></td>
+                            <td><div>
+                                <label className='datelabelright' htmlFor="end">End date:</label>
+                                <input type="date" id="end" name="trip-end" min={this.getmin(this.state.start)}
+                                max={this.getEndDate(this.state.start, this.getmax(this.getDate()))} onChange={this.handleChange} required>
+                                </input>
+                            </div></td>
+                            </tr></table>
                         </div>
+                        
                     </div>
+                    {/* button for submitting the form */}
                     <button className="btn blue lighten-1">Create</button>
                 </form>
             </div>

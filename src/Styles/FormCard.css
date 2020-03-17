@@ -4,21 +4,24 @@
     line-height: 36px;
     color: black;
     font-family: 'Helvetica Neue', arial, sans-serif;
+    margin-top: 0.4em;
 }
 
-#start #end {
-  display: inline;
-}
-
-.inputGroup {
+.inputGroup{
     background-color: #fff;
-    display: block;
-    position: relative;
-    border-radius: 5px;
     margin-bottom: 9px;
     padding: 5px;
     box-Shadow: "0 4px 8px 0 rgba(0,0,0,0.2)";
-    
+    border-radius: 5px;
+}
+
+td {
+  padding-top: 1em;
+  padding-bottom: 1.3em;
+}
+
+table {
+  margin-bottom: 7px;
 }
 
 .checklabel {
@@ -95,15 +98,11 @@ input[type=checkbox] {
     
 }
 
-.datelabel {
-    display: block;
-}
-
 input[type="date"] {
     padding-left: 1rem;
     
     font-size:1rem;
-    font-family:monospace;
+    font-family: 'Helvetica Neue', arial, sans-serif;
     
     border:1px solid #8292a2;
     border-radius:0.25rem;
