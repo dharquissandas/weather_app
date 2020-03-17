@@ -49,7 +49,7 @@ export class Home extends Component {
                 <Label text="Recently Scheduled Holidays"/>
                 {!this.state.loaded ?
                     <div className="noSE">
-                        {<p>No Scheduled Holidays</p>}
+                        {<p id="noschedule">No Scheduled Holidays. Get Planning!</p>}
                     </div>:
                 <div className="horizontalScroll">
                     {this.state.scheduleddestinations.map((dest) => (

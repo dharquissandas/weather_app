@@ -25,7 +25,7 @@
       "dayfive": "",
       "url": "https://raw.githubusercontent.com/dharquissandas/weather_app/master/assets/London.jpg",
       "color1" : "#2a3d51",
-      "color2" : "#fade4d"
+      "color2" : "#fbe782"
     },
     {
       "id": 1,
@@ -51,8 +51,8 @@
       "dayfour": "",
       "dayfive": "",
       "url": "https://raw.githubusercontent.com/dharquissandas/weather_app/master/assets/Algarve.jpg",
-      "color1" : "",
-      "color2" : ""
+      "color1" : "#0b3e49",
+      "color2" : "#7bc7ab"
     },
     {
       "id": 2,
@@ -78,8 +78,8 @@
       "dayfour": "",
       "dayfive": "",
       "url": "https://raw.githubusercontent.com/dharquissandas/weather_app/master/assets/Barbados.jpg",
-      "color1" : "",
-      "color2" : ""
+      "color1" : "#0e412e",
+      "color2" : "#efd47f"
     },
     {
       "id": 3,
@@ -105,8 +105,8 @@
       "dayfour": "",
       "dayfive": "",
       "url": "https://raw.githubusercontent.com/dharquissandas/weather_app/master/assets/CanaryIslands.jpg",
-      "color1" : "",
-      "color2" : ""
+      "color1" : "#1b5f6d",
+      "color2" : "#ebb794"
     },
     {
       "id": 4,
@@ -132,8 +132,8 @@
       "dayfour": "",
       "dayfive": "",
       "url": "https://raw.githubusercontent.com/dharquissandas/weather_app/master/assets/PlayaDelCarmen.jpg",
-      "color1" : "",
-      "color2" : ""
+      "color1" : "#0d5130",
+      "color2" : "#99e4de"
     },
     {
       "id": 5,
@@ -159,8 +159,8 @@
       "dayfour": "",
       "dayfive": "",
       "url": "https://raw.githubusercontent.com/dharquissandas/weather_app/master/assets/Pokhara.jpg",
-      "color1" : "",
-      "color2" : ""
+      "color1" : "#371c00",
+      "color2" : "#4e768e"
     }
   ],
 

@@ -13,7 +13,8 @@
     align-content: center;
     font-family: Arial, Helvetica, sans-serif;
     color: #ffffff;
-    text-shadow: 1px 1px 10px black;  
+    text-shadow: 1px 1px 10px black; 
+    margin-bottom: 1em;
 }
 
 p#desc{
@@ -33,7 +34,7 @@ h4#heading{
     align-self: center;
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     text-shadow: 1px 1px 5px black;  
     font-weight: 200;
 }
@@ -44,16 +45,13 @@ h4#headingcity{
     margin-bottom: 0.2em;
     align-self: center;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     color: #ffffff;
     text-shadow: 1px 1px 5px black;  
 }
 
 #comingdays{
     align-items: center;
-    justify-content: center;
-    padding-bottom: 0.1em;
-    position: inherit;
 }
 
 #homebtn{
@@ -78,7 +76,7 @@ h4#headingcity{
 }
 
 div.welcome{
-    margin-top: 0em;
+    margin-bottom: 0em;
 }
 
 h4#headingtop{
@@ -92,13 +90,34 @@ h4#headingtop{
     font-weight: 200;
 }
 
-#homebtn{
-    background-image: url(https://www.ecopetit.cat/wpic/mpic/98-981615_ombre-navy-blue-background.jpg);
-    background-size: cover;
-}
-
 #schedval{
     background-image: url(https://media1.giphy.com/media/l46Cfx5YkHJCU5qWQ/giphy.gif?cid=ecf05e476f8979c108d276f985988c86068147f8f2144bdf&rid=giphy.gif);
     background-size: cover;
     background-position: center;  
+}
+
+#homenav{
+    padding-top: 1em;
+}
+
+#heading2{
+    padding-top: 0.2;
+    margin-top: 0.4em;
+    margin-bottom: 0.2em;
+    align-self: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    text-shadow: 1px 1px 5px black;
+}
+
+p#desc2{
+    margin-top:0.3em ; 
+    margin-bottom:0.4em ; 
+    align-self:center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #ffffff;
+    text-shadow: 1px 1px 5px black;
+    padding-bottom: 0.5em;
 }
