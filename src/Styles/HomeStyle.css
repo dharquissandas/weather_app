@@ -33,19 +33,18 @@ h4#heading{
     margin-top: 0.5em;
     align-self: center;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 16px;
     text-shadow: 1px 1px 5px black;  
-    font-weight: 200;
 }
 
 h4#headingcity{
-    padding-top: 2.2em;
+    padding-top: 1.5em;
     margin-top: 0.4em;
     margin-bottom: 0.2em;
     align-self: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
     color: #ffffff;
     text-shadow: 1px 1px 5px black;  
 }
@@ -62,7 +61,8 @@ h4#headingcity{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     color: #ffffff;
-    text-shadow: 1px 1px 5px black; 
+    text-shadow: 1px 1px 5px black;
+    background: #283a4b; 
 }
 
 #noschedule{
@@ -90,15 +90,8 @@ h4#headingtop{
     font-weight: 200;
 }
 
-#schedval{
-    background-image: url(https://media1.giphy.com/media/l46Cfx5YkHJCU5qWQ/giphy.gif?cid=ecf05e476f8979c108d276f985988c86068147f8f2144bdf&rid=giphy.gif);
-    background-size: cover;
-    background-position: center;  
-}
-
 #homenav{
     padding-top: 1em;
-    background-image: url(https://github.com/dharquissandas/weather_app/blob/Hardvee/Assets/g6.jpg);
 }
 
 #heading2{
@@ -106,7 +99,7 @@ h4#headingtop{
     margin-top: 0.4em;
     margin-bottom: 0.2em;
     align-self: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 14px;
     color: #ffffff;
     text-shadow: 1px 1px 5px black;
