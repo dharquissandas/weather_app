@@ -23,7 +23,9 @@
       "daythree": "",
       "dayfour": "",
       "dayfive": "",
-      "url": "https://github.com/dharquissandas/weatherApp/blob/poop/Pictures/London.jpg"
+      "url": "https://github.com/dharquissandas/weatherApp/blob/poop/Pictures/London.jpg",
+      "color1" : "#2a3d51",
+      "color2" : "#fade4d"
     },
     {
       "id": 1,
@@ -48,7 +50,9 @@
       "daythree": "",
       "dayfour": "",
       "dayfive": "",
-      "url": "https://github.com/dharquissandas/weatherApp/blob/poop/Pictures/Algarve.jpg"
+      "url": "https://github.com/dharquissandas/weatherApp/blob/poop/Pictures/Algarve.jpg",
+      "color1" : "",
+      "color2" : ""
     },
     {
       "id": 2,
@@ -73,7 +77,9 @@
       "daythree": "",
       "dayfour": "",
       "dayfive": "",
-      "url": "https://github.com/dharquissandas/weatherApp/blob/poop/Pictures/Barbados.jpg"
+      "url": "https://github.com/dharquissandas/weatherApp/blob/poop/Pictures/Barbados.jpg",
+      "color1" : "",
+      "color2" : ""
     },
     {
       "id": 3,
@@ -98,7 +104,9 @@
       "daythree": "",
       "dayfour": "",
       "dayfive": "",
-      "url": "https://github.com/dharquissandas/weatherApp/blob/poop/Pictures/CanaryIslands.jpg"
+      "url": "https://github.com/dharquissandas/weatherApp/blob/poop/Pictures/CanaryIslands.jpg",
+      "color1" : "",
+      "color2" : ""
     },
     {
       "id": 4,
@@ -123,7 +131,9 @@
       "daythree": "",
       "dayfour": "",
       "dayfive": "",
-      "url": "https://github.com/dharquissandas/weatherApp/blob/poop/Pictures/PlayaDelCarmen.jpg"
+      "url": "https://github.com/dharquissandas/weatherApp/blob/poop/Pictures/PlayaDelCarmen.jpg",
+      "color1" : "",
+      "color2" : ""
     },
     {
       "id": 5,
@@ -148,7 +158,9 @@
       "daythree": "",
       "dayfour": "",
       "dayfive": "",
-      "url": "https://github.com/dharquissandas/weatherApp/blob/poop/Pictures/Pokhara.jpg"
+      "url": "https://github.com/dharquissandas/weatherApp/blob/poop/Pictures/Pokhara.jpg",
+      "color1" : "",
+      "color2" : ""
     }
   ],
 

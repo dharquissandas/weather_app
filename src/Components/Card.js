@@ -4,6 +4,10 @@ import '../Styles/HomeStyle.css';
 export class Card extends Component {
     cardStyle = () =>{
         this.checkLast()
+
+    
+        //style.background = 'linear-gradient(to left, ${this.props.color1} 50%, ${this.props.color2} 50%)';
+
         if (this.props.width !== "100"){
             return{
                 boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
@@ -18,7 +22,8 @@ export class Card extends Component {
                 //background: this.props.invisible ? "invisible" : "#fff",
                 borderRadius: "5px",
                 fontFamily: "sans-serif",
-                paddingTop: "0.4em"
+                paddingTop: "0.4em",
+                //background: style.background
             }
         }
         else{
@@ -28,7 +33,7 @@ export class Card extends Component {
                 borderRadius: "5px",
                 backgroundImage: "url(" + this.props.back + ")",
                 backgroundSize: "100% 100%",
-                //background: "#fff",
+                //background: style.background,
                 color: "#fff",
                 marginLeft: "0.4em",
                 marginRight: "0.4em",

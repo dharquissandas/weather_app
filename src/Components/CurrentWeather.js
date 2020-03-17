@@ -50,9 +50,9 @@ export class CurrentWeather extends Component {
                         height="110"/>
                 </div>
                 <div className="horizontalScroll">
-                    <Card title="Pressure" weather={dest[pos].pressure + " hPa"} width="129.33" height="110"/>
-                    <Card title="Feels Like" weather={dest[pos].feelslike} width="129.33" height="110"/>
-                    <Card title="Wind Speed" weather= {dest[pos].windspeed + " m/s"} width="129.33" height="110"/>
+                    <Card title="Pressure"  weather={dest[pos].pressure + " hPa"} width="129.33" height="110" style={backGround}/>
+                    <Card title="Feels Like" weather={dest[pos].feelslike} width="129.33" height="110" style={backGround}/>
+                    <Card title="Wind Speed" weather= {dest[pos].windspeed + " m/s"} width="129.33" height="110" style={backGround}/>
                 </div>
                 <Label text="Coming Days"/>
                 <div className="horizontalScroll">
@@ -77,7 +77,8 @@ export class CurrentWeather extends Component {
                         title="" 
                         weather={dest[pos].daytwo.main.temp}
                         width="110" 
-                        height="300"/>
+                        height="300"
+                        style={backGround}/>
                     <Card complex date={dest[pos].daythree.dt_txt}
                         high={dest[pos].daythree.main.temp_max}
                         low={dest[pos].daythree.main.temp_min}
@@ -88,7 +89,8 @@ export class CurrentWeather extends Component {
                         title="" 
                         weather={dest[pos].daythree.main.temp}
                         width="110" 
-                        height="300"/>   
+                        height="300"
+                        style={backGround}/>   
                     <Card complex date={dest[pos].dayfour.dt_txt}
                         high={dest[pos].dayfour.main.temp_max}
                         low={dest[pos].dayfour.main.temp_min}
@@ -99,7 +101,8 @@ export class CurrentWeather extends Component {
                         title="" 
                         weather={dest[pos].dayfour.main.temp}
                         width="110" 
-                        height="300"/>
+                        height="300"
+                        style={backGround}/>
                     <Card complex date={dest[pos].dayfive.dt_txt}
                         high={dest[pos].dayfive.main.temp_max}
                         low={dest[pos].dayfive.main.temp_min}
@@ -110,7 +113,8 @@ export class CurrentWeather extends Component {
                         title="" 
                         weather={dest[pos].dayfive.main.temp} 
                         width="110" 
-                        height="300" />                                                                   
+                        height="300"
+                        style={backGround} />                                                                   
                     <Card invisible/>
                 </div>
             </div>
@@ -122,5 +126,8 @@ const marginLeft = {
     marginLeft: "0.4em" 
 }
 
+const backGround = {
+    backGround: `linear-gradient(to left, dest[pos].color1 50%, dest[pos].color2 50%)`
+}
 
 export default CurrentWeather
