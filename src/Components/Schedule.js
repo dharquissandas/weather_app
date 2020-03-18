@@ -11,6 +11,13 @@ export class Schedule extends Component {
         sdd : this.props.location.sdd
     }
 
+    // contains css for the background of the date cards
+    background = () =>{
+        return{
+            background: `linear-gradient(45deg, ${this.state.obj.c1} 0%, ${this.state.obj.c2} 100%, ${this.state.obj.c2} 100%)`,
+        }
+    }
+
     // deletes the current schedule and redirects to the home page
     deleteItem = () => {
         for(var i = 0; i < this.state.sdd.length; i++){
@@ -108,7 +115,7 @@ export class Schedule extends Component {
 
     render() {
         var sdd = this.state.sdd
-        console.log(sdd)
+        console.log(this.state.obj)
         return (
             <div >
                 <div className="horizontalScroll">
@@ -135,7 +142,7 @@ export class Schedule extends Component {
                         on all or none of the days */}
                         {this.scheduledDates().map((date, index) => {
                             return(
-                                <div className ="value" key={index}>
+                                <div style={this.background()} className ="value" key={index}>
                                     <label className="label activity">{date.date}</label>
                                     {this.check(date).map((activity, index) => {
                                         return (

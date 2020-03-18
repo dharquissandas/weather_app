@@ -8,7 +8,9 @@ export class FormCard extends Component {
     state = {
         start: '',
         end: '',
-        selections: []
+        selections: [],
+        c1: this.props.c1,
+        c2: this.props.c2
     }
 
     // contains styling information for the card
@@ -35,6 +37,11 @@ export class FormCard extends Component {
                 minHeight: "120px",
                 textAlign: "center"
             }
+        }
+    }
+    background = () =>{
+        return{
+            background: `linear-gradient(45deg, ${this.props.c1} 0%, ${this.props.c2} 100%, ${this.props.c2} 100%)`,
         }
     }
 
@@ -110,7 +117,9 @@ export class FormCard extends Component {
             information : this.props.location.state.info.data,
             startdate: this.state.start,
             enddate: this.state.end,
-            selections : this.state.selections
+            selections : this.state.selections,
+            c1 : this.state.c1,
+            c2 : this.state.c2
         }
         this.props.sdd.push(selectedInformation)
 
@@ -136,7 +145,7 @@ export class FormCard extends Component {
                                            // in the json file, create checkboxes
                             events.map((value, index) => {
                                 return(
-                                    <div className='inputGroup' key={index}>
+                                    <div className='inputGroup' style={this.background()} key={index}>
                                         <input type="checkbox" id={index.toString()} name={index.toString()} 
                                         value = {value.activity} onChange={this.handleChange}/>
                                         <label className="checklabel" htmlFor={index.toString()}>{value.activity}</label>
@@ -149,7 +158,7 @@ export class FormCard extends Component {
                 <div className="welcome"><Label text="Select Travel Dates"/></div>
                 <div style = {this.cardStyle("bottom")}>
                     <div className='form'>
-                        <div className='inputGroup'>
+                        <div className='inputGroup' style={this.background()}>
                             {/* create the input fields for the start and end date selection */}
                             <table><tr>
                             <td><div>
