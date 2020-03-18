@@ -23,7 +23,9 @@
       "daythree": "",
       "dayfour": "",
       "dayfive": "",
-      "url": "https://github.com/dharquissandas/weatherApp/blob/poop/Pictures/London.jpg"
+      "url": "https://raw.githubusercontent.com/dharquissandas/weather_app/master/assets/London.jpg",
+      "color1" : "#2a3d51",
+      "color2" : "#fbe782"
     },
     {
       "id": 1,
@@ -48,7 +50,9 @@
       "daythree": "",
       "dayfour": "",
       "dayfive": "",
-      "url": "https://github.com/dharquissandas/weatherApp/blob/poop/Pictures/Algarve.jpg"
+      "url": "https://raw.githubusercontent.com/dharquissandas/weather_app/master/assets/Algarve.jpg",
+      "color1" : "#0b3e49",
+      "color2" : "#7bc7ab"
     },
     {
       "id": 2,
@@ -73,7 +77,9 @@
       "daythree": "",
       "dayfour": "",
       "dayfive": "",
-      "url": "https://github.com/dharquissandas/weatherApp/blob/poop/Pictures/Barbados.jpg"
+      "url": "https://raw.githubusercontent.com/dharquissandas/weather_app/master/assets/Barbados.jpg",
+      "color1" : "#1e8c89",
+      "color2" : "#d2d2d2"
     },
     {
       "id": 3,
@@ -98,7 +104,9 @@
       "daythree": "",
       "dayfour": "",
       "dayfive": "",
-      "url": "https://github.com/dharquissandas/weatherApp/blob/poop/Pictures/CanaryIslands.jpg"
+      "url": "https://raw.githubusercontent.com/dharquissandas/weather_app/master/assets/CanaryIslands.jpg",
+      "color1" : "#1b5f6d",
+      "color2" : "#ebb794"
     },
     {
       "id": 4,
@@ -123,7 +131,9 @@
       "daythree": "",
       "dayfour": "",
       "dayfive": "",
-      "url": "https://github.com/dharquissandas/weatherApp/blob/poop/Pictures/PlayaDelCarmen.jpg"
+      "url": "https://raw.githubusercontent.com/dharquissandas/weather_app/master/assets/PlayaDelCarmen.jpg",
+      "color1" : "#0d5130",
+      "color2" : "#99e4de"
     },
     {
       "id": 5,
@@ -148,7 +158,9 @@
       "daythree": "",
       "dayfour": "",
       "dayfive": "",
-      "url": "https://github.com/dharquissandas/weatherApp/blob/poop/Pictures/Pokhara.jpg"
+      "url": "https://raw.githubusercontent.com/dharquissandas/weather_app/master/assets/Pokhara.jpg",
+      "color1" : "#371c00",
+      "color2" : "#4e768e"
     }
   ],
 
@@ -156,4 +168,3 @@
       
   ]
 }
-

@@ -51,14 +51,13 @@ export class CurrentWeather extends Component {
                         height="110"/>
                 </div>
                 <div className="horizontalScroll">
-                    {/* display values for pressure, wind speed, and feels like properties */}
-                    <Card title="Pressure" weather={dest[pos].pressure + " hPa"} width="129.33" height="110"/>
-                    <Card title="Feels Like" weather={dest[pos].feelslike} width="129.33" height="110"/>
-                    <Card title="Wind Speed" weather= {dest[pos].windspeed + " m/s"} width="129.33" height="110"/>
+                   {/* display values for pressure, wind speed, and feels like properties */}
+                    <Card title="Pressure" c1={dest[pos].color1} c2={dest[pos].color2} weather={dest[pos].pressure + " hPa"} width="129.33" height="110" style={backGround}/>
+                    <Card title="Feels Like" c1={dest[pos].color1} c2={dest[pos].color2} weather={dest[pos].feelslike} width="129.33" height="110" style={backGround}/>
+                    <Card title="Wind Speed" c1={dest[pos].color1} c2={dest[pos].color2} weather= {dest[pos].windspeed + " m/s"} width="129.33" height="110" style={backGround}/>
                 </div>
                 <Label text="Coming Days"/>
-                <div className="horizontalScroll">
-                    {/* display detailed weather information for the upcoming days at the selected location */}
+                <div className="horizontalScroll" id="comingdays">
                     <Card complex date={dest[pos].daytwo.dt_txt}
                         high={dest[pos].daytwo.main.temp_max}
                         low={dest[pos].daytwo.main.temp_min}
@@ -69,7 +68,9 @@ export class CurrentWeather extends Component {
                         title="" 
                         weather={dest[pos].daytwo.main.temp}
                         width="110" 
-                        height="300"/>
+                        height="252"
+                        c1={dest[pos].color1} 
+                        c2={dest[pos].color2}/>
                     <Card complex date={dest[pos].daythree.dt_txt}
                         high={dest[pos].daythree.main.temp_max}
                         low={dest[pos].daythree.main.temp_min}
@@ -80,7 +81,9 @@ export class CurrentWeather extends Component {
                         title="" 
                         weather={dest[pos].daythree.main.temp}
                         width="110" 
-                        height="300"/>   
+                        height="252"
+                        c1={dest[pos].color1} 
+                        c2={dest[pos].color2}/>   
                     <Card complex date={dest[pos].dayfour.dt_txt}
                         high={dest[pos].dayfour.main.temp_max}
                         low={dest[pos].dayfour.main.temp_min}
@@ -91,7 +94,9 @@ export class CurrentWeather extends Component {
                         title="" 
                         weather={dest[pos].dayfour.main.temp}
                         width="110" 
-                        height="300"/>
+                        height="252"
+                        c1={dest[pos].color1} 
+                        c2={dest[pos].color2}/>
                     <Card complex date={dest[pos].dayfive.dt_txt}
                         high={dest[pos].dayfive.main.temp_max}
                         low={dest[pos].dayfive.main.temp_min}
@@ -102,7 +107,9 @@ export class CurrentWeather extends Component {
                         title="" 
                         weather={dest[pos].dayfive.main.temp} 
                         width="110" 
-                        height="300" />                                                                   
+                        height="252"
+                        c1={dest[pos].color1} 
+                        c2={dest[pos].color2} />                                                                   
                     <Card invisible/>
                 </div>
             </div>
@@ -114,5 +121,8 @@ const marginLeft = {
     marginLeft: "0.4em" 
 }
 
+const backGround = {
+    background: `linear-gradient(to left, dest[pos].color1 50%, dest[pos].color2 50%)`
+}
 
 export default CurrentWeather

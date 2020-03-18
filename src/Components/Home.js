@@ -51,7 +51,7 @@ export class Home extends Component {
                 {!this.state.loaded ?
                     // if there are no scheduled holidays then print a message indicating no scheduled holidays
                     <div className="noSE">
-                        {<p>No Scheduled Holidays</p>}
+                        {<p id="noschedule">No Scheduled Holidays. Get Planning!</p>}
                     </div>:
                 <div className="horizontalScroll">
                     {/* if there are scheduled holidays then create a card for each one in a horizontal scroll bar
