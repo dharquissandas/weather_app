@@ -87,20 +87,21 @@ export class Schedule extends Component {
         var sdd = this.state.sdd
         console.log(sdd)
         console.log(this.state.obj)
+        //THESE VARIABLES AND THIS.STATE.OBJ HAVE ALL THE INFO, JUST CONSOLE.LOG AND SEE WHICH ONES ARE WHICH
         return (
             <div>
                 <div className="horizontalScroll">
-                    <Link style={marginLeft} className="navlinks linkStyle" to={{
+                    <Link style={marginLeft} id="homebtn"  className="navlinks linkStyle" to={{
                         pathname:`/`,
                         state : {
                             data : sdd
                         }
                     }}>
-                        <div style={marginLeft} ><p>Home</p></div>
+                        <div style={marginLeft}><p>Home</p></div>
                     </Link>
 
-                    <div onClick={this.deleteItem} className="navlinks">
-                        <div ><p>Delete</p></div>
+                    <div onClick={this.deleteItem} className="navlinks" id="homebtn" >
+                        <div><p>Delete</p></div>
                     </div>
                 </div>
                 <div className="welcome"><Label text="Schedule for Events"/></div>
@@ -108,11 +109,11 @@ export class Schedule extends Component {
                     <div className="verticalScroll schedule">
                         {sel !== null && sel.map((value, index) => {
                             return(
-                                <div className ="value" key={index}>
+                                <div className ="value" key={index} >
                                     <label className="label activity">{value}</label>
                                         {this.check(value).map((date, index) => {
                                             return(
-                                                <label className="label days" key={index}>{date}</label>
+                                                <label id="schedval"  className="label days" key={index}>{date}</label>
                                             )
                                         })}
                                 </div>

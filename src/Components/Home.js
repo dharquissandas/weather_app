@@ -43,13 +43,13 @@ export class Home extends Component {
                         sdd : this.state.scheduleddestinations
                     }}
                 }}>
-                    <div className="welcome"><Card title={this.state.suggesteddestinations[0].name} desc={this.state.suggesteddestinations[0].desc} weather={this.state.suggesteddestinations[0].temp} width="100" height="110"/></div>
+                    <div className="welcome"><Card back={this.state.suggesteddestinations[0].url} title={this.state.suggesteddestinations[0].name} desc={this.state.suggesteddestinations[0].desc} weather={this.state.suggesteddestinations[0].temp} width="100" height="110"/></div>
                 </Link>
 
                 <Label text="Recently Scheduled Holidays"/>
                 {!this.state.loaded ?
                     <div className="noSE">
-                        {<p>No Scheduled Holidays</p>}
+                        {<p id="noschedule">No Scheduled Holidays. Get Planning!</p>}
                     </div>:
                 <div className="horizontalScroll">
                     {this.state.scheduleddestinations.map((dest) => (
@@ -61,7 +61,7 @@ export class Home extends Component {
                             sdd : this.state.scheduleddestinations
                         }
                         }>
-                            <Card title={dest.information.name} weather={dest.information.temp} desc={dest.information.desc} width="110" height="110"/>
+                            <Card title={dest.information.name} weather={dest.information.temp} desc={dest.information.desc} c1={dest.information.color1} c2={dest.information.color2} width="110" height="110"/>
                         </Link>
                     ))}
                     <Card invisible/>
@@ -77,7 +77,7 @@ export class Home extends Component {
                                 sdd : this.state.scheduleddestinations
                             }}
                         }}>
-                            <Card title={dest.name} weather={dest.temp} desc={dest.desc} width="100" height="110"/>
+                            <Card back={dest.url} title={dest.name} weather={dest.temp} desc={dest.desc} width="100" height="110"/>
                         </Link>
                     ))}
                 </div>
