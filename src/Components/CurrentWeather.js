@@ -50,9 +50,9 @@ export class CurrentWeather extends Component {
                         height="110"/>
                 </div>
                 <div className="horizontalScroll">
-                    <Card title="Pressure" c1={dest[pos].color1} c2={dest[pos].color2} weather={dest[pos].pressure + " hPa"} width="129.33" height="110" style={backGround}/>
-                    <Card title="Feels Like" c1={dest[pos].color1} c2={dest[pos].color2} weather={dest[pos].feelslike} width="129.33" height="110" style={backGround}/>
-                    <Card title="Wind Speed" c1={dest[pos].color1} c2={dest[pos].color2} weather= {dest[pos].windspeed + " m/s"} width="129.33" height="110" style={backGround}/>
+                    <Card title="Pressure" c1={dest[pos].color1} c2={dest[pos].color2} weather={dest[pos].pressure + " hPa"} width="129.33" height="110" style={backGround} id="heading2"/>
+                    <Card title="Feels Like" c1={dest[pos].color1} c2={dest[pos].color2} weather={dest[pos].feelslike} width="129.33" height="110" style={backGround} id="heading2"/>
+                    <Card title="Wind Speed" c1={dest[pos].color1} c2={dest[pos].color2} weather= {dest[pos].windspeed + " m/s"} width="129.33" height="110" style={backGround} id="heading2"/>
                 </div>
                 <Label text="Coming Days"/>
                 <div className="horizontalScroll" id="comingdays">

@@ -61,7 +61,7 @@ export class Home extends Component {
                             sdd : this.state.scheduleddestinations
                         }
                         }>
-                            <Card title={dest.information.name} weather={dest.information.temp} desc={dest.information.desc} width="110" height="110"/>
+                            <Card title={dest.information.name} weather={dest.information.temp} desc={dest.information.desc} c1={dest.information.color1} c2={dest.information.color2} width="110" height="110"/>
                         </Link>
                     ))}
                     <Card invisible/>

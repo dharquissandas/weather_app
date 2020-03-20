@@ -20,6 +20,7 @@ export class Card extends Component {
                 borderRadius: "5px",
                 fontFamily: "sans-serif",
                 paddingTop: "0.4em",
+                //filter: "brightness(50%)"
             }
         }
         else{
@@ -37,7 +38,8 @@ export class Card extends Component {
                 minHeight: this.props.height + "px",
                 textAlign: "center",
                 fontFamily: "sans-serif",
-                paddingTop: "0.4em"
+                paddingTop: "0.4em",
+                //filter: "brightness(50%)"
             }
         }
     }
@@ -55,7 +57,7 @@ export class Card extends Component {
         if(!this.props.complex){
             return (
                 <div style = {this.cardStyle()}>
-                    <h4 id="headingcity"><b>{this.props.title}</b></h4>
+                    <h4 id="headingcity2"><b>{this.props.title}</b></h4>
                     <p id="desc">{this.props.weather}</p>
                     <p id="desc">{this.props.desc}</p>
                 </div>
