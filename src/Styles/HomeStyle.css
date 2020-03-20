@@ -124,14 +124,22 @@ p#desc2{
 }
 
 h4#headingcity2{
-    padding-top: 1.5em;
+    padding-top: 2em;
     margin-top: 0.4em;
     margin-bottom: 0.4em;
     align-self: center;
-    font-family: monospace;
-    letter-spacing: 8px;
+    letter-spacing: 10px;
     font-weight: 500;
-    font-size: 14px;
+    color: #ffffff;
+    text-shadow: 1px 1px 5px black; 
+}
+
+h4#headingcity2 b{
+    padding-top: 2em;
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+    letter-spacing: 4px;
+    align-self: center;
     color: #ffffff;
     text-shadow: 1px 1px 5px black; 
 }
