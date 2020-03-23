@@ -18,8 +18,10 @@ export class Card extends Component {
                 //backgroundImage: "url(" + this.props.back + ")",
                 background: `linear-gradient(45deg, ${this.props.c1} 0%, ${this.props.c2} 100%, ${this.props.c2} 100%)`,
                 borderRadius: "5px",
-                fontFamily: "sans-serif",
+                fontFamily: "Arial, Helvetica, sans-serif",
+                letterSpacing: "2px",
                 paddingTop: "0.4em",
+                fontSize: "12px"
                 //filter: "brightness(50%)"
             }
         }
@@ -37,8 +39,11 @@ export class Card extends Component {
                 marginBottom: "0.4em",
                 minHeight: this.props.height + "px",
                 textAlign: "center",
-                fontFamily: "sans-serif",
+                fontFamily: "'Courier New', Courier, monospace",
                 paddingTop: "0.4em",
+                //letterSpacing: "6px",
+                fontSize: "16px",
+                //fontWeight: "550"
                 //filter: "brightness(50%)"
             }
         }
