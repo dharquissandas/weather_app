@@ -2,9 +2,7 @@ import React, {Component} from 'react';
 import './Styles/App.css';
 import './Styles/Reset.css';
 import './Styles/Mixins.less';
-
 import {Route, BrowserRouter} from 'react-router-dom';
-
 import Header from './Components/Header';
 import Home from './Components/Home';
 import CurrentWeather from './Components/CurrentWeather';
@@ -15,6 +13,7 @@ import Search from './Components/Search';
 
 
 export class App extends Component {
+    // initializing the state of the application which holds information for the application to use.
     state = {
         suggesteddestinations : [],
         scheduleddestinations : [],
@@ -25,6 +24,7 @@ export class App extends Component {
         this.grabData()
     }
 
+    // function for selecting the weather for upcoming days 
     getday = (weatherData, start, prev) => {
         for(var i = start; i<=weatherData.list.length; i++){
             if(!weatherData.list[i].dt_txt.includes(prev.dt_txt.split(' ')[0]) 
@@ -34,6 +34,8 @@ export class App extends Component {
         }
     }
 
+    // sets the state of the component with all of the data fetched from the weather api
+    // and suggested destinations from the db.json file 
     grabData = async () =>{
         let suggestionsAPI = "https://my-json-server.typicode.com/dharquissandas/weather_app/suggesteddestinations";
         let suggestionsFetch = await fetch(suggestionsAPI)
@@ -46,7 +48,8 @@ export class App extends Component {
             let weatherData = await weatherFetch.json()
 
             let {main, weather, wind} = weatherData.list[0]
-
+            
+            // populate all of the suggestionData values to match the data given from the api
             suggestionData[index].temp = main.temp.toString()
             suggestionData[index].desc = weather[0].main
             suggestionData[index].tempmax = main.temp_max.toString()
@@ -54,6 +57,8 @@ export class App extends Component {
             suggestionData[index].feelslike = main.feels_like.toString()
             suggestionData[index].pressure = main.pressure.toString()
             suggestionData[index].windspeed = wind.speed.toString()
+           
+            // uses the getDay function to get all of the upcoming days' weather
             suggestionData[index].dayone = weatherData.list[0]
 
             var array = this.getday(weatherData, 1, suggestionData[index].dayone)
@@ -69,21 +74,22 @@ export class App extends Component {
             suggestionData[index].dayfive = array[0]
         }
         this.setState({
+            // set the new information as the state and loaded as true to indicate that the data from
+            // the api has been stored
             suggesteddestinations : suggestionData,
             loaded: true
         })
     }
 
     render (){
-        console.log(this.state.suggesteddestinations)
-        // console.log(this.state.loaded)
         return(
             <div>
-                {this.state.loaded ? 
+                {this.state.loaded ? //only render the page if the content from the api has been loaded
                 <div>
                     {
                     <BrowserRouter>
                         <div className="container">
+                            {/* container that contains all of the different paths for the application and renders the homepage */}
                             <Header />
                             <Route exact path="/" render={(props) =>
                                 <Home {...props} suggesteddestinations={this.state.suggesteddestinations} />
