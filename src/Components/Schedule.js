@@ -68,7 +68,7 @@ export class Schedule extends Component {
             }
         }
 
-        for (var j = startposition; j <= endposition; j++) {
+        for (j = startposition; j <= endposition; j++) {
                 selected[count] = dates[j]
                 count ++
         }
@@ -115,7 +115,6 @@ export class Schedule extends Component {
 
     render() {
         var sdd = this.state.sdd
-        console.log(this.state.obj)
         return (
             <div >
                 <div className="horizontalScroll">

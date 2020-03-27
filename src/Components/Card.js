@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import '../Styles/HomeStyle.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export class Card extends Component {
     // styling information for the Card
@@ -16,13 +17,14 @@ export class Card extends Component {
                 minWidth: this.props.invisible ? "0.1px" : this.props.width + "px",
                 minHeight: this.props.invisible ? "110px" : this.props.height + "px",
                 textAlign: "center",
-                //backgroundImage: "url(" + this.props.back + ")",
+                backgroundImage: "url(" + this.props.back + ")",
+                backgroundSize: "100% 100%",
                 background: `linear-gradient(45deg, ${this.props.c1} 0%, ${this.props.c2} 100%, ${this.props.c2} 100%)`,
                 borderRadius: "5px",
                 fontFamily: "Arial, Helvetica, sans-serif",
                 letterSpacing: "2px",
                 paddingTop: "0.4em",
-                fontSize: "12px"
+                fontSize: "12px",
                 //filter: "brightness(50%)"
             }
         }
@@ -67,16 +69,29 @@ export class Card extends Component {
                     <h4 id="headingcity2"><b>{this.props.title}</b></h4>
                     <p id="desc">{this.props.weather}</p>
                     <p id="desc">{this.props.desc}</p>
+                    <img src={this.props.icon}></img>
+                </div>
+            )
+        }
+        else if(this.props.title === "Pressure" || this.props.title === "Feels Like" || this.props.title === "Wind Speed"){
+            console.log(this.props)
+            return (
+                <div style = {this.cardStyle()}>
+                    <h4 id="headingcity2"><b>{this.props.title}</b></h4>
+                    <p id="desc">{this.props.weather}</p>
+                    <p id="desc">{this.props.desc}</p>
+                    <FontAwesomeIcon icon={this.props.icon} />
                 </div>
             )
         }
         // if the card is complex, return detailed information for all of the fields given
         else{
             return(
-                <div style = {this.cardStyle()}>
+                <div style = {this.cardStyle()}><i class="fas fa-wind"></i>
                     <h4 id="heading"><b>{this.props.title}</b></h4>
                     <h4 id="heading2"><b>{this.props.date}</b></h4>
                     <p id="desc">{this.props.desc}</p>
+                    <img src={this.props.icon}></img>
                     <p id="desc">{this.props.weather}</p>
                     <p id="desc">{"max: " + this.props.high}</p>
                     <p id="desc">{"min: " + this.props.low}</p>

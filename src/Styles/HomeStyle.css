@@ -143,3 +143,9 @@ h4#headingcity2 b{
     color: #ffffff;
     text-shadow: 1px 1px 5px black; 
 }
+
+img{
+    margin-top: -10px;
+    margin-bottom: -20px;
+    max-height: 50px;
+}
