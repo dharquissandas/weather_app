@@ -6,7 +6,7 @@ import { faCloudShowersHeavy, faCloudSun, faCloud, faWind, faTemperatureHigh, fa
 
 export class Card extends Component {
     state = {
-        icon: ''
+        icon: faCloudSun
     }
 
     componentDidMount = () =>{
@@ -106,7 +106,6 @@ export class Card extends Component {
                     <p id="desc">{this.props.weather}</p>
                     <p id="desc">{this.props.desc}</p>
                     <FontAwesomeIcon icon={this.state.icon} />
-                    {/* <img src={this.props.icon}></img> */}
                 </div>
             )
         }
