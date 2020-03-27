@@ -3,6 +3,7 @@ import Card from './Card';
 import Label from './Label';
 import '../Styles/Reset.css';
 import '../Styles/HomeStyle.css';
+import Header from './Header'
 
 import {Link} from 'react-router-dom'
 
@@ -15,10 +16,11 @@ export class CurrentWeather extends Component {
 
         return (
             <div>
+                <Header history = {this.props.history} />
                 <div className="horizontalScroll">
                     {/* creates a home button that goes back to the home page */}
                     <Link style={marginLeft} id="homebtn" className="navlinks linkStyle" to={{
-                        pathname: `/`
+                        pathname: `/Home`
                         }}>
                             <p id="homenav">Home</p>
                     </Link>
@@ -68,7 +70,7 @@ export class CurrentWeather extends Component {
                         title="" 
                         weather={dest[pos].daytwo.main.temp}
                         width="110" 
-                        height="252"
+                        height="260"
                         c1={dest[pos].color1} 
                         c2={dest[pos].color2}/>
                     <Card complex date={dest[pos].daythree.dt_txt}
@@ -81,7 +83,7 @@ export class CurrentWeather extends Component {
                         title="" 
                         weather={dest[pos].daythree.main.temp}
                         width="110" 
-                        height="252"
+                        height="260"
                         c1={dest[pos].color1} 
                         c2={dest[pos].color2}/>   
                     <Card complex date={dest[pos].dayfour.dt_txt}
@@ -94,7 +96,7 @@ export class CurrentWeather extends Component {
                         title="" 
                         weather={dest[pos].dayfour.main.temp}
                         width="110" 
-                        height="252"
+                        height="260"
                         c1={dest[pos].color1} 
                         c2={dest[pos].color2}/>
                     <Card complex date={dest[pos].dayfive.dt_txt}
@@ -107,7 +109,7 @@ export class CurrentWeather extends Component {
                         title="" 
                         weather={dest[pos].dayfive.main.temp} 
                         width="110" 
-                        height="252"
+                        height="260"
                         c1={dest[pos].color1} 
                         c2={dest[pos].color2} />                                                                   
                     <Card invisible/>

@@ -1,23 +1,35 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faSlidersH } from '@fortawesome/free-solid-svg-icons';
-import {withRouter} from 'react-router-dom';
+import { faSearch, faHome } from '@fortawesome/free-solid-svg-icons';
 
 
-export class Header extends Component {    
+export class Header extends Component {
+    push = () => {
+        this.props.history.push({
+            pathname: '/Search'
+        })
+    }
+
+    pushHome = () => {
+        this.props.history.push({
+            pathname: '/Home'
+        })
+    }
+
     render() {
+        console.log(this.props)
         return (
             // returns the header component for the top of each page
             <div style={header}>
-            <div style={inner}>
-                {/* creates an option menu button */}
-                <div style={btnContainer}><button className="btn"><FontAwesomeIcon icon={faSlidersH} /></button></div>
-                {/* creates a search text field */}
-                <div style={searchContainer}><input className="search" type="text" placeholder="Holiday Destinations"></input></div>
-                {/* creates a search button */}
-                <div style={btnContainer}><button className="btn"><FontAwesomeIcon icon={faSearch} /></button></div>
+                <div style={inner}>
+                    {/* creates an option menu button */}
+                    <div style={btnContainer}><button onClick={this.pushHome} className="btn"><FontAwesomeIcon icon={faHome} /></button></div>
+                    {/* creates a search text field */}
+                    <div style={searchContainer}><p>Weather</p></div>
+                    {/* creates a search button */}
+                    <div style={btnContainer}><button onClick={this.push} className="btn"><FontAwesomeIcon icon={faSearch} /></button></div>
+                </div>
             </div>
-        </div>
         )
     }
 }
@@ -43,7 +55,8 @@ const inner = {
 const searchContainer = {
     flex : "3",
     textAlign: "center",
-    verticalAlign: "text-bottom"
+    verticalAlign: "text-bottom",
+    marginTop: "0.8em"
 }
 
 // styling for the button

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Label from './Label'
 import {Link} from 'react-router-dom'
 import '../Styles/Schedule.css';
+import Header from './Header';
 
 export class Schedule extends Component {
     // initializes the state for the component with the props passed in from the form 
@@ -29,7 +30,7 @@ export class Schedule extends Component {
         }
 
         this.props.history.push({
-            pathname: '/',
+            pathname: '/home',
             state: {
                 data : this.state.sdd
             }
@@ -118,10 +119,11 @@ export class Schedule extends Component {
         console.log(this.state.obj)
         return (
             <div >
+                <Header history = {this.props.history} />
                 <div className="horizontalScroll">
                     {/* create the home button that takes the user back to the home page */}
                     <Link style={marginLeft} id="homebtn"  className="navlinks linkStyle" to={{
-                        pathname:`/`,
+                        pathname:`/Home`,
                         state : {
                             data : sdd
                         }

@@ -4,6 +4,7 @@ import Label from './Label';
 import '../Styles/HomeStyle.css';
 
 import {Link} from 'react-router-dom';
+import {Header} from './Header'
 
 export class Home extends Component {
     // initializing the state for the Home component with information about the
@@ -34,6 +35,8 @@ export class Home extends Component {
         
         return (
             <div>
+                <Header history = {this.props.history} />
+                {console.log(this.props.suggesteddestinations)}
                 <div className="welcome"><Label text="Current Weather"/></div>
                 {/* creates the current weather card at the top of the screen with a link to the 
                 current weather page for the current location */}

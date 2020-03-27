@@ -44,6 +44,10 @@
     color: #fff;
 }
 
+.search:focus::placeholder {
+    color: transparent;
+  }
+
 .search:focus{
     outline: none;
 }
@@ -60,9 +64,16 @@
 
 .verticalScroll{
     overflow-y: auto;
-    height: 385px;
+    height: 380px;
     margin-top: 0.4em;
 }
+
+.verticalScrollSearch{
+    overflow-y: auto;
+    height: 659px;
+    margin-top: 0.4em;
+}
+
 
 .horizontalScroll::-webkit-scrollbar{
     display: none;
@@ -71,6 +82,11 @@
 .verticalScroll::-webkit-scrollbar{
     display: none;
 }
+
+.verticalScrollSearch::-webkit-scrollbar{
+    display: none;
+}
+
 
 .scheduledEventCard{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
