@@ -28,6 +28,7 @@ export class Home extends Component {
     }
 
     render(){
+        console.log(this.state.suggesteddestinations)
         if(this.state.scheduleddestinations.length > 0){
             // set loaded as true if there are previously scheduled destinations
             this.state.loaded = true
@@ -47,7 +48,7 @@ export class Home extends Component {
                         sdd : this.state.scheduleddestinations
                     }}
                 }}>
-                    <div className="welcome"><Card back={this.state.suggesteddestinations[0].url} title={this.state.suggesteddestinations[0].name} desc={this.state.suggesteddestinations[0].desc} weather={this.state.suggesteddestinations[0].temp} width="100" height="110"/></div>
+                    <div className="welcome"><Card back={this.state.suggesteddestinations[0].url} title={this.state.suggesteddestinations[0].name} desc={this.state.suggesteddestinations[0].desc} weather={this.state.suggesteddestinations[0].temp} icon={"http://openweathermap.org/img/w/"+this.state.suggesteddestinations[0].dayone.weather[0].icon+".png"} width="100" height="110"/></div>
                 </Link>
 
                 <Label text="Recently Scheduled Holidays"/>
@@ -68,7 +69,7 @@ export class Home extends Component {
                             sdd : this.state.scheduleddestinations
                         }
                         }>
-                            <Card back={dest.information.url} title={dest.information.name} weather={dest.information.temp} desc={dest.information.desc} width="110" height="110"/>
+                            <Card back={dest.information.url} title={dest.information.name} weather={dest.information.temp} desc={dest.information.desc} icon={"http://openweathermap.org/img/w/"+dest.information.dayone.weather[0].icon+".png"} width="110" height="110"/>
                         </Link>
                     ))}
                     {/* create an invisible card at the end of the scroll bar for formatting */}
@@ -87,7 +88,7 @@ export class Home extends Component {
                                 sdd : this.state.scheduleddestinations
                             }}
                         }}>
-                            <Card back={dest.url} title={dest.name} weather={dest.temp} desc={dest.desc} width="100" height="110"/>
+                            <Card back={dest.url} title={dest.name} weather={dest.temp} desc={dest.desc} icon={"http://openweathermap.org/img/w/"+dest.dayone.weather[0].icon+".png"} width="100" height="110"/>
                         </Link>
                     ))}
                 </div>
