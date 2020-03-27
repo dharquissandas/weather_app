@@ -1,22 +1,7 @@
 import React, { Component } from 'react'
 import '../Styles/HomeStyle.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCloudShowersHeavy, faCloudSun, faCloud, faWind, faTemperatureHigh, faTachometerAlt } from '@fortawesome/free-solid-svg-icons';
-
 
 export class Card extends Component {
-    state = {
-        icon: ''
-    }
-
-    componentDidMount = () =>{
-        const icon = this.icon()
-        this.setState({
-            icon: icon
-        })
-    }
-
-
     // styling information for the Card
     cardStyle = () =>{
         this.checkLast() // checks if the current card is the last card, in which case make it invisible
@@ -31,14 +16,13 @@ export class Card extends Component {
                 minWidth: this.props.invisible ? "0.1px" : this.props.width + "px",
                 minHeight: this.props.invisible ? "110px" : this.props.height + "px",
                 textAlign: "center",
-                backgroundImage: "url(" + this.props.back + ")",
-                backgroundSize: "100% 100%",
+                //backgroundImage: "url(" + this.props.back + ")",
                 background: `linear-gradient(45deg, ${this.props.c1} 0%, ${this.props.c2} 100%, ${this.props.c2} 100%)`,
                 borderRadius: "5px",
                 fontFamily: "Arial, Helvetica, sans-serif",
                 letterSpacing: "2px",
                 paddingTop: "0.4em",
-                fontSize: "12px",
+                fontSize: "12px"
                 //filter: "brightness(50%)"
             }
         }
@@ -75,29 +59,7 @@ export class Card extends Component {
         }
     }
 
-    icon = () => {
-        if(this.props.title === "Pressure"){
-            return faTachometerAlt
-        }
-        else if(this.props.title === "Feels Like"){
-            return faTemperatureHigh
-        }
-        else if(this.props.title === "Wind Speed"){
-            return faWind
-        }
-        else if(this.props.desc === "Clear" || this.props.desc === "Sunny"){
-            return faCloudSun
-        }
-        else if(this.props.desc === "Clouds"){
-            return faCloud
-        }
-        else if(this.props.desc === "Rain"){
-            return faCloudShowersHeavy
-        }
-    }
-
     render() {
-        const icon = this.icon()
         // if the card is not a complex card, return information for the few fields given
         if(!this.props.complex){
             return (
@@ -105,19 +67,16 @@ export class Card extends Component {
                     <h4 id="headingcity2"><b>{this.props.title}</b></h4>
                     <p id="desc">{this.props.weather}</p>
                     <p id="desc">{this.props.desc}</p>
-                    <FontAwesomeIcon icon={this.state.icon} />
-                    {/* <img src={this.props.icon}></img> */}
                 </div>
             )
         }
         // if the card is complex, return detailed information for all of the fields given
         else{
             return(
-                <div style = {this.cardStyle()}><i class="fas fa-wind"></i>
+                <div style = {this.cardStyle()}>
                     <h4 id="heading"><b>{this.props.title}</b></h4>
                     <h4 id="heading2"><b>{this.props.date}</b></h4>
                     <p id="desc">{this.props.desc}</p>
-                    <FontAwesomeIcon icon={this.state.icon} />
                     <p id="desc">{this.props.weather}</p>
                     <p id="desc">{"max: " + this.props.high}</p>
                     <p id="desc">{"min: " + this.props.low}</p>
