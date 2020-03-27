@@ -3,7 +3,7 @@ import Card from './Card';
 import Label from './Label';
 import '../Styles/Reset.css';
 import '../Styles/HomeStyle.css';
-import { faWind, faTemperatureHigh, faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons';
+import Header from './Header'
 
 import {Link} from 'react-router-dom'
 
@@ -13,16 +13,14 @@ export class CurrentWeather extends Component {
         var pos = this.props.match.params.id
         var dest = this.props.location.state.info.data
         var sdd = this.props.location.state.info.sdd
-        var imageLink = 'http://openweathermap.org/img/wn/{}/@2x.png'
-        console.log(dest)
-        
 
         return (
             <div>
+                <Header history = {this.props.history} />
                 <div className="horizontalScroll">
                     {/* creates a home button that goes back to the home page */}
                     <Link style={marginLeft} id="homebtn" className="navlinks linkStyle" to={{
-                        pathname: `/`,
+                        pathname: `/home`,
                         state : {
                             data : sdd
                         }
@@ -54,15 +52,14 @@ export class CurrentWeather extends Component {
                         title={dest[pos].name} 
                         weather={dest[pos].temp}
                         back={dest[pos].url}
-                        icon={"http://openweathermap.org/img/w/"+dest[pos].dayone.weather[0].icon+".png"}
                         width="100" 
                         height="110"/>
                 </div>
                 <div className="horizontalScroll">
                    {/* display values for pressure, wind speed, and feels like properties */}
-                    <Card title="Pressure" c1={dest[pos].color1} c2={dest[pos].color2} weather={dest[pos].pressure + " hPa"} width="131" height="100" icon={faAngleDoubleDown} style={backGround}/>
-                    <Card title="Feels Like" c1={dest[pos].color1} c2={dest[pos].color2} weather={dest[pos].feelslike} width="131" height="100" icon={faTemperatureHigh} style={backGround}/>
-                    <Card title="Wind Speed" c1={dest[pos].color1} c2={dest[pos].color2} weather= {dest[pos].windspeed + " m/s"} width="131" height="100" icon={faWind} style={backGround}/>
+                    <Card title="Pressure" c1={dest[pos].color1} c2={dest[pos].color2} weather={dest[pos].pressure + " hPa"} width="131" height="100" style={backGround}/>
+                    <Card title="Feels Like" c1={dest[pos].color1} c2={dest[pos].color2} weather={dest[pos].feelslike} width="131" height="100" style={backGround}/>
+                    <Card title="Wind Speed" c1={dest[pos].color1} c2={dest[pos].color2} weather= {dest[pos].windspeed + " m/s"} width="131" height="100" style={backGround}/>
                 </div>
                 <Label text="Coming Days"/>
                 <div className="horizontalScroll" id="comingdays">
@@ -76,7 +73,6 @@ export class CurrentWeather extends Component {
                         desc={dest[pos].daytwo.weather[0].main} 
                         title="" 
                         weather={dest[pos].daytwo.main.temp}
-                        icon={"http://openweathermap.org/img/w/"+dest[pos].daytwo.weather[0].icon+".png"}
                         width="110" 
                         height="240"
                         c1={dest[pos].color1} 
@@ -90,7 +86,6 @@ export class CurrentWeather extends Component {
                         desc={dest[pos].daythree.weather[0].main} 
                         title="" 
                         weather={dest[pos].daythree.main.temp}
-                        icon={"http://openweathermap.org/img/w/"+dest[pos].daythree.weather[0].icon+".png"}
                         width="110" 
                         height="240"
                         c1={dest[pos].color1} 
@@ -104,7 +99,6 @@ export class CurrentWeather extends Component {
                         desc={dest[pos].dayfour.weather[0].main} 
                         title="" 
                         weather={dest[pos].dayfour.main.temp}
-                        icon={"http://openweathermap.org/img/w/"+dest[pos].dayfour.weather[0].icon+".png"}
                         width="110" 
                         height="240"
                         c1={dest[pos].color1} 
@@ -117,8 +111,7 @@ export class CurrentWeather extends Component {
                         feelslike={dest[pos].dayfive.main.feels_like} 
                         desc={dest[pos].dayfive.weather[0].main} 
                         title="" 
-                        weather={dest[pos].dayfive.main.temp} 
-                        icon={"http://openweathermap.org/img/w/"+dest[pos].dayfive.weather[0].icon+".png"}
+                        weather={dest[pos].dayfive.main.temp}
                         width="110" 
                         height="240"
                         c1={dest[pos].color1} 

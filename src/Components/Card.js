@@ -1,8 +1,22 @@
 import React, { Component } from 'react'
 import '../Styles/HomeStyle.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloudShowersHeavy, faCloudSun, faCloud, faWind, faTemperatureHigh, faTachometerAlt } from '@fortawesome/free-solid-svg-icons';
+
 
 export class Card extends Component {
+    state = {
+        icon: ''
+    }
+
+    componentDidMount = () =>{
+        const icon = this.icon()
+        this.setState({
+            icon: icon
+        })
+    }
+
+
     // styling information for the Card
     cardStyle = () =>{
         this.checkLast() // checks if the current card is the last card, in which case make it invisible
@@ -61,7 +75,29 @@ export class Card extends Component {
         }
     }
 
+    icon = () => {
+        if(this.props.title === "Pressure"){
+            return faTachometerAlt
+        }
+        else if(this.props.title === "Feels Like"){
+            return faTemperatureHigh
+        }
+        else if(this.props.title === "Wind Speed"){
+            return faWind
+        }
+        else if(this.props.desc === "Clear" || this.props.desc === "Sunny"){
+            return faCloudSun
+        }
+        else if(this.props.desc === "Clouds"){
+            return faCloud
+        }
+        else if(this.props.desc === "Rain"){
+            return faCloudShowersHeavy
+        }
+    }
+
     render() {
+        const icon = this.icon()
         // if the card is not a complex card, return information for the few fields given
         if(!this.props.complex){
             return (
@@ -69,18 +105,8 @@ export class Card extends Component {
                     <h4 id="headingcity2"><b>{this.props.title}</b></h4>
                     <p id="desc">{this.props.weather}</p>
                     <p id="desc">{this.props.desc}</p>
-                    <img src={this.props.icon}></img>
-                </div>
-            )
-        }
-        else if(this.props.title === "Pressure" || this.props.title === "Feels Like" || this.props.title === "Wind Speed"){
-            console.log(this.props)
-            return (
-                <div style = {this.cardStyle()}>
-                    <h4 id="headingcity2"><b>{this.props.title}</b></h4>
-                    <p id="desc">{this.props.weather}</p>
-                    <p id="desc">{this.props.desc}</p>
-                    <FontAwesomeIcon icon={this.props.icon} />
+                    <FontAwesomeIcon icon={this.state.icon} />
+                    {/* <img src={this.props.icon}></img> */}
                 </div>
             )
         }
@@ -91,7 +117,7 @@ export class Card extends Component {
                     <h4 id="heading"><b>{this.props.title}</b></h4>
                     <h4 id="heading2"><b>{this.props.date}</b></h4>
                     <p id="desc">{this.props.desc}</p>
-                    <img src={this.props.icon}></img>
+                    <FontAwesomeIcon icon={this.state.icon} />
                     <p id="desc">{this.props.weather}</p>
                     <p id="desc">{"max: " + this.props.high}</p>
                     <p id="desc">{"min: " + this.props.low}</p>

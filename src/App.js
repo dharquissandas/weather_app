@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './Styles/App.css';
 import './Styles/Reset.css';
 import './Styles/Mixins.less';
-import {Route, BrowserRouter} from 'react-router-dom';
+import {Route, BrowserRouter, Redirect} from 'react-router-dom';
 import Header from './Components/Header';
 import Home from './Components/Home';
 import CurrentWeather from './Components/CurrentWeather';
@@ -88,16 +88,19 @@ export class App extends Component {
                 <div>
                     {
                     <BrowserRouter>
+                        <Redirect to="/Home" />
                         <div className="container">
                             {/* container that contains all of the different paths for the application and renders the homepage */}
-                            <Header />
-                            <Route exact path="/" render={(props) =>
+                            <Route path="/Search" render={(props) =>
+                                <Search {...props} suggesteddestinations={this.state.suggesteddestinations} scheduleddestinations={this.state.scheduleddestinations} />
+                            } />
+                            <Route path="/Home" render={(props) =>
                                 <Home {...props} suggesteddestinations={this.state.suggesteddestinations} />
                             } />
                             <Route path="/CurrentWeather/:id" component = {CurrentWeather} />
                             <Route path="/EventSelection/:id" component = {EventSelection} />
                             <Route path="/Schedule" component = {Schedule} />
-                            <Route path="/Search" component = {Search} />
+                            <Route path="/Header" component = {Header} />
                         </div>
                     </BrowserRouter>
                     }
