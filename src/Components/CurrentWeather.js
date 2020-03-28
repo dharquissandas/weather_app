@@ -20,10 +20,7 @@ export class CurrentWeather extends Component {
                 <div className="horizontalScroll">
                     {/* creates a home button that goes back to the home page */}
                     <Link style={marginLeft} id="homebtn" className="navlinks linkStyle" to={{
-                        pathname: `/home`,
-                        state : {
-                            data : sdd
-                        }
+                        pathname: `/Home`
                         }}>
                             <p id="homenav">Home</p>
                     </Link>
@@ -51,19 +48,18 @@ export class CurrentWeather extends Component {
                         desc={dest[pos].desc} 
                         title={dest[pos].name} 
                         weather={dest[pos].temp}
-                        back={dest[pos].url}
+                        back={dest[pos].url} 
                         width="100" 
                         height="110"/>
                 </div>
                 <div className="horizontalScroll">
                    {/* display values for pressure, wind speed, and feels like properties */}
-                    <Card title="Pressure" c1={dest[pos].color1} c2={dest[pos].color2} weather={dest[pos].pressure + " hPa"} width="131" height="100" style={backGround}/>
-                    <Card title="Feels Like" c1={dest[pos].color1} c2={dest[pos].color2} weather={dest[pos].feelslike} width="131" height="100" style={backGround}/>
-                    <Card title="Wind Speed" c1={dest[pos].color1} c2={dest[pos].color2} weather= {dest[pos].windspeed + " m/s"} width="131" height="100" style={backGround}/>
+                    <Card title="Pressure" c1={dest[pos].color1} c2={dest[pos].color2} weather={dest[pos].pressure + " hPa"} width="129.33" height="110" style={backGround}/>
+                    <Card title="Feels Like" c1={dest[pos].color1} c2={dest[pos].color2} weather={dest[pos].feelslike} width="129.33" height="110" style={backGround}/>
+                    <Card title="Wind Speed" c1={dest[pos].color1} c2={dest[pos].color2} weather= {dest[pos].windspeed + " m/s"} width="129.33" height="110" style={backGround}/>
                 </div>
                 <Label text="Coming Days"/>
                 <div className="horizontalScroll" id="comingdays">
-                {/* display weather for upcoming days*/}
                     <Card complex date={dest[pos].daytwo.dt_txt}
                         high={dest[pos].daytwo.main.temp_max}
                         low={dest[pos].daytwo.main.temp_min}
@@ -111,7 +107,7 @@ export class CurrentWeather extends Component {
                         feelslike={dest[pos].dayfive.main.feels_like} 
                         desc={dest[pos].dayfive.weather[0].main} 
                         title="" 
-                        weather={dest[pos].dayfive.main.temp}
+                        weather={dest[pos].dayfive.main.temp} 
                         width="110" 
                         height="257"
                         c1={dest[pos].color1} 
