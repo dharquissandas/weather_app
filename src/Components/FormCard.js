@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {withRouter} from 'react-router-dom';
 import '../Styles/FormCard.css';
 import Label from './Label';
+import { Container, Button } from 'react-floating-action-button'
 
 export class FormCard extends Component {  
     // initializes the state 
@@ -137,7 +138,7 @@ export class FormCard extends Component {
         var events = this.props.events;
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form id="eventform" onSubmit={this.handleSubmit}>
                 <div className="welcome"><Label text="Select Events"/></div>
                 <div style = {this.cardStyle("top")}>
                     <div className='form'>
@@ -160,25 +161,33 @@ export class FormCard extends Component {
                     <div className='form'>
                         <div className='inputGroup' style={this.background()}>
                             {/* create the input fields for the start and end date selection */}
-                            <table><tr>
-                            <td><div>
+                            {/* <table><tr><td> */}
+                            <div style={{textAlign: "left"}}>
                                 <label className='datelabelleft' htmlFor="start">Start date:</label>
-                                <input type="date" id="start" name="trip-start" min={this.getDate()}
+                            </div>
+                                <input style = {{width:"-webkit-fill-available"}} type="date" id="start" name="trip-start" min={this.getDate()}
                                 max={this.getmax(this.getDate())} onChange={this.handleChange} required>
                                 </input>
-                            </div></td>
-                            <td><div>
+                            {/* </td><td> */}
+                            <div style={{textAlign: "left"}}>
                                 <label className='datelabelright' htmlFor="end">End date:</label>
-                                <input type="date" id="end" name="trip-end" min={this.getmin(this.state.start)}
+                            </div>
+                                <input style = {{width:"-webkit-fill-available"}} type="date" id="end" name="trip-end" min={this.getmin(this.state.start)}
                                 max={this.getEndDate(this.state.start, this.getmax(this.getDate()))} onChange={this.handleChange} required>
                                 </input>
-                            </div></td>
-                            </tr></table>
+                            {/* </td></tr></table> */}
                         </div>
                     </div> 
                     {/* button for submitting the form */}
-                    <button className="formbtn">Create</button>
                 </div>
+                <Container className="fabPlacement">
+                    <Button
+                        icon="fas fa-check"
+                        rotate={false}
+                        type="submit"
+                        styles={{backgroundColor: this.props.c1, color:"#fff"}}
+                        onClick={this.handleSubmit} />
+                </Container>
                 </form>
             </div>
         )  

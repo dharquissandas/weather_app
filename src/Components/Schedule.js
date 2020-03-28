@@ -3,6 +3,7 @@ import Label from './Label'
 import {Link} from 'react-router-dom'
 import '../Styles/Schedule.css';
 import Header from './Header';
+import { Container, Button } from 'react-floating-action-button'
 
 export class Schedule extends Component {
     // initializes the state for the component with the props passed in from the form 
@@ -120,23 +121,7 @@ export class Schedule extends Component {
         console.log(sdd)
         return (
             <div >
-                <Header history = {this.props.history} />
-                <div className="horizontalScroll">
-                    {/* create the home button that takes the user back to the home page */}
-                    <Link style={marginLeft} id="homebtn"  className="navlinks linkStyle" to={{
-                        pathname:`/Home`,
-                        state : {
-                            data : sdd
-                        }
-                    }}>
-                        <div style={marginLeft}><p>Home</p></div>
-                    </Link>
-
-                    {/* create the delete button that deletes the current schedule */}
-                    <div onClick={this.deleteItem} className="navlinks" id="homebtn" >
-                        <div><p>Delete</p></div>
-                    </div>
-                </div>
+                <Header history = {this.props.history} sdd={this.state.sdd} />
                 <div className="welcome"><Label text="Schedule for Events"/></div>
                 <div className="events">
                     <div className="verticalScroll schedule">
@@ -158,6 +143,13 @@ export class Schedule extends Component {
                         })}
                     </div>
                 </div>
+                <Container className="fabPlacement">
+                    <Button
+                        icon="fas fa-times"
+                        styles={{backgroundColor: this.state.obj.c1 , color : "#fff"}}
+                        rotate={false}
+                        onClick={this.deleteItem} />
+                </Container>
             </div>
         )
     }

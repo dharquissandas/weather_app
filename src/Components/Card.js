@@ -22,12 +22,12 @@ export class Card extends Component {
                          // used for horizontal scroll formatting
         if (this.props.width !== "100"){
             return{
-                boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
+                boxShadow: this.props.invisible ? null : "0 4px 8px 0 rgba(0,0,0,0.2)",
                 transition: "0.3s",
                 color: "#fff",
                 marginLeft: "0.4em",
                 marginBottom: "0.4em",
-                minWidth: this.props.invisible ? "0.1px" : this.props.width + "px",
+                minWidth: this.props.width + "px",
                 minHeight: this.props.invisible ? "110px" : this.props.height + "px",
                 textAlign: "center",
                 backgroundImage: "url(" + this.props.back + ")",

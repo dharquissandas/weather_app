@@ -59,13 +59,13 @@
     overflow-x: auto;
     min-height: fit-content;
     margin-top: 0.4em;
-    width: 100%;
+    width: 99%;
     margin-left: 0.1em;
 }
 
 .verticalScroll{
     overflow-y: auto;
-    height: 380px;
+    height: 370px;
     margin-top: 0.4em;
 }
 
@@ -136,6 +136,18 @@
 
 .noSE{
     display: block;
-    height: 116.4px;
+    height: 125px;
     text-align: center;
 }
+
+.fabPlacement{
+    bottom: 1px !important;
+    right: 560px !important;
+}
+
+@media screen and (max-width: 480px) {
+    .fabPlacement{
+        bottom: 0.8vw !important;
+        right: 0.8vw !important;
+    }
+  }

@@ -12,12 +12,15 @@ export class Header extends Component {
 
     pushHome = () => {
         this.props.history.push({
-            pathname: '/Home'
+            pathname: '/Home',
+            state: {
+                data : this.props.sdd
+            }
         })
     }
 
     render() {
-        console.log(this.props)
+        console.log(this.props.sdd)
         return (
             // returns the header component for the top of each page
             <div style={header}>

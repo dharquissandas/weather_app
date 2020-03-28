@@ -5,8 +5,25 @@ import '../Styles/Reset.css';
 import '../Styles/HomeStyle.css';
 import Header from './Header'
 import {Link} from 'react-router-dom'
+import { Container, Button } from 'react-floating-action-button'
+
 
 export class CurrentWeather extends Component {
+
+    pushES = () => {
+        var pos = this.props.match.params.id
+        var dest = this.props.location.state.info.data
+        var sdd = this.props.location.state.info.sdd
+
+        this.props.history.push({
+            pathname: `/EventSelection/${pos}`,
+            state:{info : {
+                data : dest[pos],
+                sdd : sdd
+            }}
+        })
+    }
+
     render() {
         // create variables for all of the props passed into the page
         var pos = this.props.match.params.id
@@ -15,28 +32,7 @@ export class CurrentWeather extends Component {
 
         return (
             <div className="overflow">
-                <Header history = {this.props.history} />
-                <div className="horizontalScroll">
-                    {/* creates a home button that goes back to the home page */}
-                    <Link style={marginLeft} id="homebtn" className="navlinks linkStyle" to={{
-                        pathname: `/Home`,
-                        state : {
-                            data : sdd
-                        }
-                        }}>
-                            <p id="homenav">Home</p>
-                    </Link>
-                    {/* creates a schedule holiday button for the user to create a schedule for a specific destination */}
-                    <Link id="homebtn" className="navlinks linkStyle" to={{
-                        pathname: `/EventSelection/${pos}`,
-                        state:{info : {
-                            data : dest[pos],
-                            sdd : sdd
-                        }}
-                        }}>
-                            <p id="homenav">Schedule Holiday</p>
-                    </Link>
-                </div>
+                <Header history = {this.props.history} sdd = {sdd} />
                 <div className="welcome"><Label text="Today"/></div>
                 <div className="welcome">
                     {/* display more detailed weather information about the weather for the selected location */}
@@ -72,7 +68,7 @@ export class CurrentWeather extends Component {
                         title="" 
                         weather={dest[pos].daytwo.main.temp}
                         width="110" 
-                        height="250"
+                        height="325"
                         c1={dest[pos].color1} 
                         c2={dest[pos].color2}/>
                     <Card complex date={dest[pos].daythree.dt_txt}
@@ -85,7 +81,7 @@ export class CurrentWeather extends Component {
                         title="" 
                         weather={dest[pos].daythree.main.temp}
                         width="110" 
-                        height="250"
+                        height="325"
                         c1={dest[pos].color1} 
                         c2={dest[pos].color2}/>   
                     <Card complex date={dest[pos].dayfour.dt_txt}
@@ -98,7 +94,7 @@ export class CurrentWeather extends Component {
                         title="" 
                         weather={dest[pos].dayfour.main.temp}
                         width="110" 
-                        height="250"
+                        height="325"
                         c1={dest[pos].color1} 
                         c2={dest[pos].color2}/>
                     <Card complex date={dest[pos].dayfive.dt_txt}
@@ -111,11 +107,18 @@ export class CurrentWeather extends Component {
                         title="" 
                         weather={dest[pos].dayfive.main.temp} 
                         width="110" 
-                        height="250"
+                        height="325"
                         c1={dest[pos].color1} 
                         c2={dest[pos].color2} />                                                                   
-                    <Card invisible/>
+                    <Card invisible width="98"/>
                 </div>
+                <Container className="fabPlacement">
+                    <Button
+                        icon="fas fa-plus"
+                        styles={{backgroundColor: dest[pos].color1 , color : "#fff"}}
+                        rotate={false}
+                        onClick={this.pushES} />
+                </Container>
             </div>
         )
     }
