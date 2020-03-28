@@ -69,7 +69,7 @@ export class Schedule extends Component {
             }
         }
 
-        for (var j = startposition; j <= endposition; j++) {
+        for (j = startposition; j <= endposition; j++) {
                 selected[count] = dates[j]
                 count ++
         }
@@ -81,7 +81,6 @@ export class Schedule extends Component {
         var available = []
         var events = this.state.obj.information.events
         var selections = this.state.sel
-        console.log(events[i])
         // for each of the events in the available event list
         for (var i = 0; i <events.length; i++){
             // for each of the selections

@@ -8,7 +8,6 @@ export class EventSelection extends Component {
     render() {
         var destination = this.props.location.state.info.data
         var sdd = this.props.location.state.info.sdd
-        var pos = this.props.match.params.id
         return (
             <div>
                 <Header history = {this.props.history} />
