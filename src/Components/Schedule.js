@@ -121,7 +121,7 @@ export class Schedule extends Component {
         console.log(sdd)
         return (
             <div >
-                {/* <Header history = {this.props.history} /> */}
+                <Header history = {this.props.history} />
                 <div className="horizontalScroll">
                     {/* create the home button that takes the user back to the home page */}
                     <Link style={marginLeft} id="homebtn"  className="navlinks linkStyle" to={{
