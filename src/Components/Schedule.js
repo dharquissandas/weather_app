@@ -69,7 +69,7 @@ export class Schedule extends Component {
             }
         }
 
-        for (j = startposition; j <= endposition; j++) {
+        for (var j = startposition; j <= endposition; j++) {
                 selected[count] = dates[j]
                 count ++
         }
@@ -81,7 +81,7 @@ export class Schedule extends Component {
         var available = []
         var events = this.state.obj.information.events
         var selections = this.state.sel
-
+        console.log(events[i])
         // for each of the events in the available event list
         for (var i = 0; i <events.length; i++){
             // for each of the selections
@@ -90,7 +90,7 @@ export class Schedule extends Component {
                 if(selections[j] === events[i].activity){
                     // if the weather is over 15 C, the event is outdoor, and it is not raining, then the activity
                     // can take place on that day
-                    if(date.weather > 15 && events[i].location === "outdoor" && date.desc !== "Rain"){
+                    if(date.weather > 5 && events[i].location === "outdoor" && date.desc !== "Rain"){
                         available.push(selections[j])
                     }
                     else{
@@ -111,14 +111,17 @@ export class Schedule extends Component {
         if(available.length === selections.length){
             available = ["Any selected activity is suitable for this day"]
         }
+        console.log(available)
         return available
     }
 
     render() {
         var sdd = this.state.sdd
+        console.log(this.state.sel)
+        console.log(sdd)
         return (
             <div >
-                <Header history = {this.props.history} />
+                {/* <Header history = {this.props.history} /> */}
                 <div className="horizontalScroll">
                     {/* create the home button that takes the user back to the home page */}
                     <Link style={marginLeft} id="homebtn"  className="navlinks linkStyle" to={{
@@ -141,6 +144,7 @@ export class Schedule extends Component {
                         {/* for each of the selected events, print the available dates that the activity
                         may be completed during, or an appropriate message if the activity can be completed
                         on all or none of the days */}
+                        {console.log(this.scheduledDates())}
                         {this.scheduledDates().map((date, index) => {
                             return(
                                 <div style={this.background()} className ="value" key={index}>

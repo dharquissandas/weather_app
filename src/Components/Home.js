@@ -28,7 +28,6 @@ export class Home extends Component {
     }
 
     render(){
-        console.log(this.state.suggesteddestinations)
         if(this.state.scheduleddestinations.length > 0){
             // set loaded as true if there are previously scheduled destinations
             this.state.loaded = true

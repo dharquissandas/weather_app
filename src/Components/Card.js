@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import '../Styles/HomeStyle.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloudShowersHeavy, faCloudSun, faCloud, faWind, faTemperatureHigh, faTachometerAlt } from '@fortawesome/free-solid-svg-icons';
 
 export class Card extends Component {
     state = {
@@ -28,7 +30,8 @@ export class Card extends Component {
                 minWidth: this.props.invisible ? "0.1px" : this.props.width + "px",
                 minHeight: this.props.invisible ? "110px" : this.props.height + "px",
                 textAlign: "center",
-                //backgroundImage: "url(" + this.props.back + ")",
+                backgroundImage: "url(" + this.props.back + ")",
+                backgroundSize: "100% 100%",
                 background: `linear-gradient(45deg, ${this.props.c1} 0%, ${this.props.c2} 100%, ${this.props.c2} 100%)`,
                 borderRadius: "5px",
                 fontFamily: "Arial, Helvetica, sans-serif",
@@ -71,6 +74,27 @@ export class Card extends Component {
         }
     }
 
+    icon = () => {
+        if(this.props.title === "Pressure"){
+            return faTachometerAlt
+        }
+        else if(this.props.title === "Feels Like"){
+            return faTemperatureHigh
+        }
+        else if(this.props.title === "Wind Speed"){
+            return faWind
+        }
+        else if(this.props.desc === "Clear" || this.props.desc === "Sunny"){
+            return faCloudSun
+        }
+        else if(this.props.desc === "Clouds"){
+            return faCloud
+        }
+        else if(this.props.desc === "Rain"){
+            return faCloudShowersHeavy
+        }
+    }
+
     render() {
         // if the card is not a complex card, return information for the few fields given
         if(!this.props.complex){
@@ -90,6 +114,7 @@ export class Card extends Component {
                     <h4 id="heading"><b>{this.props.title}</b></h4>
                     <h4 id="heading2"><b>{this.props.date}</b></h4>
                     <p id="desc">{this.props.desc}</p>
+                    <FontAwesomeIcon icon={this.state.icon} />
                     <p id="desc">{this.props.weather}</p>
                     <p id="desc">{"max: " + this.props.high}</p>
                     <p id="desc">{"min: " + this.props.low}</p>
