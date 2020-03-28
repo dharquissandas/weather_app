@@ -143,3 +143,7 @@ h4#headingcity2 b{
     color: #ffffff;
     text-shadow: 1px 1px 5px black; 
 }
+
+.overflow{
+    overflow: hidden;
+}
