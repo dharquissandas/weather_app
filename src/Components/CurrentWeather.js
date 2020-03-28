@@ -70,7 +70,7 @@ export class CurrentWeather extends Component {
                         title="" 
                         weather={dest[pos].daytwo.main.temp}
                         width="110" 
-                        height="260"
+                        height="257"
                         c1={dest[pos].color1} 
                         c2={dest[pos].color2}/>
                     <Card complex date={dest[pos].daythree.dt_txt}
@@ -83,7 +83,7 @@ export class CurrentWeather extends Component {
                         title="" 
                         weather={dest[pos].daythree.main.temp}
                         width="110" 
-                        height="260"
+                        height="257"
                         c1={dest[pos].color1} 
                         c2={dest[pos].color2}/>   
                     <Card complex date={dest[pos].dayfour.dt_txt}
@@ -96,7 +96,7 @@ export class CurrentWeather extends Component {
                         title="" 
                         weather={dest[pos].dayfour.main.temp}
                         width="110" 
-                        height="260"
+                        height="257"
                         c1={dest[pos].color1} 
                         c2={dest[pos].color2}/>
                     <Card complex date={dest[pos].dayfive.dt_txt}
@@ -109,7 +109,7 @@ export class CurrentWeather extends Component {
                         title="" 
                         weather={dest[pos].dayfive.main.temp} 
                         width="110" 
-                        height="260"
+                        height="257"
                         c1={dest[pos].color1} 
                         c2={dest[pos].color2} />                                                                   
                     <Card invisible/>

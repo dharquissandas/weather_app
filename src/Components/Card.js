@@ -2,6 +2,18 @@ import React, { Component } from 'react'
 import '../Styles/HomeStyle.css';
 
 export class Card extends Component {
+    state = {
+        icon: faCloudSun
+    }
+
+    componentDidMount = () =>{
+        const icon = this.icon()
+        this.setState({
+            icon: icon
+        })
+    }
+
+
     // styling information for the Card
     cardStyle = () =>{
         this.checkLast() // checks if the current card is the last card, in which case make it invisible
@@ -67,6 +79,7 @@ export class Card extends Component {
                     <h4 id="headingcity2"><b>{this.props.title}</b></h4>
                     <p id="desc">{this.props.weather}</p>
                     <p id="desc">{this.props.desc}</p>
+                    <FontAwesomeIcon icon={this.state.icon} />
                 </div>
             )
         }
