@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import FormCard from './FormCard'
 import '../Styles/App.css';
-import {Link} from 'react-router-dom'
 import Header from './Header'
 
 export class EventSelection extends Component {
@@ -18,9 +17,5 @@ export class EventSelection extends Component {
             </div>
         )
     }
-}
-
-const marginLeft = {
-    marginLeft: "0.4em" 
 }
 export default EventSelection

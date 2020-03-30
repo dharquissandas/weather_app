@@ -50,11 +50,11 @@ export class App extends Component {
             let {main, weather, wind} = weatherData.list[0]
             
             // populate all of the suggestionData values to match the data given from the api
-            suggestionData[index].temp = main.temp.toString()
+            suggestionData[index].temp = Math.round(main.temp).toString()
             suggestionData[index].desc = weather[0].main
-            suggestionData[index].tempmax = main.temp_max.toString()
-            suggestionData[index].tempmin = main.temp_min.toString()
-            suggestionData[index].feelslike = main.feels_like.toString()
+            suggestionData[index].tempmax = Math.round(main.temp_max).toString()
+            suggestionData[index].tempmin = Math.round(main.temp_min).toString()
+            suggestionData[index].feelslike = Math.round(main.feels_like).toString()
             suggestionData[index].pressure = main.pressure.toString()
             suggestionData[index].windspeed = wind.speed.toString()
            

@@ -186,7 +186,10 @@ export class FormCard extends Component {
                         rotate={false}
                         type="submit"
                         styles={{backgroundColor: this.props.c1, color:"#fff"}}
-                        onClick={this.handleSubmit} />
+                        onClick={this.handleSubmit}
+                        tooltip="Confirm Schedule" 
+                        onmouseover={this.tooltip}
+                        />
                 </Container>
                 </form>
             </div>

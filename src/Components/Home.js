@@ -68,7 +68,7 @@ export class Home extends Component {
                             sdd : this.state.scheduleddestinations
                         }
                         }>
-                            <Card back={dest.information.url} title={dest.information.name} weather={dest.information.temp} desc={dest.information.desc} width="110" height="110"/>
+                            <Card scheduled back={dest.information.url} title={dest.information.name} weather={dest.information.temp} desc={dest.information.desc} width="114.8" height="110"/>
                         </Link>
                     ))}
                     {/* create an invisible card at the end of the scroll bar for formatting */}

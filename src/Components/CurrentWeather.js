@@ -4,7 +4,6 @@ import Label from './Label';
 import '../Styles/Reset.css';
 import '../Styles/HomeStyle.css';
 import Header from './Header'
-import {Link} from 'react-router-dom'
 import { Container, Button } from 'react-floating-action-button'
 
 
@@ -48,17 +47,17 @@ export class CurrentWeather extends Component {
                         weather={dest[pos].temp}
                         back={dest[pos].url} 
                         width="100" 
-                        height="110"/>
+                        height="170"/>
                 </div>
                 <div className="horizontalScroll">
                    {/* display values for pressure, wind speed, and feels like properties */}
-                    <Card title="Pressure" c1={dest[pos].color1} c2={dest[pos].color2} weather={dest[pos].pressure + " hPa"} width="131" height="100" style={backGround}/>
-                    <Card title="Feels Like" c1={dest[pos].color1} c2={dest[pos].color2} weather={dest[pos].feelslike} width="131" height="100" style={backGround}/>
-                    <Card title="Wind Speed" c1={dest[pos].color1} c2={dest[pos].color2} weather= {dest[pos].windspeed + " m/s"} width="131" height="100" style={backGround}/>
+                    <Card basicInfo title="Pressure" c1={dest[pos].color1} c2={dest[pos].color2} weather={dest[pos].pressure + " hPa"} width="131" height="100" style={backGround}/>
+                    <Card basicInfo title="Feels Like" c1={dest[pos].color1} c2={dest[pos].color2} weather={dest[pos].feelslike + "°C"} width="131" height="100" style={backGround}/>
+                    <Card basicInfo title="Wind Speed" c1={dest[pos].color1} c2={dest[pos].color2} weather= {dest[pos].windspeed + " m/s"} width="131" height="100" style={backGround}/>
                 </div>
                 <Label text="Coming Days"/>
                 <div className="horizontalScroll" id="comingdays">
-                    <Card complex date={dest[pos].daytwo.dt_txt}
+                    <Card forecast date={dest[pos].daytwo.dt_txt}
                         high={dest[pos].daytwo.main.temp_max}
                         low={dest[pos].daytwo.main.temp_min}
                         wind={dest[pos].daytwo.wind.speed} 
@@ -71,7 +70,7 @@ export class CurrentWeather extends Component {
                         height="325"
                         c1={dest[pos].color1} 
                         c2={dest[pos].color2}/>
-                    <Card complex date={dest[pos].daythree.dt_txt}
+                    <Card forecast date={dest[pos].daythree.dt_txt}
                         high={dest[pos].daythree.main.temp_max}
                         low={dest[pos].daythree.main.temp_min}
                         wind={dest[pos].daythree.wind.speed} 
@@ -84,7 +83,7 @@ export class CurrentWeather extends Component {
                         height="325"
                         c1={dest[pos].color1} 
                         c2={dest[pos].color2}/>   
-                    <Card complex date={dest[pos].dayfour.dt_txt}
+                    <Card forecast date={dest[pos].dayfour.dt_txt}
                         high={dest[pos].dayfour.main.temp_max}
                         low={dest[pos].dayfour.main.temp_min}
                         wind={dest[pos].dayfour.wind.speed} 
@@ -97,7 +96,7 @@ export class CurrentWeather extends Component {
                         height="325"
                         c1={dest[pos].color1} 
                         c2={dest[pos].color2}/>
-                    <Card complex date={dest[pos].dayfive.dt_txt}
+                    <Card forecast date={dest[pos].dayfive.dt_txt}
                         high={dest[pos].dayfive.main.temp_max}
                         low={dest[pos].dayfive.main.temp_min}
                         wind={dest[pos].dayfive.wind.speed} 
@@ -116,16 +115,14 @@ export class CurrentWeather extends Component {
                     <Button
                         icon="fas fa-plus"
                         styles={{backgroundColor: dest[pos].color1 , color : "#fff"}}
+                        tooltip="Schedule Holiday"
                         rotate={false}
-                        onClick={this.pushES} />
+                        onClick={this.pushES}
+                        onmouseover={this.tooltip}/>
                 </Container>
             </div>
         )
     }
-}
-
-const marginLeft = {
-    marginLeft: "0.4em" 
 }
 
 const backGround = {

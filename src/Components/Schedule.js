@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Label from './Label'
-import {Link} from 'react-router-dom'
 import '../Styles/Schedule.css';
 import Header from './Header';
 import { Container, Button } from 'react-floating-action-button'
@@ -148,15 +147,13 @@ export class Schedule extends Component {
                         icon="fas fa-times"
                         styles={{backgroundColor: this.state.obj.c1 , color : "#fff"}}
                         rotate={false}
-                        onClick={this.deleteItem} />
+                        onClick={this.deleteItem} 
+                        tooltip= "Delete Schedule" 
+                        onmouseover={this.tooltip}/>
                 </Container>
             </div>
         )
     }
-}
-
-const marginLeft = {
-    marginLeft: "0.4em" 
 }
 
 export default Schedule

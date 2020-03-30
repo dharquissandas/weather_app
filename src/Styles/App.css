@@ -63,6 +63,18 @@
     margin-left: 0.1em;
 }
 
+.horizontalScrollForcast{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    min-height: fit-content;
+    margin-top: 0.4em;
+    width: 99%;
+    margin-left: 0.1em;
+}
+
+
 .verticalScroll{
     overflow-y: auto;
     height: 370px;
@@ -145,9 +157,124 @@
     right: 560px !important;
 }
 
+.wrapper {
+    display: grid;
+    grid-gap: 1px;
+    grid-template-columns: 100px 100px 100px 100px;
+    grid-template-rows: 25px 25px 25px 25px;
+}
+
+.majorwrapper {
+    display: grid;
+    grid-gap: 1px;
+    grid-template-columns: 100px 100px 100px 100px;
+    grid-template-rows: 40px 40px 40px 40px;
+}
+
+.scheduledwrapper{
+    display: grid;
+    grid-gap: 1px;
+    grid-template-rows: 36px 36px 36px;
+    grid-template-columns: 38px 38px 38px;
+}
+
+.forcastwrapper{
+    display: grid;
+    grid-gap: 1px;
+    grid-template-rows: 50px 50px 50px 50px 50px 50px;
+    grid-template-columns: 55px 55px;
+}
+
+.a {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 4;
+}
+.b {
+    grid-column: 4 ;
+    grid-row: 4;
+    align-self: end;
+}
+.c {
+    grid-column: 1 ;
+    grid-row: 2 ;
+}
+.d {
+    grid-column: 2 / span 2 ;
+    grid-row: 2 / span 4 ;
+}
+
+.e {
+    grid-column: 3;
+    grid-row: 3 / span 2;
+    margin-left: 5em;
+    margin-top: auto;
+}
+
+.f{
+    grid-column: 1 / span 3;
+    grid-row: 1;
+}
+
+.g{
+    grid-column: 2;
+    grid-row: 2
+}
+
+.h{
+    grid-column: 3;
+    grid-row: 3;
+}
+
+.i{
+    grid-column: 1 / span 2;
+    grid-row: 1;
+}
+
+.j{
+    grid-column: 1 / span 2;
+    grid-row: 2;
+}
+
+.k{
+    grid-column: 1/ span 2;
+    grid-row: 3;
+}
+
+.l{
+    grid-column: 1/ span 2;
+    grid-row: 4;
+}
+
+.m{
+    grid-column: 1/ span 2;
+    grid-row: 5;
+}
+
+.n{
+    grid-column: 1/ span 2;
+    grid-row: 6;
+}
+
+
+
+
+
+.fabPlacement{
+    bottom: 1px !important;
+    right: 560px !important;
+}
+
+
 @media screen and (max-width: 480px) {
     .fabPlacement{
         bottom: 0.8vw !important;
         right: 0.8vw !important;
     }
   }
+
+  /* @media (max-width: 768px) {
+    .fabPlacement{
+        bottom: 1px !important;
+        right: 50px !important;
+    }
+  } */
