@@ -3,6 +3,10 @@ import Label from './Label'
 import '../Styles/Schedule.css';
 import Header from './Header';
 import { Container, Button } from 'react-floating-action-button'
+import Card from './Card';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloudShowersHeavy, faCloudSun, faCloud } from '@fortawesome/free-solid-svg-icons';
+
 
 export class Schedule extends Component {
     // initializes the state for the component with the props passed in from the form 
@@ -35,6 +39,10 @@ export class Schedule extends Component {
                 data : this.state.sdd
             }
         })
+    }
+
+    formatDate = (date) => {
+        return date.charAt(8)+date.charAt(9)+"/"+date.charAt(5)+date.charAt(6)+"/"+date.charAt(0)+date.charAt(1)+date.charAt(2)+date.charAt(3)
     }
 
     // gets the weather, date, and description information for the available days
@@ -104,23 +112,32 @@ export class Schedule extends Component {
         
         // if no activity can be scheduled on that day print a message
         if (available.length === 0){
-            available = ["The weather for this day is not suitable for any of your selected activities"]
+            available = ["Unsuitable weather on this day"]
         }
-        // if every activity can be completed for the selected day then print a message
-        if(available.length === selections.length){
-            available = ["Any selected activity is suitable for this day"]
-        }
-        console.log(available)
         return available
     }
 
+    icon = (desc) => {
+        if(desc === "Clear" || desc === "Sunny"){
+            return faCloudSun
+        }
+        else if(desc === "Clouds"){
+            return faCloud
+        }
+        else if(desc === "Rain"){
+            return faCloudShowersHeavy
+        }
+    }
+
     render() {
-        var sdd = this.state.sdd
-        console.log(this.state.sel)
-        console.log(sdd)
+        var dest = this.state.sdd[0].information
+        console.log(dest)
         return (
             <div >
                 <Header history = {this.props.history} sdd={this.state.sdd} />
+                <div className="welcome"><Label text="Selected Destination"/></div>
+                {/* display current weather information for the selected location */}
+                <Card back={dest.url} title={dest.name} weather={dest.temp} desc={dest.desc} width="100" height="110"/>
                 <div className="welcome"><Label text="Schedule for Events"/></div>
                 <div className="events">
                     <div className="verticalScroll schedule">
@@ -131,12 +148,19 @@ export class Schedule extends Component {
                         {this.scheduledDates().map((date, index) => {
                             return(
                                 <div style={this.background()} className ="value" key={index}>
-                                    <label className="label activity">{date.date}</label>
-                                    {this.check(date).map((activity, index) => {
-                                        return (
-                                            <label className="label days" key={index}>{activity}</label>
-                                        )
-                                    })}     
+                                    <div className="float">
+                                        <h4 id="headingcity2" className="date"><b>{this.formatDate(date.date)}</b></h4>
+                                        <FontAwesomeIcon className="schedsize" icon={this.icon(date.desc)}/>
+                                        <h4 className="desc">{date.desc}</h4>
+                                        <h4 id="headingcity2" className="weather"><b>{Math.round(date.weather)}°C</b></h4>
+                                    </div>
+                                    <div className="float right">
+                                        {this.check(date).map((activity, index) => {
+                                            return (
+                                                <label className="label days" key={index}>{activity}</label>
+                                            )
+                                        })}   
+                                    </div>  
                                 </div>
                             )
                         })}

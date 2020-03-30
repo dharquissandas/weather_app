@@ -23,7 +23,6 @@ div {
 }
 
 .label {
-    font-size: 1.25em;
     width: 100%;
     display: block;
     text-align: left;
@@ -35,12 +34,49 @@ div {
     text-shadow: 1px 1px 10px black; 
 }
 
-.days{
-    font-size: 18px;
-}
-
 .schedule{
     overflow-y: auto;
     height: 585px;
     margin-top: 0.4em;
+}
+
+.days{
+    font-size: 90%;
+}
+
+.float{
+    display: inline-block;
+    vertical-align: middle;
+    width: 50%;
+    text-align: center;
+    margin-left: -1.2em;
+}
+
+.right{
+    padding-left: 5px;
+}
+
+.schedsize{
+    font-size: 30px;
+    color: #ffffff;
+    margin: -0.5em;
+    
+}
+
+h4#headingcity2{
+    text-align: center;
+    margin-left: 0.4em;
+    letter-spacing: 4px;
+    font-weight: 500;
+    color: #ffffff;
+    text-shadow: 1px 1px 5px black; 
+}
+
+.desc{
+    align-self:center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 90%;
+    color: #ffffff;
+    text-shadow: 1px 1px 5px black;
+    font-weight: bold;
 }
