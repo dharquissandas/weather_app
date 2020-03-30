@@ -217,8 +217,8 @@ export class Card extends Component {
                         </div>
                         <div className="l">
                             <div className="forcasthilo">
-                                <h4 id="desc">H :{Math.round(this.props.high)}°C</h4>
-                                <h4 className="welcome" id="desc">L :{Math.round(this.props.low)}°C</h4>
+                                <h4 id="desc">H: {Math.round(this.props.high)}°C</h4>
+                                <h4 className="welcome" id="desc">L: {Math.round(this.props.low)}°C</h4>
                             </div>
                         </div>
                         <div className="m">
