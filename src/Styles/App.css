@@ -181,7 +181,7 @@
 .forcastwrapper{
     display: grid;
     grid-gap: 1px;
-    grid-template-rows: 50px 50px 50px 50px 50px 50px;
+    grid-template-rows: 25px 70px 40px 50px 50px 50px;
     grid-template-columns: 55px 55px;
 }
 
@@ -254,9 +254,6 @@
     grid-column: 1/ span 2;
     grid-row: 6;
 }
-
-
-
 
 
 .fabPlacement{
