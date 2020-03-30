@@ -221,30 +221,3 @@ h4#headingcity2 b{
 .majormiddle{
     margin-top: 1em;
 }
-
-.forcastTemp{
-    font-size: 16pt;
-    text-shadow: 1px 1px 5px black; 
-}
-
-.forcastDesc{
-    margin-top: 0.2em;
-    font-size: 13pt;
-    text-shadow: 1px 1px 5px black; 
-}
-
-.forcastDate{
-    padding-top: 0.2em;
-    font-size: 12pt;
-    text-shadow: 1px 1px 5px black; 
-}
-
-.forcasthilo{
-    font-size: 12pt;
-    text-shadow: 1px 1px 5px black;
-    text-align: center;
-}
-
-.padding{
-    padding-top: 0.8em;
-}
