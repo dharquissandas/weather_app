@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Card from './Card';
 import Label from './Label';
 import '../Styles/HomeStyle.css';
-
 import {Link} from 'react-router-dom';
 import {Header} from './Header'
 import {CSSTransition, TransitionGroup} from 'react-transition-group'
@@ -37,8 +36,10 @@ export class Home extends Component {
         
         return (
             <div>
+                {/* display the header in the page */}
                 <Header history = {this.props.history} sdd={this.state.scheduleddestinations} />
                 <TransitionGroup>
+                    {/* creates a transition between pages */}
                     <CSSTransition
                     in = {true}
                     appear = {true}

@@ -4,12 +4,14 @@ import { faSearch, faHome } from '@fortawesome/free-solid-svg-icons';
 
 
 export class Header extends Component {
+    // redirect to the search page
     push = () => {
         this.props.history.push({
             pathname: '/Search'
         })
     }
 
+    // redirect to the home page
     pushHome = () => {
         this.props.history.push({
             pathname: '/Home',
@@ -24,10 +26,10 @@ export class Header extends Component {
             // returns the header component for the top of each page
             <div style={header}>
                 <div style={inner}>
-                    {/* creates an option menu button */}
+                    {/* creates a home button */}
                     <div style={btnContainer}><button onClick={this.pushHome} className="btn"><FontAwesomeIcon icon={faHome} /></button></div>
-                    {/* creates a search text field */}
-                    <div style={searchContainer}><p>Eventful Weather</p></div>
+                    {/* displays the name of the application */}
+                    <div style={appName}><p>Eventful Weather</p></div>
                     {/* creates a search button */}
                     <div style={btnContainer}><button onClick={this.push} className="btn"><FontAwesomeIcon icon={faSearch} /></button></div>
                 </div>
@@ -53,8 +55,8 @@ const inner = {
     paddingTop: "0.2em"
 }
 
-// styling for the search container
-const searchContainer = {
+// styling for the name of the application
+const appName = {
     flex : "3",
     textAlign: "center",
     verticalAlign: "text-bottom",

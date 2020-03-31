@@ -42,12 +42,12 @@ export class Schedule extends Component {
         })
     }
 
+    // returns the date with slashes instead of dashes
     formatDate = (date) => {
         return date.charAt(8)+date.charAt(9)+"/"+date.charAt(5)+date.charAt(6)+"/"+date.charAt(0)+date.charAt(1)+date.charAt(2)+date.charAt(3)
     }
 
-    // gets the weather, date, and description information for the available days
-    // and returns an array of daily information
+    // returns an array with the weather, date, and description information for the available days
     dates = () => {
         var datetime1 = this.state.obj.information.dayone.dt_txt.split(" ")
         var date1 = {date: datetime1[0], weather : this.state.obj.information.dayone.main.temp, desc : this.state.obj.information.dayone.weather[0].main}
@@ -62,7 +62,7 @@ export class Schedule extends Component {
         return [date1, date2, date3, date4, date5]
     }
 
-    // function returns an array containing the selected dates
+    // function returns an array containing only the selected dates
     scheduledDates = () => {
         var dates = this.dates()
         var selected = []
@@ -111,18 +111,14 @@ export class Schedule extends Component {
             }
         }
         
-        // if no activity can be scheduled on that day print a message
+        // if no activity can be scheduled on that day return a message
         if (available.length === 0){
             available = ["Weather not suitable for selected activities"]
         }
         return available
     }
 
-    formatDate = (date) => {
-        let newdate = date.substr(0,10)
-        return newdate.charAt(8)+newdate.charAt(9)+"/"+newdate.charAt(5)+newdate.charAt(6)+"/"+newdate.charAt(0)+newdate.charAt(1)+newdate.charAt(2)+newdate.charAt(3)
-    }
-
+    // return the correct icon depending on the weather description
     icon = (desc) => {
         if(desc === "Clear" || desc === "Sunny"){
             return faCloudSun
@@ -135,6 +131,7 @@ export class Schedule extends Component {
         }
     }
 
+    // check if there is rain on a given day
     checkrain = (desc) => {
         if(desc === "Rain"){
             return{
@@ -147,8 +144,10 @@ export class Schedule extends Component {
     render() {
         return (
             <div >
+                {/* display the header in the page */}
                 <Header history = {this.props.history} sdd={this.state.sdd} />
                 <TransitionGroup>
+                {/* creates a transition between pages */}
                 <CSSTransition
                 in = {true}
                 appear = {true}
@@ -162,19 +161,20 @@ export class Schedule extends Component {
                 <div className="welcome"><Label text="Possible Events Each Day"/></div>
                 <div className="events">
                     <div className="verticalScroll schedule">
-                        {/* for each of the selected events, print the available dates that the activity
-                        may be completed during, or an appropriate message if the activity can be completed
-                        on all or none of the days */}
+                        {/* for each of the selected days, print the available activities that can be completed,
+                        or print an appropriate message if the weather is unsuitable for any of the selected activities */}
                         {this.scheduledDates().map((date, index) => {
                             return(
                                 <div style={this.background()} className ="value" key={index}>
                                     <label id="dateTitle" className="label activity">{this.formatDate(date.date)}</label>
                                     <div className="schedcontainer">
+                                        {/* display weather information for the selected day */}
                                         <div className="left">
                                                 <FontAwesomeIcon className="bisize icon" icon={this.icon(date.desc)} />
                                                 <h4 id ="desc" style={this.checkrain(date.desc)} className="icontext welcome">{date.desc}</h4>
                                                 <h4 id ="desc" className= "schedtemp welcome">{Math.round(date.weather)}°C</h4>
                                         </div>
+                                        {/* display the activities that can be completed */}
                                         <div className="right">
                                             {this.check(date).map((activity, index) => {
                                                 return (
@@ -189,6 +189,7 @@ export class Schedule extends Component {
                     </div>
                 </div>
                 <Container className="fabPlacement">
+                    {/* creates a button for the user to delete the schedule */}
                     <Button
                         icon="fas fa-times"
                         styles={{backgroundColor: this.state.obj.c1 , color : "#fff"}}

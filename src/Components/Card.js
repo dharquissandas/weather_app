@@ -9,6 +9,7 @@ export class Card extends Component {
         icon: faCloudSun
     }
 
+    // load the correct icon for the card
     componentDidMount = () =>{
         const icon = this.icon()
         this.setState({
@@ -22,6 +23,7 @@ export class Card extends Component {
         this.checkLast() // checks if the current card is the last card, in which case make it invisible
                          // used for horizontal scroll formatting
         if (this.props.width !== "100"){
+            // if the width of the card is not 100 
             return{
                 boxShadow: this.props.invisible ? null : "0 4px 8px 0 rgba(0,0,0,0.2)",
                 transition: "0.3s",
@@ -42,17 +44,16 @@ export class Card extends Component {
                 letterSpacing: "2px",
                 paddingTop: "0.4em",
                 fontSize: "12px"
-                //filter: "brightness(50%)"
             }
         }
         else{
+            // if the width of the card is 100
             return{
                 boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
                 transition: "0.3s",
                 borderRadius: "5px",
                 backgroundImage: "url(" + this.props.back + ")",
-                backgroundSize: "100% 100%",
-                //backgroundColor: `linear-gradient(135deg, ${this.props.color1} 0%,  ${this.props.color1} 35%, ${this.props.color2} 100%)`,               
+                backgroundSize: "100% 100%",            
                 color: "#fff",
                 marginLeft: "0.4em",
                 marginRight: "0.4em",
@@ -61,14 +62,12 @@ export class Card extends Component {
                 textAlign: "center",
                 fontFamily: "'Courier New', Courier, monospace",
                 paddingTop: "0.4em",
-                //letterSpacing: "6px",
-                fontSize: "16px",
-                //fontWeight: "550"
-                //filter: "brightness(50%)"
+                fontSize: "16px"
             }
         }
     }
 
+    // returns the date with slashes instead of dashes
     formatDate = (date) => {
         let newdate = date.substr(0,10)
         return newdate.charAt(8)+newdate.charAt(9)+"/"+newdate.charAt(5)+newdate.charAt(6)+"/"+newdate.charAt(0)+newdate.charAt(1)+newdate.charAt(2)+newdate.charAt(3)
@@ -83,6 +82,7 @@ export class Card extends Component {
         }
     }
 
+    // return the correct icon depending on the weather description or title
     icon = () => {
         if(this.props.title === "Pressure"){
             return faTachometerAlt
@@ -161,7 +161,9 @@ export class Card extends Component {
                 </div>
             )
         }
+        // if the card is invisible, return the appropriate styling
         if(this.props.invisible){return(<div style={this.cardStyle()}><p></p></div>)}
+        // if the card contains basic information, return the appropriate styling
         if(this.props.basicInfo){
             return(
                 <div style={this.cardStyle()}>
@@ -177,6 +179,7 @@ export class Card extends Component {
                 </div>
             )
         }
+        // if the card is for a scheduled destination, return the appropriate styling
         if(this.props.scheduled){
             return(
                 <div style={this.cardStyle()}>
@@ -198,6 +201,7 @@ export class Card extends Component {
                 </div>
             )
         }
+        // if the card is used to display the upcoming forcast, return the appropriate styling
         if(this.props.forecast){
             return(
                 <div style={this.cardStyle()}>
