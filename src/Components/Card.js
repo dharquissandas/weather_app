@@ -122,7 +122,6 @@ export class Card extends Component {
                             <div className="middle">
                                 <FontAwesomeIcon className="size" icon={this.state.icon} />
                                 <h4 id ="desc">{this.props.desc}</h4>
-                                <div></div>
                             </div>
                         </div>
                     </div>

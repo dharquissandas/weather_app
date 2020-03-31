@@ -45,7 +45,6 @@ export class CurrentWeather extends Component {
                         desc={dest[pos].desc} 
                         title={dest[pos].name} 
                         weather={dest[pos].temp}
-                        back={dest[pos].url} 
                         width="100" 
                         height="170"/>
                 </div>

@@ -20,7 +20,6 @@ export class Header extends Component {
     }
 
     render() {
-        console.log(this.props.sdd)
         return (
             // returns the header component for the top of each page
             <div style={header}>
@@ -28,7 +27,7 @@ export class Header extends Component {
                     {/* creates an option menu button */}
                     <div style={btnContainer}><button onClick={this.pushHome} className="btn"><FontAwesomeIcon icon={faHome} /></button></div>
                     {/* creates a search text field */}
-                    <div style={searchContainer}><p>Weather</p></div>
+                    <div style={searchContainer}><p>Eventful Weather</p></div>
                     {/* creates a search button */}
                     <div style={btnContainer}><button onClick={this.push} className="btn"><FontAwesomeIcon icon={faSearch} /></button></div>
                 </div>

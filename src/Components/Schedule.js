@@ -3,6 +3,9 @@ import Label from './Label'
 import '../Styles/Schedule.css';
 import Header from './Header';
 import { Container, Button } from 'react-floating-action-button'
+import Card from './Card'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloudShowersHeavy, faCloudSun, faCloud } from '@fortawesome/free-solid-svg-icons';
 
 export class Schedule extends Component {
     // initializes the state for the component with the props passed in from the form 
@@ -104,39 +107,71 @@ export class Schedule extends Component {
         
         // if no activity can be scheduled on that day print a message
         if (available.length === 0){
-            available = ["The weather for this day is not suitable for any of your selected activities"]
+            available = ["Weather not suitable for selected activities"]
         }
         // if every activity can be completed for the selected day then print a message
-        if(available.length === selections.length){
-            available = ["Any selected activity is suitable for this day"]
-        }
-        console.log(available)
+        // if(available.length === selections.length){
+        //     available = ["Any selected activity is suitable for this day"]
+        // }
         return available
     }
 
+    formatDate = (date) => {
+        let newdate = date.substr(0,10)
+        return newdate.charAt(8)+newdate.charAt(9)+"/"+newdate.charAt(5)+newdate.charAt(6)+"/"+newdate.charAt(0)+newdate.charAt(1)+newdate.charAt(2)+newdate.charAt(3)
+    }
+
+    icon = (desc) => {
+        if(desc === "Clear" || desc === "Sunny"){
+            return faCloudSun
+        }
+        else if(desc === "Clouds"){
+            return faCloud
+        }
+        else if(desc === "Rain"){
+            return faCloudShowersHeavy
+        }
+    }
+
+    checkrain = (desc) => {
+        if(desc === "Rain"){
+            return{
+                marginLeft : "-0.6em"
+            }
+        }
+        return null
+    }
+
     render() {
-        var sdd = this.state.sdd
-        console.log(this.state.sel)
-        console.log(sdd)
         return (
             <div >
                 <Header history = {this.props.history} sdd={this.state.sdd} />
-                <div className="welcome"><Label text="Schedule for Events"/></div>
+                <div className="welcome"><Label text="Destination"/></div>
+                <div className="welcome"><Card back={this.state.obj.information.url} title={this.state.obj.information.name} desc={this.state.obj.information.desc} weather={this.state.obj.information.temp} width="100" height="110"/></div>
+                <div className="welcome"><Label text="Possible Events Each Day"/></div>
                 <div className="events">
                     <div className="verticalScroll schedule">
                         {/* for each of the selected events, print the available dates that the activity
                         may be completed during, or an appropriate message if the activity can be completed
                         on all or none of the days */}
-                        {console.log(this.scheduledDates())}
                         {this.scheduledDates().map((date, index) => {
                             return(
                                 <div style={this.background()} className ="value" key={index}>
-                                    <label className="label activity">{date.date}</label>
-                                    {this.check(date).map((activity, index) => {
-                                        return (
-                                            <label className="label days" key={index}>{activity}</label>
-                                        )
-                                    })}     
+                                    <label id="dateTitle" className="label activity">{this.formatDate(date.date)}</label>
+                                    <div className="schedcontainer">
+                                        <div className="left">
+                                                <FontAwesomeIcon className="bisize icon" icon={this.icon(date.desc)} />
+                                                <h4 id ="desc" style={this.checkrain(date.desc)} className="icontext welcome">{date.desc}</h4>
+                                                <h4 id ="desc" className= "schedtemp welcome">{Math.round(date.weather)}°C</h4>
+                                        </div>
+                                        <div className="right">
+                                            {this.check(date).map((activity, index) => {
+                                                return (
+                                                    <label className="label days" key={index}>- {activity}</label>
+                                                )
+                                            })}
+                                        </div>   
+                                    </div>  
                                 </div>
                             )
                         })}
@@ -155,5 +190,4 @@ export class Schedule extends Component {
         )
     }
 }
-
 export default Schedule

@@ -36,7 +36,6 @@ export class Home extends Component {
         return (
             <div>
                 <Header history = {this.props.history} sdd={this.state.scheduleddestinations} />
-                {console.log(this.props.suggesteddestinations)}
                 <div className="welcome"><Label text="Current Weather"/></div>
                 {/* creates the current weather card at the top of the screen with a link to the 
                 current weather page for the current location */}
