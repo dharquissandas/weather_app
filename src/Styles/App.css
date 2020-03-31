@@ -269,9 +269,77 @@
     }
   }
 
-  /* @media (max-width: 768px) {
-    .fabPlacement{
-        bottom: 1px !important;
-        right: 50px !important;
-    }
-  } */
+
+/* appear - on page load */
+.fade-appear {
+    opacity: 0;
+    z-index: 1;
+}
+.fade-appear.fade-appear-active {
+  opacity: 1;
+  transition: opacity 1000ms linear;
+}
+
+/* enter */
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 5000ms linear 5000ms;
+}
+
+/* exit */
+.fade-exit {
+    opacity: 1;
+}
+.fade-exit.fade-exit-active {
+    opacity: 0;
+    transition: opacity 5000ms linear;
+}
+.fade-exit-done {
+  opacity: 0;
+}
+
+
+
+.slide-appear { 
+    transform: translateX(-100vw);
+    opacity: 0;
+    position: absolute;
+
+}  
+.slide-appear.slide-appear-active {
+    transform: translateX(0);
+    opacity: 1;
+    transition: all 300ms linear 300ms;
+ }
+
+
+.slide-enter {
+    transform: translateX(-100vw);
+    opacity: 0;
+    position: absolute;
+    
+}
+
+.slide-enter.slide-enter-active {
+    transform: translateX(0);
+    opacity: 1;
+    transition: all 300ms linear 300ms;
+}
+
+.slide-exit {
+    transform: translateX(0);
+    opacity: 1;
+    
+}
+
+.slide-exit.slide-exit-active {
+    transform: translateX(100vw);
+    opacity: 0;
+    transition: all 300ms linear
+}
+
+

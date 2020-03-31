@@ -6,6 +6,8 @@ import { Container, Button } from 'react-floating-action-button'
 import Card from './Card'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudShowersHeavy, faCloudSun, faCloud } from '@fortawesome/free-solid-svg-icons';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+
 
 export class Schedule extends Component {
     // initializes the state for the component with the props passed in from the form 
@@ -146,6 +148,15 @@ export class Schedule extends Component {
         return (
             <div >
                 <Header history = {this.props.history} sdd={this.state.sdd} />
+                <TransitionGroup>
+                <CSSTransition
+                in = {true}
+                appear = {true}
+                key = {0}
+                timeout = {80}
+                classNames= {"fade"}
+                >
+                <div>
                 <div className="welcome"><Label text="Destination"/></div>
                 <div className="welcome"><Card back={this.state.obj.information.url} title={this.state.obj.information.name} desc={this.state.obj.information.desc} weather={this.state.obj.information.temp} width="100" height="110"/></div>
                 <div className="welcome"><Label text="Possible Events Each Day"/></div>
@@ -186,6 +197,9 @@ export class Schedule extends Component {
                         tooltip= "Delete Schedule" 
                         onmouseover={this.tooltip}/>
                 </Container>
+                </div>
+                </CSSTransition>
+                </TransitionGroup>
             </div>
         )
     }
