@@ -4,6 +4,8 @@ import { faSearch, faLessThan } from '@fortawesome/free-solid-svg-icons';
 import Label from './Label'
 import Card from './Card'
 import {Link} from 'react-router-dom'
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+
 
 function Search(props) {
     const [searchTerm, setSearchTerm] = React.useState("");
@@ -18,21 +20,29 @@ function Search(props) {
           dest.name.toLowerCase().includes(searchTerm)
         );
         setSearchResults(results);
-      }, [searchTerm]);
+      }, [props.suggesteddestinations,searchTerm]);
 
     return (
-        <div>
-            {console.log(props)}    
+        <div>  
             <div style={header}>
                 <div style={inner}>
                     {/* creates an option menu button */}
                     <div style={btnContainer}><button onClick={props.history.goBack} className="btn"><FontAwesomeIcon icon={faLessThan} /></button></div>
                     {/* creates a search text field */}
-                    <div style={searchContainer}><input value= {searchTerm} onChange= {handleChange} className="search" type="text" onfocus="this.placeholder=''" placeholder="Search Holiday Destinations"></input></div>
+                    <div style={searchContainer}><input value= {searchTerm} onChange= {handleChange} className="search" type="text" onFocus="this.placeholder=''" placeholder="Search Holiday Destinations"></input></div>
                     {/* creates a search button */}
                     <div style={btnContainer}><button className="btn"><FontAwesomeIcon icon={faSearch} /></button></div>
                 </div>
             </div>
+            <TransitionGroup>
+                    <CSSTransition
+                    in = {true}
+                    appear = {true}
+                    key = {0}
+                    timeout = {80}
+                    classNames= {"fade"}
+            >
+            <div>
             <Label className="welcome" text="Search Results"/>
                 <div className="verticalScrollSearch welcome">
                     {/* display all of the suggested destination cards in a vertical scroll bar 
@@ -53,6 +63,9 @@ function Search(props) {
                         </Link>              
                     ))}
                 </div>
+            </div>
+            </CSSTransition>
+            </TransitionGroup>
         </div>
     )
 }

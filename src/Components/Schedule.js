@@ -3,9 +3,10 @@ import Label from './Label'
 import '../Styles/Schedule.css';
 import Header from './Header';
 import { Container, Button } from 'react-floating-action-button'
-import Card from './Card';
+import Card from './Card'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudShowersHeavy, faCloudSun, faCloud } from '@fortawesome/free-solid-svg-icons';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 
 export class Schedule extends Component {
@@ -112,9 +113,14 @@ export class Schedule extends Component {
         
         // if no activity can be scheduled on that day print a message
         if (available.length === 0){
-            available = ["Unsuitable weather on this day"]
+            available = ["Weather not suitable for selected activities"]
         }
         return available
+    }
+
+    formatDate = (date) => {
+        let newdate = date.substr(0,10)
+        return newdate.charAt(8)+newdate.charAt(9)+"/"+newdate.charAt(5)+newdate.charAt(6)+"/"+newdate.charAt(0)+newdate.charAt(1)+newdate.charAt(2)+newdate.charAt(3)
     }
 
     icon = (desc) => {
@@ -129,37 +135,53 @@ export class Schedule extends Component {
         }
     }
 
+    checkrain = (desc) => {
+        if(desc === "Rain"){
+            return{
+                marginLeft : "-0.6em"
+            }
+        }
+        return null
+    }
+
     render() {
-        var dest = this.state.sdd[0].information
-        console.log(dest)
         return (
             <div >
                 <Header history = {this.props.history} sdd={this.state.sdd} />
-                <div className="welcome"><Label text="Selected Destination"/></div>
-                {/* display current weather information for the selected location */}
-                <Card back={dest.url} title={dest.name} weather={dest.temp} desc={dest.desc} width="100" height="110"/>
-                <div className="welcome"><Label text="Schedule for Events"/></div>
+                <TransitionGroup>
+                <CSSTransition
+                in = {true}
+                appear = {true}
+                key = {0}
+                timeout = {80}
+                classNames= {"fade"}
+                >
+                <div>
+                <div className="welcome"><Label text="Destination"/></div>
+                <div className="welcome"><Card back={this.state.obj.information.url} title={this.state.obj.information.name} desc={this.state.obj.information.desc} weather={this.state.obj.information.temp} width="100" height="110"/></div>
+                <div className="welcome"><Label text="Possible Events Each Day"/></div>
                 <div className="events">
                     <div className="verticalScroll schedule">
                         {/* for each of the selected events, print the available dates that the activity
                         may be completed during, or an appropriate message if the activity can be completed
                         on all or none of the days */}
-                        {console.log(this.scheduledDates())}
                         {this.scheduledDates().map((date, index) => {
                             return(
                                 <div style={this.background()} className ="value" key={index}>
-                                    <div className="float">
-                                        <h4 id="headingcity2" className="date"><b>{this.formatDate(date.date)}</b></h4>
-                                        <FontAwesomeIcon className="schedsize" icon={this.icon(date.desc)}/>
-                                        <h4 className="desc">{date.desc}</h4>
-                                        <h4 id="headingcity2" className="weather"><b>{Math.round(date.weather)}°C</b></h4>
-                                    </div>
-                                    <div className="float right">
-                                        {this.check(date).map((activity, index) => {
-                                            return (
-                                                <label className="label days" key={index}>{activity}</label>
-                                            )
-                                        })}   
+                                    <label id="dateTitle" className="label activity">{this.formatDate(date.date)}</label>
+                                    <div className="schedcontainer">
+                                        <div className="left">
+                                                <FontAwesomeIcon className="bisize icon" icon={this.icon(date.desc)} />
+                                                <h4 id ="desc" style={this.checkrain(date.desc)} className="icontext welcome">{date.desc}</h4>
+                                                <h4 id ="desc" className= "schedtemp welcome">{Math.round(date.weather)}°C</h4>
+                                        </div>
+                                        <div className="right">
+                                            {this.check(date).map((activity, index) => {
+                                                return (
+                                                    <label className="label days" key={index}>- {activity}</label>
+                                                )
+                                            })}
+                                        </div>   
                                     </div>  
                                 </div>
                             )
@@ -175,9 +197,11 @@ export class Schedule extends Component {
                         tooltip= "Delete Schedule" 
                         onmouseover={this.tooltip}/>
                 </Container>
+                </div>
+                </CSSTransition>
+                </TransitionGroup>
             </div>
         )
     }
 }
-
 export default Schedule

@@ -11,7 +11,7 @@ div {
     background-color: #fff;
     display: block;
     position: relative;
-    padding: 5px;
+    padding: 0.4em;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     color: #000;
     margin-left: 0.4em;
@@ -23,6 +23,7 @@ div {
 }
 
 .label {
+    font-size: 14pt;
     width: 100%;
     display: block;
     text-align: left;
@@ -34,49 +35,81 @@ div {
     text-shadow: 1px 1px 10px black; 
 }
 
+.days{
+    font-size: 13pt;
+}
+
+#dateTitle{
+    margin-top: -0.4em;
+}
+
 .schedule{
     overflow-y: auto;
-    height: 585px;
+    height: 510px;
     margin-top: 0.4em;
 }
 
-.days{
-    font-size: 90%;
+.schedcontainer{
+    display: flex;
 }
 
-.float{
-    display: inline-block;
-    vertical-align: middle;
-    width: 50%;
-    text-align: center;
-    margin-left: -1.2em;
-}
-
-.right{
-    padding-left: 5px;
-}
-
-.schedsize{
-    font-size: 30px;
-    color: #ffffff;
-    margin: -0.5em;
-    
-}
-
-h4#headingcity2{
-    text-align: center;
-    margin-left: 0.4em;
-    letter-spacing: 4px;
-    font-weight: 500;
-    color: #ffffff;
+.left{
+    flex:1;
+    display: grid;
+    grid-template-rows: 20px 30px 50px;
+    grid-template-columns: 65px 50px 70px;
+    color: #fff;
     text-shadow: 1px 1px 5px black; 
 }
 
-.desc{
-    align-self:center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 90%;
-    color: #ffffff;
-    text-shadow: 1px 1px 5px black;
-    font-weight: bold;
+.icon{
+    grid-column: 1 / span 2;
+    grid-row: 2;
+    margin-left: 1em;
+}
+
+.icontext{
+    grid-column: 1 / span 2;
+    grid-row: 3;
+    text-align: center;
+    font-size: 16pt;
+}
+
+.schedtemp{
+    grid-column: 3;
+    grid-row: 2 / span 2;
+    font-size: 16pt;
+    margin-top: 0.2em;
+}
+
+
+
+
+.icon{
+    grid-column: 2 / span 2;
+    grid-row: 2;
+    margin-left: 1em;
+}
+
+.icontext{
+    grid-column: 2 / span 2;
+    grid-row: 3;
+    text-align: center;
+    font-size: 16pt;
+}
+
+.schedtemp{
+    grid-column: 1;
+    grid-row: 2 / span 2;
+    font-size: 16pt;
+    margin-top: 0.2em;
+    margin-left: 1em;
+}
+
+
+
+
+
+.right{
+    flex: 1;
 }

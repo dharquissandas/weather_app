@@ -9,6 +9,7 @@ import CurrentWeather from './Components/CurrentWeather';
 import EventSelection from './Components/EventSelection';
 import Schedule from './Components/Schedule';
 import Search from './Components/Search';
+import {CSSTransition} from 'react-transition-group'
 
 
 
@@ -97,6 +98,7 @@ export class App extends Component {
                             <Route path="/Home" render={(props) =>
                                 <Home {...props} suggesteddestinations={this.state.suggesteddestinations} />
                             } />
+
                             <Route path="/CurrentWeather/:id" component = {CurrentWeather} />
                             <Route path="/EventSelection/:id" component = {EventSelection} />
                             <Route path="/Schedule" component = {Schedule} />

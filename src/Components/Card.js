@@ -69,6 +69,11 @@ export class Card extends Component {
         }
     }
 
+    formatDate = (date) => {
+        let newdate = date.substr(0,10)
+        return newdate.charAt(8)+newdate.charAt(9)+"/"+newdate.charAt(5)+newdate.charAt(6)+"/"+newdate.charAt(0)+newdate.charAt(1)+newdate.charAt(2)+newdate.charAt(3)
+    }
+
     // checks if the card is the last card in the horizontal scroll bar
     checkLast = () =>{
         if(this.props.last === true){
@@ -117,7 +122,6 @@ export class Card extends Component {
                             <div className="middle">
                                 <FontAwesomeIcon className="size" icon={this.state.icon} />
                                 <h4 id ="desc">{this.props.desc}</h4>
-                                <div></div>
                             </div>
                         </div>
                     </div>
@@ -136,7 +140,7 @@ export class Card extends Component {
                         </div>
                         <div className="d">
                             <div className="middle majormiddle">
-                                <FontAwesomeIcon className="size" icon={this.state.icon} />
+                                <FontAwesomeIcon className="bisize" icon={this.state.icon} />
                                 <h4 id ="desc">{this.props.desc}</h4>
                             </div>
                         </div>
@@ -199,26 +203,34 @@ export class Card extends Component {
                 <div style={this.cardStyle()}>
                     <div className="forcastwrapper">
                         <div className="i">
-                            <h4 id="headingcity2"><b>{this.props.date}</b></h4>
+                            <h4 id="desc" className="forcastDate"><b>{this.formatDate(this.props.date)}</b></h4>
                         </div>
                         <div className="j">
-                            <FontAwesomeIcon className="schedsize" icon={this.icon()} />
-                            <h4 id ="desc">{this.props.desc}</h4>
+                            <div className="forcastDesc">
+                                <FontAwesomeIcon className="bisize" icon={this.icon()} />
+                                <h4 className="welcome" id ="desc">{this.props.desc}</h4>
+                            </div>
                         </div>
                         <div className="k">
-                            <h4 id="headingcity2"><b>{Math.round(this.props.weather)}°C</b></h4>
+                            <h4 className="forcastTemp">{Math.round(this.props.weather)}°C</h4>
                         </div>
                         <div className="l">
-                            <h4 id="desc">{this.props.high}°C</h4>
-                            <h4 className="welcome" id="desc">{this.props.low}°C</h4>
+                            <div className="forcasthilo">
+                                <h4 id="desc">H: {Math.round(this.props.high)}°C</h4>
+                                <h4 className="welcome" id="desc">L: {Math.round(this.props.low)}°C</h4>
+                            </div>
                         </div>
                         <div className="m">
-                            <FontAwesomeIcon className="schedsize" icon={faTachometerAlt} />
-                            <h4 className="welcome" id="desc">{this.props.pressure}hpa</h4>
+                            <div className="forcastDesc">
+                                <FontAwesomeIcon className="schedsize" icon={faTachometerAlt} />
+                                <h4 className="welcome" id="desc">{this.props.pressure}hpa</h4>
+                            </div>
                         </div>
                         <div className="n">
+                            <div className="padding forcastDesc">
                             <FontAwesomeIcon className="schedsize" icon={faWind} />
                             <h4 className="welcome" id="desc">{this.props.wind}m/s</h4>
+                            </div>
                         </div>
                     </div>
                 </div>

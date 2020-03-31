@@ -5,6 +5,7 @@ import '../Styles/HomeStyle.css';
 
 import {Link} from 'react-router-dom';
 import {Header} from './Header'
+import {CSSTransition, TransitionGroup} from 'react-transition-group'
 
 export class Home extends Component {
     // initializing the state for the Home component with information about the
@@ -15,7 +16,8 @@ export class Home extends Component {
         desc: "",
         suggesteddestinations : this.props.suggesteddestinations,
         scheduleddestinations : [],
-        loaded : false
+        loaded : false,
+        appearHome : true
     }
 
     componentDidMount = () => {
@@ -36,7 +38,15 @@ export class Home extends Component {
         return (
             <div>
                 <Header history = {this.props.history} sdd={this.state.scheduleddestinations} />
-                {console.log(this.props.suggesteddestinations)}
+                <TransitionGroup>
+                    <CSSTransition
+                    in = {true}
+                    appear = {true}
+                    key = {0}
+                    timeout = {80}
+                    classNames= {"fade"}
+                    >
+                <div>
                 <div className="welcome"><Label text="Current Weather"/></div>
                 {/* creates the current weather card at the top of the screen with a link to the 
                 current weather page for the current location */}
@@ -47,7 +57,7 @@ export class Home extends Component {
                         sdd : this.state.scheduleddestinations
                     }}
                 }}>
-                    <div className="welcome"><Card back={this.state.suggesteddestinations[0].url} title={this.state.suggesteddestinations[0].name} desc={this.state.suggesteddestinations[0].desc} weather={this.state.suggesteddestinations[0].temp} width="100" height="110"/></div>
+                        <div className="welcome"><Card back={this.state.suggesteddestinations[0].url} title={this.state.suggesteddestinations[0].name} desc={this.state.suggesteddestinations[0].desc} weather={this.state.suggesteddestinations[0].temp} width="100" height="110"/></div>
                 </Link>
 
                 <Label text="Recently Scheduled Holidays"/>
@@ -91,6 +101,9 @@ export class Home extends Component {
                         </Link>
                     ))}
                 </div>
+                </div>
+                </CSSTransition>
+                </TransitionGroup>
             </div>
         )
     }

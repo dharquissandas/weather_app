@@ -3,6 +3,7 @@ import {withRouter} from 'react-router-dom';
 import '../Styles/FormCard.css';
 import Label from './Label';
 import { Container, Button } from 'react-floating-action-button'
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 export class FormCard extends Component {  
     // initializes the state 
@@ -137,6 +138,14 @@ export class FormCard extends Component {
     render() {
         var events = this.props.events;
         return (
+            <TransitionGroup>
+            <CSSTransition
+            in = {true}
+            appear = {true}
+            key = {0}
+            timeout = {80}
+            classNames= {"fade"}
+            >
             <div>
                 <form id="eventform" onSubmit={this.handleSubmit}>
                 <div className="welcome"><Label text="Select Events"/></div>
@@ -193,6 +202,8 @@ export class FormCard extends Component {
                 </Container>
                 </form>
             </div>
+            </CSSTransition>
+        </TransitionGroup>
         )  
     }
 }
