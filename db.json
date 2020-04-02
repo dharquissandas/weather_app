@@ -105,8 +105,8 @@
       "dayfour": "",
       "dayfive": "",
       "url": "https://raw.githubusercontent.com/dharquissandas/weather_app/master/assets/CanaryIslands.jpg",
-      "color1" : "#c39e8b",
-      "color2" : "#1b5f6d"
+      "color1" : "#A29874",
+      "color2" : "#44A7BA"
     },
     {
       "id": 4,
@@ -132,8 +132,8 @@
       "dayfour": "",
       "dayfive": "",
       "url": "https://raw.githubusercontent.com/dharquissandas/weather_app/master/assets/PlayaDelCarmen.jpg",
-      "color1" : "#008ec4",
-      "color2" : "#c3b9a8"
+      "color1" : "#DFC5AC",
+      "color2" : "#19A8E2"
     },
     {
       "id": 5,
