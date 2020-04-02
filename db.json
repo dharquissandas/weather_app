@@ -24,7 +24,7 @@
       "dayfour": "",
       "dayfive": "",
       "url": "https://raw.githubusercontent.com/dharquissandas/weather_app/master/assets/London.jpg",
-      "color1" : "#878783",
+      "color1" : "#63625e",
       "color2" : "#fed1b5"
     },
     {
@@ -78,8 +78,8 @@
       "dayfour": "",
       "dayfive": "",
       "url": "https://raw.githubusercontent.com/dharquissandas/weather_app/master/assets/Barbados.jpg",
-      "color1" : "#017fba",
-      "color2" : "#4c5d07"
+      "color1" : "#47bfd4",
+      "color2" : "#748618"
     },
     {
       "id": 3,
