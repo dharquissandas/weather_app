@@ -24,8 +24,8 @@
       "dayfour": "",
       "dayfive": "",
       "url": "https://raw.githubusercontent.com/dharquissandas/weather_app/master/assets/London.jpg",
-      "color1" : "#2a3d51",
-      "color2" : "#f8b553"
+      "color1" : "#878783",
+      "color2" : "#fed1b5"
     },
     {
       "id": 1,
@@ -51,8 +51,8 @@
       "dayfour": "",
       "dayfive": "",
       "url": "https://raw.githubusercontent.com/dharquissandas/weather_app/master/assets/Algarve.jpg",
-      "color1" : "#0b3e49",
-      "color2" : "#7bc7ab"
+      "color1" : "#e7c9b6",
+      "color2" : "#28acbe"
     },
     {
       "id": 2,
@@ -78,8 +78,8 @@
       "dayfour": "",
       "dayfive": "",
       "url": "https://raw.githubusercontent.com/dharquissandas/weather_app/master/assets/Barbados.jpg",
-      "color1" : "#1e8c89",
-      "color2" : "#dfb2b8"
+      "color1" : "#017fba",
+      "color2" : "#4c5d07"
     },
     {
       "id": 3,
@@ -159,8 +159,8 @@
       "dayfour": "",
       "dayfive": "",
       "url": "https://raw.githubusercontent.com/dharquissandas/weather_app/master/assets/Pokhara.jpg",
-      "color1" : "#371c00",
-      "color2" : "#4e768e"
+      "color1" : "#58748c",
+      "color2" : "#8dbbee"
     }
   ],
 
