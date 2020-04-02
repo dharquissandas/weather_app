@@ -10,6 +10,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 export class CurrentWeather extends Component {
 
+    // upon clicking the 'schedule destination' button, redirect to the EventSelection page
     pushES = () => {
         var pos = this.props.match.params.id
         var dest = this.props.location.state.info.data
@@ -32,8 +33,10 @@ export class CurrentWeather extends Component {
 
         return (
             <div className="overflow">
+                {/* display the header in the page */}
                 <Header history = {this.props.history} sdd = {sdd} />
                 <TransitionGroup>
+                    {/* creates a transition between pages */}
                     <CSSTransition
                     in = {true}
                     appear = {true}
@@ -44,7 +47,7 @@ export class CurrentWeather extends Component {
                     <div>
                         <div className="welcome"><Label text="Today"/></div>
                         <div className="welcome">
-                            {/* display more detailed weather information about the weather for the selected location */}
+                            {/* display more detailed weather information about the current weather for the selected location */}
                             <Card complex back={dest[pos].url}
                                 date={dest[pos].dayone.dt_txt}
                                 high={dest[pos].tempmax} 
@@ -59,13 +62,14 @@ export class CurrentWeather extends Component {
                                 height="170"/>
                         </div>
                         <div className="horizontalScroll">
-                        {/* display values for pressure, wind speed, and feels like properties */}
+                            {/* display values for pressure, wind speed, and feels like properties */}
                             <Card basicInfo title="Pressure" c1={dest[pos].color1} c2={dest[pos].color2} weather={dest[pos].pressure + " hPa"} width="131" height="100" style={backGround}/>
                             <Card basicInfo title="Feels Like" c1={dest[pos].color1} c2={dest[pos].color2} weather={dest[pos].feelslike + "°C"} width="131" height="100" style={backGround}/>
                             <Card basicInfo title="Wind Speed" c1={dest[pos].color1} c2={dest[pos].color2} weather= {dest[pos].windspeed + " m/s"} width="131" height="100" style={backGround}/>
                         </div>
                         <Label text="Coming Days"/>
                         <div className="horizontalScroll" id="comingdays">
+                            {/* display weather for upcoming days */}
                             <Card forecast date={dest[pos].daytwo.dt_txt}
                                 high={dest[pos].daytwo.main.temp_max}
                                 low={dest[pos].daytwo.main.temp_min}
@@ -121,6 +125,7 @@ export class CurrentWeather extends Component {
                             <Card invisible width="98"/>
                         </div>
                         <Container className="fabPlacement">
+                            {/* creates a button for the user to schedule a vacation at the selected destination */}
                             <Button
                                 icon="fas fa-plus"
                                 styles={{backgroundColor: dest[pos].color1 , color : "#fff"}}
@@ -137,6 +142,7 @@ export class CurrentWeather extends Component {
     }
 }
 
+// creates the gradient background for the accent cards
 const backGround = {
     background: `linear-gradient(to left, dest[pos].color1 50%, dest[pos].color2 50%)`
 }

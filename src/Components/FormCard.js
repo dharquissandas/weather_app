@@ -41,6 +41,7 @@ export class FormCard extends Component {
             }
         }
     }
+    // returns a gradient background for accent cards
     background = () =>{
         return{
             background: `linear-gradient(45deg, ${this.props.c1} 0%, ${this.props.c2} 100%, ${this.props.c2} 100%)`,
@@ -139,6 +140,7 @@ export class FormCard extends Component {
         var events = this.props.events;
         return (
             <TransitionGroup>
+            {/* creates a transition between pages */}
             <CSSTransition
             in = {true}
             appear = {true}
@@ -169,27 +171,24 @@ export class FormCard extends Component {
                 <div style = {this.cardStyle("bottom")}>
                     <div className='form'>
                         <div className='inputGroup' style={this.background()}>
-                            {/* create the input fields for the start and end date selection */}
-                            {/* <table><tr><td> */}
+                            {/* create the input fields for the start and end date selection */}                            
                             <div style={{textAlign: "left"}}>
                                 <label className='datelabelleft' htmlFor="start">Start date:</label>
                             </div>
                                 <input style = {{width:"-webkit-fill-available"}} type="date" id="start" name="trip-start" min={this.getDate()}
                                 max={this.getmax(this.getDate())} onChange={this.handleChange} required>
                                 </input>
-                            {/* </td><td> */}
                             <div style={{textAlign: "left"}}>
                                 <label className='datelabelright' htmlFor="end">End date:</label>
                             </div>
                                 <input style = {{width:"-webkit-fill-available"}} type="date" id="end" name="trip-end" min={this.getmin(this.state.start)}
                                 max={this.getEndDate(this.state.start, this.getmax(this.getDate()))} onChange={this.handleChange} required>
                                 </input>
-                            {/* </td></tr></table> */}
                         </div>
                     </div> 
-                    {/* button for submitting the form */}
                 </div>
                 <Container className="fabPlacement">
+                    {/* button for submitting the form */}
                     <Button
                         icon="fas fa-check"
                         rotate={false}

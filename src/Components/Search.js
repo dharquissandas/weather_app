@@ -26,7 +26,7 @@ function Search(props) {
         <div>  
             <div style={header}>
                 <div style={inner}>
-                    {/* creates an option menu button */}
+                    {/* creates a back button */}
                     <div style={btnContainer}><button onClick={props.history.goBack} className="btn"><FontAwesomeIcon icon={faLessThan} /></button></div>
                     {/* creates a search text field */}
                     <div style={searchContainer}><input value= {searchTerm} onChange= {handleChange} className="search" type="text" onFocus="this.placeholder=''" placeholder="Search Holiday Destinations"></input></div>
@@ -35,22 +35,24 @@ function Search(props) {
                 </div>
             </div>
             <TransitionGroup>
-                    <CSSTransition
-                    in = {true}
-                    appear = {true}
-                    key = {0}
-                    timeout = {80}
-                    classNames= {"fade"}
+                {/* creates a transition between pages */}
+                <CSSTransition
+                in = {true}
+                appear = {true}
+                key = {0}
+                timeout = {80}
+                classNames= {"fade"}
             >
             <div>
             <Label className="welcome" text="Search Results"/>
                 <div className="verticalScrollSearch welcome">
-                    {/* display all of the suggested destination cards in a vertical scroll bar 
-                    with links to the current weather pages for each destination */}
                     {searchResults.length === 0 ?
                     <div className="noSE">
+                        {/* print an appropriate message if the search returns no results */}
                         {<p id="noschedule">No Destinations Found</p>}
                     </div>:
+                    // display all of the found destination cards in a vertical scroll bar 
+                    // with links to the current weather pages for each destination
                     searchResults.map((dest) =>(
                         <Link className="linkStyle" key={dest.id} to={{
                             pathname: `CurrentWeather/${dest.id}`,
